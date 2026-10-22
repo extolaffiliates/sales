@@ -1,7 +1,7 @@
 # Eldridge Estates: first-touch email (Razaul Hoque)
 
 Status: DRAFT. Not sent. A human must approve before sending.
-CRITIC: pending. cold-email-master could not call the Agent tool. The main session must run `cold-email-critic` on each variant using only the packet at the bottom of this file. Ship only at 85/100 or above.
+CRITIC: scored. NOT CLEARED TO SHIP. The best draft scored 83/100; the bar is 85. See "Critic results" below.
 
 ## Brief
 - **To:** Razaul Hoque, Founder & Director, Eldridge Estates, rhoque@eldridgeestates.co.uk, London (SE10 office; covers SE18/SE2/SE28/SE10/SE3/SE7). UK limited company, incorporated 14 Sept 2020.
@@ -128,3 +128,40 @@ Note on C: the test enquiry happens only with his explicit OK. Never send an una
 ## Critic packet (send ONLY this to cold-email-critic, one variant at a time)
 Persona: Razaul Hoque, Founder & Director of Eldridge Estates, an independent estate and letting agent in south-east London (Woolwich, Plumstead, Greenwich), team of 2 to 10, UK. Reads email on his phone between viewings.
 Email: paste Variant A, B or C exactly as shown above.
+
+---
+
+## Critic results (main session, 2026-10-22)
+| Round | Draft | Score |
+|---|---|---|
+| 1 | Variants A / B / C above | 70 / 73 / 73 |
+| 2 | B and C, with the "AI assistant" named, sign-off fixed, bridge reworded | 77 / 76 |
+| 3 | **B3 (best, below)** and C3 | **83** / 74 |
+| 4 | B3 with "you approve its wording" and a reworded bridge | 75 |
+| 5 | B3 with "evening enquiries" subject and "automated assistant" | 74 |
+
+Rounds 4 and 5 went backwards, and the critic's suggested fixes began repeating round 1. The ceiling is set by missing data, not by wording:
+1. **The signal is stale** (ESTAS 2025, about 17 months old). A 2026 result, or any fresh Eldridge-specific signal, lifts why-now.
+2. **The proof bank is empty.** One property or agency result lifts value by 4–6 points (critic estimate).
+3. **The after-hours gap is unverified.** A logged-out check of their Rightmove listing and website turns "if" into fact. If they already auto-reply, this angle is dead.
+
+### Best draft: B3 (83/100, ONE MORE PASS, lint PASS, 79 words, grade 3.5)
+```
+Subject: razaul
+
+Hi Razaul,
+
+Best in Postcode for SE18 two years running is hard to keep if a 9pm Rightmove enquiry waits until morning. By then the applicant may have booked with another agent.
+
+We'd set up an AI assistant that replies within minutes and books viewings into your diary. Your team still does the viewings.
+
+Free for 14 days. If it books nothing, you walk away. Worth testing?
+
+Sam
+Extol Affiliates
+
+P.S. If it isn't relevant, reply "no" and I'll stop.
+```
+Critic's remaining fixes on B3:
+- "If it books nothing, you walk away" adds nothing to a free offer. Replace it with a real term, such as approving the wording first, but only if Extol actually offers it.
+- "is hard to keep if" reads slightly like a veiled threat.
