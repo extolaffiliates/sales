@@ -165,3 +165,31 @@ P.S. If it isn't relevant, reply "no" and I'll stop.
 Critic's remaining fixes on B3:
 - "If it books nothing, you walk away" adds nothing to a free offer. Replace it with a real term, such as approving the wording first, but only if Extol actually offers it.
 - "is hard to keep if" reads slightly like a veiled threat.
+
+## Round 6–7: reviews angle (2026-10-22)
+The angle changed from evening enquiries to review requests, because the award is judged on reviews. Scores: 76, then **78**. Still below 85.
+
+### Best reviews-angle draft (78/100, lint PASS, 86 words)
+```
+Subject: se18 reviews
+
+Hi Razaul,
+
+Both your SE18 Best in Postcode wins were judged on landlord and tenant reviews. So new ones matter.
+
+Asking after each move-in is easy to drop in a busy week. A few missed asks a month add up by awards time.
+
+A short message can go to each tenant and landlord after move-in, in your words. You approve it once.
+
+Free for your next 10 move-ins. Worth a try?
+
+Sam
+Extol Affiliates
+
+P.S. If it isn't relevant, reply "no" and I'll stop.
+```
+**Why both angles stall at 78–83.** The remaining points all need facts we don't have:
+- **Product specifics:** channel (text or email), and where the review goes (ESTAS, Google or VerifyTrusted). ESTAS runs its own review collection, so check whether we can feed it at all.
+- **Confirmed offer terms:** "free for the next 10 move-ins" or "free for 14 days" is still a proposal.
+- **One matched proof-bank result.**
+- **For the evening angle:** a check that Eldridge doesn't already reply to after-hours enquiries.
