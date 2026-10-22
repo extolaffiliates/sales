@@ -6,11 +6,11 @@ Built on two open-source projects:
   - youtube-transcript-api https://github.com/jdepoix/youtube-transcript-api  (pulls each transcript)
 
 Usage:
-  pip install -r tools/yt-transcripts/requirements.txt
-  python tools/yt-transcripts/fetch_channel_transcripts.py @nicksaraev --match "cold email" --match outreach
-  python tools/yt-transcripts/fetch_channel_transcripts.py https://www.youtube.com/watch?v=VIDEO_ID
+  pip install -r agents/cold-email/tools/yt-transcripts/requirements.txt
+  python agents/cold-email/tools/yt-transcripts/fetch_channel_transcripts.py @nicksaraev --match "cold email" --match outreach
+  python agents/cold-email/tools/yt-transcripts/fetch_channel_transcripts.py https://www.youtube.com/watch?v=VIDEO_ID
 
-Output: one Markdown file per video in research/transcripts/<channel>/, plus an index.md.
+Output: one Markdown file per video in agents/cold-email/research/transcripts/<channel>/, plus an index.md.
 Already-downloaded videos are skipped, so re-running only fetches new ones.
 
 YouTube blocks most cloud/datacenter IPs. Run this on your own computer, or set a residential proxy:
@@ -29,7 +29,7 @@ import yt_dlp
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.proxies import GenericProxyConfig, WebshareProxyConfig
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+AGENT_ROOT = Path(__file__).resolve().parents[2]  # agents/cold-email
 
 
 def build_api():
@@ -81,7 +81,7 @@ def main():
                         help="Only keep videos whose title contains this text (case-insensitive). Repeatable.")
     parser.add_argument("--limit", type=int, default=0, help="Only scan the newest N videos (0 = all)")
     parser.add_argument("--lang", action="append", default=None, help="Preferred transcript language(s), default en")
-    parser.add_argument("--out", default=None, help="Output dir (default research/transcripts/<channel>)")
+    parser.add_argument("--out", default=None, help="Output dir (default agents/cold-email/research/transcripts/<channel>)")
     parser.add_argument("--delay", type=float, default=4, help="Seconds between requests, to avoid rate limits")
     parser.add_argument("--max-blocks", type=int, default=3,
                         help="Stop after this many IP blocks in a row (retrying only extends the ban)")
@@ -93,7 +93,7 @@ def main():
         videos = [v for v in videos if any(n in v["title"].lower() for n in needles)]
     print(f"{channel}: {len(videos)} video(s) to process")
 
-    out_dir = Path(args.out) if args.out else REPO_ROOT / "research" / "transcripts" / slugify(channel)
+    out_dir = Path(args.out) if args.out else AGENT_ROOT / "research" / "transcripts" / slugify(channel)
     out_dir.mkdir(parents=True, exist_ok=True)
     api = build_api()
     langs = args.lang or ["en", "en-US", "en-GB"]

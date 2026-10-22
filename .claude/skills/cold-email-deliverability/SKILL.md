@@ -5,7 +5,7 @@ description: Plans and audits cold email infrastructure and compliance. Covers S
 
 # Deliverability and compliance
 
-**Load:** `cold-email/knowledge/11-deliverability-legal.md`. Detail is in report 03 §A and report 05 §4.1.
+**Load:** `agents/cold-email/knowledge/11-deliverability-legal.md`. Detail is in report 03 §A and report 05 §4.1.
 
 ## 1. Sizing
 1. Ask for the target new contacts per day and the sequence length.

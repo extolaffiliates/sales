@@ -4,14 +4,14 @@
 
 | Tag | Source |
 |---|---|
-| `[R01]` | `research/cold-email/01-nick-saraev.md` |
-| `[R02]` | `research/cold-email/02-creators-and-benchmarks.md` |
-| `[R03]` | `research/cold-email/03-deliverability-compliance-psychology.md` |
-| `[R04]` | `research/cold-email/web/04-copywriting-swipe-library.md` |
-| `[R05]` | `research/cold-email/web/05-ai-personalization-signals-stack.md` |
-| `[R06]` | `research/cold-email/web/06-offers-niches-studies-replies.md` |
-| `[SRC]` | `research/cold-email/sources/` (MIT files) |
-| `[T]` | `research/transcripts/` |
+| `[R01]` | `agents/cold-email/research/01-nick-saraev.md` |
+| `[R02]` | `agents/cold-email/research/02-creators-and-benchmarks.md` |
+| `[R03]` | `agents/cold-email/research/03-deliverability-compliance-psychology.md` |
+| `[R04]` | `agents/cold-email/research/web/04-copywriting-swipe-library.md` |
+| `[R05]` | `agents/cold-email/research/web/05-ai-personalization-signals-stack.md` |
+| `[R06]` | `agents/cold-email/research/web/06-offers-niches-studies-replies.md` |
+| `[SRC]` | `agents/cold-email/research/sources/` (MIT files) |
+| `[T]` | `agents/cold-email/research/transcripts/` |
 
 **Evidence labels:** `[DATA]` is measured; `[RCT]` is a randomized study; `[CONSENSUS]` means 3+ practitioners agree; `[TEST]` means sources disagree, so A/B test it.
 

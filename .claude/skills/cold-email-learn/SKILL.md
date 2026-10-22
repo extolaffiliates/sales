@@ -1,6 +1,6 @@
 ---
 name: cold-email-learn
-description: Makes the cold email agent smarter from new evidence such as YouTube transcripts (research/transcripts/), pasted posts or articles, new research, or Extol's own campaign results. Extracts frameworks, rules, verbatim example emails and numbers with timestamps, compares them to the knowledge base, and proposes sourced updates to cold-email/knowledge/*.md, libraries and the linter for the user to approve. Use when new transcripts arrive, when the user says "learn from this video/creator/post", "update the knowledge base", or shares campaign results.
+description: Makes the cold email agent smarter from new evidence such as YouTube transcripts (agents/cold-email/research/transcripts/), pasted posts or articles, new research, or Extol's own campaign results. Extracts frameworks, rules, verbatim example emails and numbers with timestamps, compares them to the knowledge base, and proposes sourced updates to agents/cold-email/knowledge/*.md, libraries and the linter for the user to approve. Use when new transcripts arrive, when the user says "learn from this video/creator/post", "update the knowledge base", or shares campaign results.
 ---
 
 # Learn from new sources
@@ -14,12 +14,12 @@ description: Makes the cold email agent smarter from new evidence such as YouTub
 6. Search snippets
 
 ## 1. Gather
-- **Transcripts:** `research/transcripts/<channel>/*.md`, fetched by `tools/yt-transcripts/fetch_channel_transcripts.py`. Diff against `research/cold-email/notes/` to find unprocessed ones.
+- **Transcripts:** `agents/cold-email/research/transcripts/<channel>/*.md`, fetched by `agents/cold-email/tools/yt-transcripts/fetch_channel_transcripts.py`. Diff against `agents/cold-email/research/notes/` to find unprocessed ones.
 - **Pasted material** from the user.
-- **Results:** `campaigns/*/results.md` and `experiments.md`.
+- **Results:** `agents/cold-email/campaigns/*/results.md` and `experiments.md`.
 
 ## 2. Extract (one notes file per source)
-Write `research/cold-email/notes/<slug>.md`:
+Write `agents/cold-email/research/notes/<slug>.md`:
 - **Source:** title, URL, creator, date.
 - **Rules:** sorted by knowledge topic (00–14). Each is marked `[VERBATIM]` with a short quote and **timestamp** where available, or `[PARAPHRASE]`.
 - **Example emails:** verbatim, with the claimed result.
@@ -32,9 +32,9 @@ Write `research/cold-email/notes/<slug>.md`:
 3. **Contradictions:** replace the rule only if the new evidence ranks higher; otherwise mark it `[TEST]` and show both sides.
 4. Show the change list. **Apply it only after the user approves.** Then:
    - add verbatim emails to `libraries/swipe-file.md` Part 2 (attributed)
-   - add new banned phrases to `cold-email/lint_email.py`
+   - add new banned phrases to `agents/cold-email/lint_email.py`
    - add new offers or prompts to the libraries
-   - append a dated line to `research/cold-email/REFERENCES.md`
+   - append a dated line to `agents/cold-email/research/REFERENCES.md`
 
 ## Rules
 - Never present a paraphrase as a quote.

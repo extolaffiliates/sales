@@ -69,4 +69,4 @@ Published averages differ by up to 7.6x because they use different methods [R02]
 8. Sequence length
 
 ## Logging results
-Save every campaign's numbers to `campaigns/<slug>/results.md` and run `cold-email-learn`. Our own data outranks every creator.
+Save every campaign's numbers to `agents/cold-email/campaigns/<slug>/results.md` and run `cold-email-learn`. Our own data outranks every creator.

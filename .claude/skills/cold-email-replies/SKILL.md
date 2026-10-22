@@ -5,7 +5,7 @@ description: Handles cold email replies. Classifies each reply (interested, soft
 
 # Replies and objections
 
-**Load:** `cold-email/knowledge/12-replies-objections.md`, `07-psychology.md` (gratitude, mirroring, speed, detachment).
+**Load:** `agents/cold-email/knowledge/12-replies-objections.md`, `07-psychology.md` (gratitude, mirroring, speed, detachment).
 
 ## Steps
 1. **Classify** the reply into one label (`12`). If it's unclear, label it `neutral_question`, and flag low confidence.
@@ -23,7 +23,7 @@ description: Handles cold email replies. Classifies each reply (interested, soft
 5. **Next step:** CRM status, follow-up date, contacts to add or suppress.
 
 ## Automation mode (Saraev #303)
-Build `campaigns/<slug>/replies.md`:
+Build `agents/cold-email/campaigns/<slug>/replies.md`:
 - one **approved template per label**
 - `{{variables}}` for the name, a detail from their reply, times, and month
 

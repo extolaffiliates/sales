@@ -5,10 +5,10 @@ description: Critiques, scores and rewrites any cold email or sequence, and diag
 
 # Review and diagnose
 
-**Load:** `cold-email/knowledge/13-quality-bar.md`, `00-philosophy-hierarchy.md`, `05-body-proof.md`, `14-benchmarks-experiments.md`.
+**Load:** `agents/cold-email/knowledge/13-quality-bar.md`, `00-philosophy-hierarchy.md`, `05-body-proof.md`, `14-benchmarks-experiments.md`.
 
 ## A. Reviewing a draft
-1. Save it to a scratch file (separate sequence steps with `===`). Run `python3 cold-email/lint_email.py <file>`.
+1. Save it to a scratch file (separate sequence steps with `===`). Run `python3 agents/cold-email/lint_email.py <file>`.
 2. Send the email (and nothing else) to the **`cold-email-critic`** agent for the 100-point score, the weakest dimension and up to 3 fixes.
 3. Run the `cold-email-psychology` lens: which principles are used, missing or violated.
 4. **Rewrite**, weakest dimension first:

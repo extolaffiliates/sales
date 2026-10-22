@@ -5,7 +5,7 @@ description: Measures cold email campaigns the right way and designs proper A/B 
 
 # Measure and experiment
 
-**Load:** `cold-email/knowledge/14-benchmarks-experiments.md`, `12-replies-objections.md` (labels).
+**Load:** `agents/cold-email/knowledge/14-benchmarks-experiments.md`, `12-replies-objections.md` (labels).
 
 ## A. Score a campaign
 1. **Get the data:** sends, and the replies (raw text if possible, otherwise counts by type). Exclude out-of-office and bounces from the denominators.
@@ -21,7 +21,7 @@ description: Measures cold email campaigns the right way and designs proper A/B 
    - Positive reply rate of 1% or more is good; 2% or more is great.
    - **Pause the campaign** if hostile replies exceed 0.3% or unsubscribes exceed 2%.
    - Under 1% total replies after 200+ sends means a broken baseline, so audit deliverability first.
-5. Save the results to `campaigns/<slug>/results.md`, as dated entries.
+5. Save the results to `agents/cold-email/campaigns/<slug>/results.md`, as dated entries.
 
 ## B. Design a test
 1. **Hypothesis:** "Changing {X} will lift positive reply rate from {baseline} to {target} because {principle}."
@@ -41,4 +41,4 @@ description: Measures cold email campaigns the right way and designs proper A/B 
 
 ## Output
 - **Scoring:** a metrics table plus a verdict plus the next action.
-- **Test design:** an experiment card (hypothesis, variable, constants, arms, sample, criteria, read date), saved to `campaigns/<slug>/experiments.md`.
+- **Test design:** an experiment card (hypothesis, variable, constants, arms, sample, criteria, read date), saved to `agents/cold-email/campaigns/<slug>/experiments.md`.

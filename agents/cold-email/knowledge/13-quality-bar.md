@@ -2,7 +2,7 @@
 
 Source tags follow the legend in `00-philosophy-hierarchy.md`. Point weights and the 85 / 70 thresholds are **Extol house settings** (adapted from Eric's 0–100 rubric [SRC]); recalibrate them against our own campaign results in `14`.
 
-Two layers: **the automatic linter** (`cold-email/lint_email.py`, which catches mechanical errors) and **the critic's 100-point rubric** (judgment). Ship only when the **linter has no ERRORs and the critic scores 85 or more**.
+Two layers: **the automatic linter** (`agents/cold-email/lint_email.py`, which catches mechanical errors) and **the critic's 100-point rubric** (judgment). Ship only when the **linter has no ERRORs and the critic scores 85 or more**.
 
 ## The critic's rubric (based on Eric's scoring rubric [SRC] `sk-campaign-copywriting.md` §Scoring Rubric (0-100), extended)
 | Dimension | Points | 0 = | Full marks = | Sources |

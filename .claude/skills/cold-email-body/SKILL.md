@@ -5,7 +5,7 @@ description: Writes the middle of a cold email (problem line, bridge, and proof)
 
 # Body: problem, bridge and proof
 
-**Load:** `cold-email/knowledge/05-body-proof.md`, `07-psychology.md` (loss aversion, social proof, fluency). **Libraries:** `proof-bank.md`, `swipe-file.md`.
+**Load:** `agents/cold-email/knowledge/05-body-proof.md`, `07-psychology.md` (loss aversion, social proof, fluency). **Libraries:** `proof-bank.md`, `swipe-file.md`.
 
 ## Steps
 1. **Problem line (1–2 sentences).** Their pain, better than they could say it:

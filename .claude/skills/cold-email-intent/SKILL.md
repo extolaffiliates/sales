@@ -5,7 +5,7 @@ description: Finds the buying signal and writes the "why you, why now" reason fo
 
 # Intent and signals
 
-**Load:** `cold-email/knowledge/01-intent-signals.md`, `07-psychology.md` (the "because" principle, relevance over flattery). **Library:** `hook-bank.md`.
+**Load:** `agents/cold-email/knowledge/01-intent-signals.md`, `07-psychology.md` (the "because" principle, relevance over flattery). **Library:** `hook-bank.md`.
 
 ## For a single prospect
 1. **Gather signals** from real sources you actually read: their site (careers, about, pricing, case studies), LinkedIn posts, job boards, news, reviews, tech-stack lookups, ads. **Record the source URL for every one.**

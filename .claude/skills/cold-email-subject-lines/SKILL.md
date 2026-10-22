@@ -5,7 +5,7 @@ description: Writes and tests cold email subject lines. Rules are 1–4 lowercas
 
 # Subject lines
 
-**Load:** `cold-email/knowledge/03-subject-lines.md`. **Library:** `subject-bank.md`.
+**Load:** `agents/cold-email/knowledge/03-subject-lines.md`. **Library:** `subject-bank.md`.
 
 ## Steps
 1. **Get the hook and angle first.** The subject must match the email; never bait-and-switch.

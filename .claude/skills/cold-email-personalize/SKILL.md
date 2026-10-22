@@ -5,7 +5,7 @@ description: Researches prospects and writes verified, non-generic personalizati
 
 # Personalize at scale
 
-**Load:** `cold-email/knowledge/10-personalization-ai.md`, `01-intent-signals.md`. **Library:** `prompt-library.md`.
+**Load:** `agents/cold-email/knowledge/10-personalization-ai.md`, `01-intent-signals.md`. **Library:** `prompt-library.md`.
 
 ## 1. Decide the tier
 | Tier | Method |
@@ -36,7 +36,7 @@ Then run Eric's checklist: **does the company context change how our offer helps
 6. **Judge the batch:** blanks over 30% means the list or source is wrong; under 5% means read the thinnest rows by hand.
 
 ## 3. Output
-`campaigns/<slug>/personalization.csv` with these columns:
+`agents/cold-email/campaigns/<slug>/personalization.csv` with these columns:
 - `email, first_name, company, tier, signal, source_url, fact_quote, generated_field, field_type, grade, quality_score, status`
 - `status` is OK, SKIP or CHECK.
 
