@@ -331,6 +331,6 @@ Each offer is a template. **Fill in real proof only.** The sources are the secti
 - Not retrieved:
   - first-party Reddit threads (reddit.com was blocked for the agent's tools)
   - Gadzhi's and Platten's templates
-  - Saraev's own source for "Europe 4–5x". The Nick Saraev Daily video "cold email in europe gets 4-5x more replies" has been downloaded on the user's Mac; check it once it reaches `research/transcripts/`
+  - Saraev's own source for "Europe 4–5x". The Nick Saraev Daily video "cold email in europe gets 4-5x more replies" has been downloaded on the user's Mac; check it once it reaches `agents/cold-email/research/transcripts/`
   - FirstSales' exact objection templates
   - a peer-reviewed LLM cold email field experiment

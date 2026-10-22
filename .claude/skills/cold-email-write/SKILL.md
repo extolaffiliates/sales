@@ -5,10 +5,10 @@ description: Writes a complete first-touch cold email as 2–3 A/B variants by a
 
 # Write a cold email
 
-**Load:** `cold-email/knowledge/00-philosophy-hierarchy.md`, `08-frameworks.md`, `13-quality-bar.md`. **Libraries:** `swipe-file.md`, `proof-bank.md`.
+**Load:** `agents/cold-email/knowledge/00-philosophy-hierarchy.md`, `08-frameworks.md`, `13-quality-bar.md`. **Libraries:** `swipe-file.md`, `proof-bank.md`.
 
 ## Steps
-1. **Brief check.** Use `campaigns/<slug>/brief.md` if it exists. Otherwise get the minimum:
+1. **Brief check.** Use `agents/cold-email/campaigns/<slug>/brief.md` if it exists. Otherwise get the minimum:
    - who (role, company, niche)
    - the offer
    - the country
@@ -28,7 +28,7 @@ description: Writes a complete first-touch cold email as 2–3 A/B variants by a
    - CTA type (interest vs offer), or
    - hook type
 6. **Psychology pass:** run the `cold-email-psychology` lens once and fix any principle that's violated.
-7. **Lint:** save to `campaigns/<slug>/emails.md` (or a scratch file) and run `python3 cold-email/lint_email.py <file>`. Fix every ERROR; fix WARNs unless deliberate.
+7. **Lint:** save to `agents/cold-email/campaigns/<slug>/emails.md` (or a scratch file) and run `python3 agents/cold-email/lint_email.py <file>`. Fix every ERROR; fix WARNs unless deliberate.
 8. **Critic:** send each variant (**the email only, not your reasoning**) to the `cold-email-critic` agent.
    - Score 85 or more: ship it.
    - 70–84: fix the named weakest dimension and re-score.

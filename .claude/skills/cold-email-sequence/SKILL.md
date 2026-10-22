@@ -5,7 +5,7 @@ description: Builds a full cold email sequence. The default is Eric Nowoslawski'
 
 # Build a sequence
 
-**Load:** `cold-email/knowledge/09-sequences.md`, `06-cta.md`, `07-psychology.md` (closure, consistency, reciprocity). **Libraries:** `swipe-file.md` (S11–S14, S22–S25), `subject-bank.md`.
+**Load:** `agents/cold-email/knowledge/09-sequences.md`, `06-cta.md`, `07-psychology.md` (closure, consistency, reciprocity). **Libraries:** `swipe-file.md` (S11–S14, S22–S25), `subject-bank.md`.
 
 ## Steps
 1. **Pick the sequence length (`09`):**
@@ -29,7 +29,7 @@ description: Builds a full cold email sequence. The default is Eric Nowoslawski'
    - At most one image (email 2 or 3, a [TEST]).
    - Lengths shrink as the sequence goes on.
    - No step says "following up".
-7. **Lint:** write `campaigns/<slug>/sequence.md` with steps separated by `===` lines, and run the linter (steps 2 and later are checked as follow-ups).
+7. **Lint:** write `agents/cold-email/campaigns/<slug>/sequence.md` with steps separated by `===` lines, and run the linter (steps 2 and later are checked as follow-ups).
 8. **Critic:** score email 1 and email 3 (the two new threads) to 85 or more.
 
 ## Output

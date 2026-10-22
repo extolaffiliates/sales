@@ -2,7 +2,7 @@
 
 This file has two parts:
 - **Part 1: Extol illustrations.** Emails we wrote for each framework in `../knowledge/08-frameworks.md`. The companies, people and numbers are **fictional placeholders**. Swap in real proof from `proof-bank.md` before sending. Each passes `../lint_email.py` with no errors.
-- **Part 2: From the creators.** Real emails published by practitioners, quoted verbatim with attribution and claimed results. All 42 are in `research/cold-email/web/04-copywriting-swipe-library.md`; the most useful are curated here.
+- **Part 2: From the creators.** Real emails published by practitioners, quoted verbatim with attribution and claimed results. All 42 are in `agents/cold-email/research/web/04-copywriting-swipe-library.md`; the most useful are curated here.
 
 **Study why each one works. Don't copy one word for word.**
 
@@ -191,7 +191,7 @@ If SDR ramp time becomes a priority, just reply "ramp" and you'll get the breakd
 
 # Part 2: From the creators (verbatim, curated)
 
-The S-numbers match `research/cold-email/web/04-copywriting-swipe-library.md`, which has the teardowns and source URLs. Results are self-reported.
+The S-numbers match `agents/cold-email/research/web/04-copywriting-swipe-library.md`, which has the teardowns and source URLs. Results are self-reported.
 
 ### S1 · Josh Braun · 4T (2022)
 ```

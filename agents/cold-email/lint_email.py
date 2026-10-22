@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lint cold emails against the measurable rules in cold-email/knowledge/ (03 subject, 04 hooks, 05 body,
+"""Lint cold emails against the measurable rules in agents/cold-email/knowledge/ (03 subject, 04 hooks, 05 body,
 06 CTA, 13 quality bar). The judgement layer is the cold-email-critic agent.
 
 Input format (file or stdin). Separate multiple emails (a sequence) with a line containing only `===`:
@@ -16,9 +16,9 @@ The first email is checked as a first touch (strict). Later emails are follow-up
 a shorter body is expected, and links/images are allowed.
 
 Usage:
-    python cold-email/lint_email.py drafts/acme.txt
-    python cold-email/lint_email.py --json < draft.txt
-    python cold-email/lint_email.py --template campaign.txt   # allow {{merge_fields}} for sending tools
+    python agents/cold-email/lint_email.py drafts/acme.txt
+    python agents/cold-email/lint_email.py --json < draft.txt
+    python agents/cold-email/lint_email.py --template campaign.txt   # allow {{merge_fields}} for sending tools
 Exit code is 1 if any email has an ERROR, so it can gate automation.
 """
 

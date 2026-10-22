@@ -5,7 +5,7 @@ description: Designs or fixes the offer in a cold email. Runs the "why wouldn't 
 
 # Cold email offer
 
-**Load:** `cold-email/knowledge/02-offers.md`, `07-psychology.md` (reciprocity, loss aversion, foot in the door). **Libraries:** `offer-library.md`, `proof-bank.md`.
+**Load:** `agents/cold-email/knowledge/02-offers.md`, `07-psychology.md` (reciprocity, loss aversion, foot in the door). **Libraries:** `offer-library.md`, `proof-bank.md`.
 
 ## Steps
 1. **State the current offer in one sentence.** If you can't, that's the problem.

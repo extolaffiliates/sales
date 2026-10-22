@@ -1,6 +1,6 @@
 # Prompt Library: AI personalization
 
-The rules for using these are in `../knowledge/10-personalization-ai.md`. The originals, with sources and teardowns, are in report 05 §1 and `research/cold-email/sources/`.
+The rules for using these are in `../knowledge/10-personalization-ai.md`. The originals, with sources and teardowns, are in report 05 §1 and `agents/cold-email/research/sources/`.
 
 **Always:**
 - Fill in the client offer block, including **What they do NOT do**.
@@ -52,7 +52,7 @@ Summaries:
 ## P2 · Eric Nowoslawski: AI specificity line (locked prompt)
 Use it to personalize **the offer, not the opener**. The frame lives in the copy: `I think we can help you {{specificity_line}}.`
 
-The full verbatim prompt (static prefix, client offer block and few-shot guidance) is in report 05 §1.2 and `research/cold-email/sources/growthenginex-coldoutboundskills/pb-ai-specificity.md`. Its key mechanics:
+The full verbatim prompt (static prefix, client offer block and few-shot guidance) is in report 05 §1.2 and `agents/cold-email/research/sources/growthenginex-coldoutboundskills/pb-ai-specificity.md`. Its key mechanics:
 - **Step 1 FIT CHECK:** yes or no.
 - **Step 2 ANCHOR:** a real product noun copied from their data.
 - **Step 3 OFFER ITEM:** copied from the client offer list.

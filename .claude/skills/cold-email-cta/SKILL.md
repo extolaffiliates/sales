@@ -5,7 +5,7 @@ description: Writes the call to action and optional P.S. line of a cold email. O
 
 # CTA and P.S.
 
-**Load:** `cold-email/knowledge/06-cta.md`, `07-psychology.md` (foot in the door, detachment, Zeigarnik).
+**Load:** `agents/cold-email/knowledge/06-cta.md`, `07-psychology.md` (foot in the door, detachment, Zeigarnik).
 
 ## Steps
 1. **Know the stage:**

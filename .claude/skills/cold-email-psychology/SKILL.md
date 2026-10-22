@@ -5,7 +5,7 @@ description: Applies the persuasion research behind cold email replies to any dr
 
 # Psychology lens
 
-**Load:** `cold-email/knowledge/07-psychology.md`. Supporting studies are in report 06 §4 and report 03 §B.
+**Load:** `agents/cold-email/knowledge/07-psychology.md`. Supporting studies are in report 06 §4 and report 03 §B.
 
 ## As a review lens (run on any draft)
 For each part of the email, ask which principle it uses, which it violates, and what the fix is:

@@ -5,7 +5,7 @@ description: Plans a cold email campaign before any copy is written. Gathers the
 
 # Cold email strategy
 
-**Load:** `cold-email/knowledge/00-philosophy-hierarchy.md`, `01-intent-signals.md`, `02-offers.md`, `14-benchmarks-experiments.md`. **Libraries:** `cold-email/libraries/proof-bank.md`, `offer-library.md`.
+**Load:** `agents/cold-email/knowledge/00-philosophy-hierarchy.md`, `01-intent-signals.md`, `02-offers.md`, `14-benchmarks-experiments.md`. **Libraries:** `agents/cold-email/libraries/proof-bank.md`, `offer-library.md`.
 
 ## 1. Brief (ask once, in one compact list; mark any assumptions `[ASSUMPTION]`)
 - **Offer:** what we sell, the price model, and the outcome in numbers.
@@ -41,7 +41,7 @@ Score each angle: signal strength × pain intensity × proof strength (1–5 eac
 3. Check that the TAM can sustain a 3-month reuse cycle.
 
 ## 6. Save
-Write `campaigns/<slug>/brief.md` with these sections:
+Write `agents/cold-email/campaigns/<slug>/brief.md` with these sections:
 - Offer sentence: "We help {ICP} get {outcome} in {time} without {objection}."
 - Segments
 - Signals and data sources

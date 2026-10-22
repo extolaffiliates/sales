@@ -13,7 +13,7 @@ This is the knowledge base behind the `cold-email-master` agent. Read the report
 
 **Primary source files (MIT):** [`sources/`](sources/README.md) holds Eric Nowoslawski's coldoutboundskills (24 files), Harvey's frameworks and LeadMagic's prompt library.
 
-**Transcripts:** `research/transcripts/<channel>/`. Fetch them with `tools/yt-transcripts/` and process them with the `cold-email-learn` skill.
+**Transcripts:** `agents/cold-email/research/transcripts/<channel>/`. Fetch them with `agents/cold-email/tools/yt-transcripts/` and process them with the `cold-email-learn` skill.
 
 **How sources rank when they disagree:** our own campaign results > full transcripts and primary files > randomized studies > practitioner data > vendor blogs > search snippets.
 

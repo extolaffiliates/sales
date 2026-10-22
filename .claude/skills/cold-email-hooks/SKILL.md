@@ -5,7 +5,7 @@ description: Writes the opening line and preview text of a cold email, the part 
 
 # Hooks: opening line and preview
 
-**Load:** `cold-email/knowledge/04-hooks.md`, `01-intent-signals.md`, `07-psychology.md` (curiosity, relevance, self-relevance). **Library:** `hook-bank.md`.
+**Load:** `agents/cold-email/knowledge/04-hooks.md`, `01-intent-signals.md`, `07-psychology.md` (curiosity, relevance, self-relevance). **Library:** `hook-bank.md`.
 
 ## Steps
 1. **Take the why-now output from `cold-email-intent`:** the signal, the angle and the source. With no signal, use the honest segment fallback.
