@@ -7,7 +7,7 @@ Each agent gets one home folder, `agents/<agent>/`, holding everything it uses: 
 |---|---|
 | Subagent definitions | `.claude/agents/<agent>/*.md` (subfolders are scanned) |
 | Skills | `.claude/skills/<agent>-<skill>/SKILL.md` (must be one level deep, so prefix with the agent name) |
-| Slash commands | `.claude/commands/<agent>/<agent>*.md` (filename = command name) |
+| Slash commands | `.claude/commands/<agent>*.md` (filename = command name; keep flat, because a subfolder adds a `<folder>:` prefix) |
 | Everything else | `agents/<agent>/` |
 
 See `agents/README.md` for the template for a new agent.
