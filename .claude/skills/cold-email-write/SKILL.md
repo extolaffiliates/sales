@@ -1,50 +1,48 @@
 ---
 name: cold-email-write
-description: Write a single first-touch cold email (or A/B variants) that doesn't read like cold email. 40–90 words, internal-looking subject, opens on them, names a problem, one proof line, one yes/no CTA. Linted and scored. Use when the user asks to "write a cold email", "draft outreach to X", "give me email variants", or "write a better subject line".
+description: Writes a complete first-touch cold email as 2–3 A/B variants by assembling the specialist parts (intent → subject-lines → hooks → body → cta) inside a chosen framework, then runs the linter and the critic until the email scores 85+/100. Emails are 50–90 words, read like a peer's note, carry one signal, one problem, one proof or risk reversal, and one small question. Use when the user asks to "write a cold email", "draft outreach to X", "give me variants", or "rewrite this email".
 ---
 
 # Write a cold email
 
-## Before writing
-1. Read `cold-email/playbook.md` §2 (hard rules), §3 (frameworks) and §9 (quality bar).
-2. Read `cold-email/swipe-file.md` for annotated examples.
-3. Load `campaigns/<slug>/brief.md` if it exists. If not, get the minimum brief:
-   - who (role and industry)
-   - the offer and its outcome
-   - one real proof point
-   - the trigger or reason for reaching out
-   - the recipients' country
+**Load:** `cold-email/knowledge/00-philosophy-hierarchy.md`, `08-frameworks.md`, `13-quality-bar.md`. **Libraries:** `swipe-file.md`, `proof-bank.md`.
 
-   Mark anything you assume with `[ASSUMPTION]`.
+## Steps
+1. **Brief check.** Use `campaigns/<slug>/brief.md` if it exists. Otherwise get the minimum:
+   - who (role, company, niche)
+   - the offer
+   - the country
+   - what's in the proof bank
 
-## Pick the framework
-Pick based on the data you have (playbook §3):
-- **A website scrape or a real trigger:** Observation → Problem → Proof → CTA. Or Saraev's Icebreaker → Pitch → Proof → CTA.
-- **A killer segment-matched case study:** Berman's specific observation → case study → ask.
-- **A status-quo prospect:** Braun's 4T.
-- **A big list with no signal:** Jed's diagnostic question.
-- **An agency or service with a strong guarantee:** Saraev's Logistics → Background → Case study → Risk reversal.
-- **A tier-1 executive:** SMYKM or Premise.
-- **An agency that can generate ideas:** Nowoslawski's "3 ideas for {company}".
+   Mark any assumptions `[ASSUMPTION]`.
+2. **Why now:** run `cold-email-intent` for the prospect or segment.
+3. **Pick a framework** with the decision tree in `08` (signal? scrapeable site? killer proof? no signal?).
+4. **Assemble the parts**, using each skill's recipe:
+   - `cold-email-subject-lines`: 3 options including the `{{first_name}}` control
+   - `cold-email-hooks`: the opening line or preview
+   - `cold-email-body`: the problem + proof (or risk reversal), 50–90 words in total
+   - `cold-email-cta`: one question, plus an optional P.S.
+5. **Build 2–3 variants that differ in exactly ONE named variable:**
+   - offer type (save time / make money / save money, as in Eric's S15–S17), or
+   - framework, or
+   - CTA type (interest vs offer), or
+   - hook type
+6. **Psychology pass:** run the `cold-email-psychology` lens once and fix any principle that's violated.
+7. **Lint:** save to `campaigns/<slug>/emails.md` (or a scratch file) and run `python3 cold-email/lint_email.py <file>`. Fix every ERROR; fix WARNs unless deliberate.
+8. **Critic:** send each variant (**the email only, not your reasoning**) to the `cold-email-critic` agent.
+   - Score 85 or more: ship it.
+   - 70–84: fix the named weakest dimension and re-score.
+   - Under 70: change the framework or offer.
+   - At most 3 rounds, then report the best version honestly.
 
-## Line-by-line recipe
-1. **Subject:** 1–4 words, lowercase, should look like it came from a colleague. Write 3 options. Never use "quick question", a fake "Re:", "?" or a salesy subject.
-2. **Line 1 (preview text):** a specific, checkable fact about them, then what it probably means ("If A, then B is probably true"). It must never start with "I", "My name" or a compliment.
-3. **Line 2:** the problem or likely loss, in neutral words. Something they'd nod at.
-4. **Line 3:** one proof line, either a peer client, result and timeframe matched to their segment, or a risk reversal.
-5. **Line 4:** one closed CTA. Use an interest CTA ("Worth a look?") or an offer CTA ("Want me to send the 3 ideas?"). Never ask for a meeting time in email 1.
-6. **Sign-off:** first name, title, company. Add the compliance line for the country (playbook §7).
+## Output (per variant)
+```
+VARIANT A — tests: <variable>
+Subject: ...
+<body>
+— words: 64 · grade: 4.8 · lint: PASS · critic: 88/100
+— why it should work: <principle + source, one line>
+```
+End with: the A/B test plan (which variable, sample per arm per `14`) and anything that needs real data, such as a proof-bank entry or a signal to verify.
 
-## Self-edit pass
-- Cut every word that doesn't earn its place. Then cut 20% more.
-- Swap every buzzword for the plain outcome.
-- Count "you" against "I/we"; the reader should win.
-- Read it aloud as a text to a respected peer. If it sounds like marketing, rewrite it.
-
-## Verify, then deliver
-1. Save the draft to `campaigns/<slug>/emails.md` (or a scratch file).
-2. Run `python3 cold-email/lint_email.py <file>`. Fix every ERROR, and fix WARNs unless you have a stated reason.
-3. Score it on the 10-point bar (playbook §9). Rewrite until it scores 9/10 or above.
-4. Deliver **2 variants** that differ in exactly one named variable, for example interest CTA vs offer CTA, or trigger angle vs problem angle. For each, show the subject, body, word count, grade, lint verdict, score, and one line on why it works.
-
-Never invent proof, clients, numbers or personal details. If proof is missing, say so and use a risk-reversal offer instead.
+**Never:** invent proof, signals or prior contact; send anything (drafts only).

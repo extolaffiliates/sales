@@ -1,42 +1,49 @@
 ---
 name: cold-email-personalize
-description: Research prospects and write AI-personalized first lines and icebreakers grounded only in verified facts. Based on Nick Saraev's deep personalization pipeline (scrape the site, summarize, write a multi-line opener) and Becc Holland's premise ranking, with depth set by account tier. Use when the user says "personalize these leads", "write icebreakers", "first lines for this list", "research this prospect", or hands over a CSV of leads.
+description: Researches prospects and writes verified, non-generic personalization at the right depth per tier. Tier 1 is hand research; tier 2 uses the prompt library (Saraev's site-scrape icebreaker, Eric Nowoslawski's specificity line or fixed-slot creative ideas); tier 3 uses segment relevance only. AI fills slots and humans own the frame. Every fact keeps its source, abstaining beats being generic, and batches go through an approval loop. Use when the user says "personalize these leads", "write icebreakers or first lines", "research this prospect", or hands over a lead CSV.
 ---
 
-# Personalize cold emails
+# Personalize at scale
 
-Read `cold-email/playbook.md` §5 first.
+**Load:** `cold-email/knowledge/10-personalization-ai.md`, `01-intent-signals.md`. **Library:** `prompt-library.md`.
 
-## Decide the depth by tier
-- **Tier 1** (a few accounts): deep research by hand. Use SMYKM or Premise (the person's own words, posts or interviews), plus a custom offer (Loom or 3 ideas).
-- **Tier 2** (hundreds): Saraev's pipeline (below). AI writes the first 1–3 lines; a human-written template carries the rest.
-- **Tier 3** (thousands): no 1:1 personalization. Segment by industry, role and trigger and write one relevant email per segment. Never fake personalization at this tier.
+## 1. Decide the tier
+| Tier | Method |
+|---|---|
+| **Tier 1** (dream accounts) | Hand research: Premise or SMYKM, plus a free-work offer |
+| **Tier 2** (hundreds) | Prompt library: P1/P1b (Saraev icebreaker), P2 (specificity line), or P3 (creative ideas) |
+| **Tier 3** (thousands) | No 1:1 personalization. Segment line only |
 
-## Saraev-style pipeline (tier 2, per lead)
-1. **Filter:** keep only leads with a verified email *and* a website.
-2. **Research:** fetch the homepage plus 2–4 key pages (about, services, case studies, careers, blog). Also check recent news, job posts or LinkedIn activity if available.
-3. **Summarize** each page in 2–3 factual bullets.
-4. **Extract 2–3 specific facts, each with its source URL.** Rank them using Becc Holland's premise buckets: things they wrote or said > company initiatives or triggers > role relevance > personal "junk drawer" details (use those last).
-5. **Check fit:** does this lead actually match the ICP and the angle? If not, mark it `SKIP` with a reason.
-6. **Write the opener:** 1–3 lines that use one fact and connect it to the problem the email solves ("If A, then B is probably true").
+Then run Eric's checklist: **does the company context change how our offer helps them?** If not, use the static copy plus the signal line only.
 
-## Rules for openers
-- Only use facts you read in a source, and keep the source URL. **If you're not sure, don't use it.** Fall back to a cohort line.
-- **No compliments or AI tells:** "I was impressed by…", "Love what you're doing…", "As a leader in…", or repeating their tagline back to them.
-- Name something specific and checkable: a number, a named initiative, a quote, a job title they're hiring for.
-- Make it sound like a human noticed it: casual, short, lowercase-friendly.
-- Under 30 words. Don't start with "I".
+## 2. Pipeline (tier 2)
+1. **Filter:** a verified email AND a website. Fit check against the ICP; mark misfits `SKIP` with a reason.
+2. **Research:**
+   - fetch the homepage plus 2–4 pages (about, services, case studies, careers, pricing)
+   - summarize each with P1
+   - optionally: job posts, reviews, recent posts
+3. **Generate** with the chosen prompt. **Fill in the client offer block, including "What they do NOT do"**, and use hand-written few-shot examples that include abstains.
+4. **Verify:**
+   - every fact is a substring of the source, or quotes 3+ words of the signal
+   - the reading grade of the generated part is 7 or below
+   - none of the AI tells from `10`
+   - run P6, the quality rater, and keep scores of 4 or more
+5. **Approval loop:**
+   1. Show 1 lead.
+   2. Then batches of 10.
+   3. **Stop after 2 consecutive batches with no corrections.**
+   4. Then fan out.
+6. **Judge the batch:** blanks over 30% means the list or source is wrong; under 5% means read the thinnest rows by hand.
 
-**Good:** "Saw you're hiring a second dispatcher in Leeds. Usually means the phones are outpacing the team."
-**Bad:** "I was really impressed by your company's commitment to excellent customer service!"
+## 3. Output
+`campaigns/<slug>/personalization.csv` with these columns:
+- `email, first_name, company, tier, signal, source_url, fact_quote, generated_field, field_type, grade, quality_score, status`
+- `status` is OK, SKIP or CHECK.
 
-## Output
-Write `campaigns/<slug>/personalization.csv` with these columns: `email, first_name, company, fact, source_url, premise_bucket, opener, status`. `status` is `OK`, `SKIP` or `CHECK`.
+In chat, show 5 sample rows plus the counts per status.
 
-Show a sample of 5 rows in chat, plus counts for OK, SKIP and CHECK.
-
-## Tools
-- Use WebFetch or WebSearch for research.
-- If Apollo or Clay connectors are available, use them for enrichment and triggers.
-- For a large list, process it in batches and report progress.
-- Never send email from this skill. It only produces data for review.
+**Never:**
+- invent facts or compliments
+- mention website visits
+- claim tests you didn't run
+- send anything from this skill

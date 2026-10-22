@@ -1,38 +1,32 @@
 ---
 name: cold-email-replies
-description: Draft responses to cold email replies (positive, "send info", "not now", wrong person, objections, unsubscribe) and build a reply-template library for automation, using Nick Saraev's constrained-AI reply approach. Use when the user pastes a prospect's reply, asks "how do I respond to this", or wants to automate reply handling.
+description: Handles cold email replies. Classifies each reply (interested, soft, referral, neutral, not-now, not-fit, hostile, unsubscribe, OOO), drafts the response within the 1-hour window using proven patterns (Josh Braun's "not interested" reply, mirror-and-qualify for "send info", gratitude for referrals), handles objections with one neutral question, and builds a pre-approved reply-template library for automation (Saraev #303: AI fills variables only). Use when the user pastes a prospect reply, asks "how do I respond", "they said X", or wants to automate reply handling.
 ---
 
-# Handle cold email replies
+# Replies and objections
 
-Read `cold-email/playbook.md` §8. The goal is the next step, with the least friction for them.
+**Load:** `cold-email/knowledge/12-replies-objections.md`, `07-psychology.md` (gratitude, mirroring, speed, detachment).
 
-## Classify the reply first
-Label it as one of: `POSITIVE`, `INFO_REQUEST`, `NOT_NOW`, `WRONG_PERSON` (referral), `OBJECTION` (and which one), `NEGATIVE`, `UNSUBSCRIBE`, `OOO`, or `AUTO`.
+## Steps
+1. **Classify** the reply into one label (`12`). If it's unclear, label it `neutral_question`, and flag low confidence.
+2. **Mirror** their length and formality.
+3. **Draft by label:**
+   - **Interested:** under 50 words; 2 specific times in *their* time zone *or* a calendar link; one line restating the value.
+   - **Send info:** mirror and qualify, then 2–3 lines plus ONE qualifying question. No deck unless they ask.
+   - **Referral:** thank them genuinely, then draft the email to the named person, mentioning the referrer (only because the referrer named them).
+   - **Not now:** "Totally fair. Mind if I check back in {{month}}?" Log the date.
+   - **Objection:** acknowledge it, ask one neutral question, don't argue. Use the `12` patterns (Braun's "not interested", "we already have someone", "too expensive").
+   - **Who are you / how did you get my email:** name the source, identify the sender, offer removal, link the privacy notice.
+   - **Unsubscribe or hostile:** one line confirming removal; mark them for suppression **immediately**; never argue.
+   - **OOO:** no reply; log the return date or the alternate contact.
+4. **Check:** one question at most; no pressure; nothing invented (prices, results, availability).
+5. **Next step:** CRM status, follow-up date, contacts to add or suppress.
 
-## Response rules by type
-- **POSITIVE:** reply fast. Give 2 specific time slots in their timezone, *or* a calendar link (a specific-time ask now wins: 37% per Gong). Add one line that restates the value. Keep it under 50 words.
-- **INFO_REQUEST:** send 3 bullets (outcome, how it works, proof) and one question that qualifies them. No attachments or decks unless asked.
-- **NOT_NOW:** "Totally fair. Mind if I check back in {specific month}?" Then log the follow-up date.
-- **WRONG_PERSON:** thank them and ask who owns it. Then email that person, mentioning the referral, but only if the referrer agreed or named them.
-- **OBJECTION:** acknowledge it, ask one neutral question, and don't argue (Braun). Common ones:
-  - "We already have someone" → "Makes sense. Out of curiosity, how are you handling {specific gap}?"
-  - "No budget" → ask about timing and offer the smallest first step.
-  - "Too expensive" → anchor on the outcome or the risk reversal.
-- **NEGATIVE / UNSUBSCRIBE:** one polite line confirming they've been removed. Suppress them immediately and never argue.
-- **OOO / AUTO:** don't reply. Note the return date and any alternative contact.
+## Automation mode (Saraev #303)
+Build `campaigns/<slug>/replies.md`:
+- one **approved template per label**
+- `{{variables}}` for the name, a detail from their reply, times, and month
 
-## Automation (Saraev's Ask Nick #303 design)
-For volume, build a **reply-template library** in `campaigns/<slug>/replies.md`:
-- one approved template per reply type
-- each template has `{variables}`, such as first name, a detail from their reply, and time slots
+The AI only **classifies → picks the template → fills the variables**. Anything with low confidence, any pricing or legal question, and any hostile reply goes to a human. Start in human-approval mode (e.g. Instantly AI Reply Agent with approvals).
 
-The AI then:
-1. classifies the reply
-2. picks the closest template
-3. fills in **only the variables**
-
-In Saraev's words: "minimal freedom, just enough to fill in variables, so you retain control over tone and quality". Anything it can't classify confidently goes to a human.
-
-## Output
-Show the classification, the drafted reply, and the CRM next step (status, follow-up date, and the referral contact if there is one). Don't send anything without the user's go-ahead.
+**Never send without the user's go-ahead.**

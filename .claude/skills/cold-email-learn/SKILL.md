@@ -1,33 +1,43 @@
 ---
 name: cold-email-learn
-description: Make the cold email agent smarter by studying new sources, such as YouTube transcripts in research/transcripts/, newsletters, pasted posts or campaign results. Pulls out frameworks, rules, example emails and data, then proposes sourced updates to cold-email/playbook.md and swipe-file.md. Use when new transcripts are added, when the user says "learn from this video/creator", "update the playbook", or shares campaign results to learn from.
+description: Makes the cold email agent smarter from new evidence such as YouTube transcripts (research/transcripts/), pasted posts or articles, new research, or Extol's own campaign results. Extracts frameworks, rules, verbatim example emails and numbers with timestamps, compares them to the knowledge base, and proposes sourced updates to cold-email/knowledge/*.md, libraries and the linter for the user to approve. Use when new transcripts arrive, when the user says "learn from this video/creator/post", "update the knowledge base", or shares campaign results.
 ---
 
 # Learn from new sources
 
-## 1. Gather the sources
-- **Transcripts:** `research/transcripts/<channel>/*.md`, created by `tools/yt-transcripts/fetch_channel_transcripts.py`. Check `index.md` for new files.
-- **Material the user pastes:** articles, posts, or emails that worked.
-- **Our own results:** campaign stats in `campaigns/*/results.md`, which are the strongest evidence for *our* market.
+## Evidence ranking (highest first)
+1. **Extol's own campaign results**
+2. Full transcripts and primary files
+3. Randomized studies
+4. Practitioner data
+5. Vendor blogs
+6. Search snippets
 
-## 2. Extract from each source
-Write `research/cold-email/notes/<source-slug>.md` with these sections:
-- **Source:** title, URL, date and creator
-- **Frameworks:** the structure, with the creator's own labels
-- **Rules:** subject, opener, length, CTA, offer, follow-ups, personalization, infrastructure. Mark each one **[VERBATIM]** with a short quote and a timestamp if available, or **[PARAPHRASE]**.
-- **Example emails** shown in the video or post, quoted as shown and attributed
-- **Numbers:** reply rates, volumes and costs, marked as self-reported if they are
-- **Contradictions** with `cold-email/playbook.md`
+## 1. Gather
+- **Transcripts:** `research/transcripts/<channel>/*.md`, fetched by `tools/yt-transcripts/fetch_channel_transcripts.py`. Diff against `research/cold-email/notes/` to find unprocessed ones.
+- **Pasted material** from the user.
+- **Results:** `campaigns/*/results.md` and `experiments.md`.
 
-## 3. Propose playbook updates
-1. Compare the notes against the playbook.
-2. Produce a list of proposed changes. Each one needs: the section, the current rule, the proposed rule, the evidence (source, quote and timestamp), and a confidence level.
-3. How evidence ranks: our own campaign results > full transcripts and primary sources > measured studies > search snippets.
-   - Where a transcript confirms a rule, upgrade its tag. For example, "(Saraev)" becomes "(Saraev, video X @ 12:30)".
-   - Where it contradicts a rule, give both sides. Only replace the rule if the evidence is stronger; otherwise mark it **[TEST]**.
-4. Show the user the change list, then apply it once approved. Also:
-   - Add new example emails to `cold-email/swipe-file.md`, attributed to the creator.
-   - Add new banned phrases or buzzwords to `cold-email/lint_email.py`.
-   - Update the playbook's status line with what was learned and when.
+## 2. Extract (one notes file per source)
+Write `research/cold-email/notes/<slug>.md`:
+- **Source:** title, URL, creator, date.
+- **Rules:** sorted by knowledge topic (00–14). Each is marked `[VERBATIM]` with a short quote and **timestamp** where available, or `[PARAPHRASE]`.
+- **Example emails:** verbatim, with the claimed result.
+- **Numbers:** volumes, reply rates, costs; marked self-reported where they are.
+- **Contradictions** with the current knowledge base.
 
-Never present a paraphrase as a quote, and never generalize one creator's opinion into a [CONSENSUS] rule.
+## 3. Propose updates
+1. For each finding, give: the target file and section, the current rule, the proposed change, the evidence (quote and timestamp), and a confidence level.
+2. **Confirmations** upgrade a rule's source tag (e.g. `(Saraev, video X @ 12:30)`).
+3. **Contradictions:** replace the rule only if the new evidence ranks higher; otherwise mark it `[TEST]` and show both sides.
+4. Show the change list. **Apply it only after the user approves.** Then:
+   - add verbatim emails to `libraries/swipe-file.md` Part 2 (attributed)
+   - add new banned phrases to `cold-email/lint_email.py`
+   - add new offers or prompts to the libraries
+   - append a dated line to `research/cold-email/REFERENCES.md`
+
+## Rules
+- Never present a paraphrase as a quote.
+- Never promote one creator's opinion to `[CONSENSUS]`.
+- Mark Saraev's own claims as self-reported.
+- Results from Extol's campaigns outrank everything. Add them to `knowledge/14` benchmarks with dates and sample sizes.

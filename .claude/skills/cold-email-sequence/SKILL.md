@@ -1,34 +1,39 @@
 ---
 name: cold-email-sequence
-description: Build a complete multi-step cold email sequence (default 4 emails over about 2 weeks; 6–7 plus multichannel for tier-1) where every follow-up adds a new angle, value or referral ask, ending in a real breakup email. Use when the user asks for "a sequence", "follow-ups", "a 3/4/5-step campaign", or "what do I send if they don't reply".
+description: Builds a full cold email sequence. The default is Eric Nowoslawski's 4 emails as two threaded pairs (1 new, 2 replying, 3 new thread with a new offer type and lower-friction CTA, 4 "should I reach out to {named colleague}?"). Huge yes/no markets get 2 emails; tier-1 accounts get 6–7 multichannel touches. Every follow-up adds something new, with no "just checking in". Use when the user asks for a sequence, follow-ups, "what do I send if they don't reply", or a breakup email.
 ---
 
-# Build a cold email sequence
+# Build a sequence
 
-Read `cold-email/playbook.md` §6 (sequences) and §2 (rules). Use the campaign brief if one exists. If email 1 isn't written yet, write it with the `cold-email-write` recipe first.
+**Load:** `cold-email/knowledge/09-sequences.md`, `06-cta.md`, `07-psychology.md` (closure, consistency, reciprocity). **Libraries:** `swipe-file.md` (S11–S14, S22–S25), `subject-bank.md`.
 
-## Default 4-step sequence (big lists, tier 2–3)
-| Step | Day | Job | Rules |
-|---|---|---|---|
-| 1 | 0 | Open the loop | Full first-touch rules: 40–90 words, interest CTA |
-| 2 | 3 | **New** angle or value | 15–50 words, same thread. A second problem, new proof, or an offer CTA ("want me to send the 3 ideas?"). A screenshot is OK here (Jed). |
-| 3 | 7–8 | Referral / right person | 15–40 words: "If this sits with someone else, who should I ask?" |
-| 4 | 12–14 | Breakup | 20–50 words. Take the offer away politely and leave a one-word reply option. Only send it if the sequence really stops. |
+## Steps
+1. **Pick the sequence length (`09`):**
+   - Huge market (80K+) and a yes/no offer → **2 emails**.
+   - Standard → **4 emails (default)**.
+   - Tier 1 → **6–7 emails plus LinkedIn and calls**.
+2. **Email 1:** write it with `cold-email-write` if it doesn't exist yet.
+3. **Email 2 (day 3–4, replies in thread 1, blank subject):** add depth (how the result happened) *or* a short new reason (Mouse Trap, stats hook, creative ideas, or a fresh post or signal). 15–60 words.
+4. **Email 3 (day 7–8, new thread, new subject):**
+   - Use a **different offer type** from email 1.
+   - Use a lower-friction CTA ("if I made a 2-min video of how this would work for you, would you watch it?").
+   - It must stand alone. Consider dropping AI personalization and going direct (inherited problem, whole offer, case-study story).
+5. **Email 4 (day 11–12, replies in thread 3):**
+   - The right-person redirect with a real colleague's **full name**, plus an opt-out P.S. (S22/S23).
+   - Or a resource offer, or a value bomb.
+   - No guilt.
+6. **Checks across the whole sequence:**
+   - Each step adds something new.
+   - No banned follow-up openers.
+   - The offer types rotate.
+   - At most one image (email 2 or 3, a [TEST]).
+   - Lengths shrink as the sequence goes on.
+   - No step says "following up".
+7. **Lint:** write `campaigns/<slug>/sequence.md` with steps separated by `===` lines, and run the linter (steps 2 and later are checked as follow-ups).
+8. **Critic:** score email 1 and email 3 (the two new threads) to 85 or more.
 
-For lists of 50k+ (Nowoslawski): send steps 1–2 only, then rest the list for 45+ days and come back with a new angle.
-
-## Tier-1 / multichannel variant
-Use 6–7 emails over about 30 days (Gong's sweet spot), mixed with LinkedIn touches and calls (30MPC 10–14 touches). Switch to a second problem halfway through. Becc Holland reports her 5th email converts best, so don't stop too soon on high-value accounts.
-
-## Follow-up rules
-- **Every step must add something new.** Banned: "just following up", "bumping this", "circling back", "did you see my last email".
-- Reply in the same thread (no new subject) unless you're deliberately switching angle.
-- Each follow-up must make sense on its own, for someone who never read email 1.
-- Keep shrinking the length and the ask as the sequence goes on.
-- No guilt, sarcasm or passive aggression in breakups.
-
-## Verify and deliver
-1. Write all steps to `campaigns/<slug>/sequence.md`, with steps separated by `===` lines (step 1 first).
-2. Run `python3 cold-email/lint_email.py campaigns/<slug>/sequence.md`. Steps 2 and later are linted as follow-ups.
-3. Present a table showing each step's day, job and word count, then the full copy, with one line per step on what it adds.
-4. Suggest a test plan: which step and which variable to A/B test first. Usually test email 1's angle or CTA first.
+## Output
+- A table: step · day · thread (new / reply) · job · offer type · words · lint
+- the full copy
+- a one-line note per step on what's new
+- the TAM reuse plan: re-contact in 3 months with fresh data, plus the volume maths if the brief has a target

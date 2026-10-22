@@ -1,51 +1,55 @@
 ---
 name: cold-email-strategy
-description: Build the foundation of a cold email campaign before any copy is written. Covers who to target and why now, an offer that's easy to say yes to, 3–5 angles to test, and a saved campaign brief. Use when starting a new campaign, when the user says "plan a cold email campaign", "who should we email", "what should we offer", or when a campaign gets replies but no positive ones (an offer or list problem).
+description: Plans a cold email campaign before any copy is written. Gathers the brief (ICP, offer, real proof, goal, recipient countries), checks the higher layers first (deliverability, list, offer), segments the list, ranks 3–5 angles, and saves a campaign brief. Use when the user says "plan a cold email campaign", "who should we email", "new campaign for X", or when a campaign gets replies but no positive ones.
 ---
 
 # Cold email strategy
 
-Read `cold-email/playbook.md` §1 (hierarchy), §4 (offers) and §5 (personalization tiers) first.
+**Load:** `cold-email/knowledge/00-philosophy-hierarchy.md`, `01-intent-signals.md`, `02-offers.md`, `14-benchmarks-experiments.md`. **Libraries:** `cold-email/libraries/proof-bank.md`, `offer-library.md`.
 
-## 1. Intake: ask for anything missing, in one compact list
-- **Offer:** what we sell, the price model, and the outcome it delivers, in numbers.
-- **Proof:** real clients, results and timeframes; a guarantee or risk reversal; logos we're allowed to name. *Never invent proof.*
-- **ICP:** industry, company size, geography, buyer role, and the pains that role owns.
-- **Triggers:** events that make this offer timely, such as hiring, funding, launches, new executives, bad reviews or a tech change.
-- **Goal and volume:** replies or meetings; number of contacts; tier mix (playbook §5).
-- **Recipients' countries:** needed for the compliance footer.
-- **Sender:** who signs the email, and their credibility in one line.
+## 1. Brief (ask once, in one compact list; mark any assumptions `[ASSUMPTION]`)
+- **Offer:** what we sell, the price model, and the outcome in numbers.
+- **Proof:** check `proof-bank.md`. If it's empty, say so and plan free work or risk reversal instead. Never invent proof.
+- **ICP:** industry, size, region, buyer role.
+- **Goal:** meetings per month, and what one customer is worth.
+- **TAM size:** an estimate is fine.
+- **Recipient countries:** this drives compliance. Germany and Austria are excluded by default.
+- **Sender:** who signs the emails, and their credibility in one line.
 
-## 2. Pressure-test the offer
-Run the **"why wouldn't they reply?"** test (Nowoslawski):
-1. List the top 5 hidden objections: cost, risk, effort, timing, "we have someone".
-2. Rewrite the offer so each objection is handled inside it:
-   - **risk reversal:** Saraev's $250 gift card, pay on results, first one free
-   - **lower effort:** "we do it, you approve it"
-   - **a smaller first step:** "3 ideas", a Loom teardown, a free audit
-3. Replace any "save time" framing with a **numeric business outcome**. Saraev: time-saved offers underperform.
+## 2. Check the higher layers first (`00`)
+- **Deliverability:** do they have infrastructure? If not, hand off to `cold-email-deliverability` before copy.
+- **Offer:** run the "why wouldn't they reply?" test. If the offer is weak or saturated, hand off to `cold-email-offer`.
 
-Output the offer as one sentence: **"We help {ICP} get {specific outcome} in {timeframe} without {main objection}."**
+## 3. Segment the list (`01`)
+1. Build **6–10 segments of 80–400 contacts** from triggers and segment questions (Mark Colgan).
+2. Pick the seniority by company size: founder or CEO under 50 staff; problem owner in enterprise.
 
-## 3. Angles (3–5)
-Each angle is a distinct reason this ICP should care now. For each, give:
-- **Angle name** and the **problem/loss** it names
-- **Trigger or signal** that identifies who gets it, and where that data comes from (Apollo, Clay, job boards, site scrape, LinkedIn)
-- **Best framework** from playbook §3
-- **Proof line** that fits it
-- **CTA type:** interest or offer
+## 4. Rank 3–5 angles
+For each angle give:
+- the segment and its signal (with the data source: Apollo, Clay, job boards, a site scrape, reviews, LinkedIn)
+- the problem or loss it names
+- the offer rung (`02`)
+- the framework (`08-frameworks.md`)
+- the proof line, or the risk reversal if there's no proof
+- the CTA type
 
-Rank them by expected reply potential (how strong and timely the trigger is × how painful the problem is × how strong the proof is). Say what to A/B test first.
+Score each angle: signal strength × pain intensity × proof strength (1–5 each). Recommend which one to A/B test first.
 
-## 4. Save the brief
+## 5. Volume maths (`09`, `14`)
+1. Contacts per month = meetings target ÷ (positive replies per contact × 0.45). Start from 1 positive reply per 300 contacts.
+2. Inboxes needed = daily sends ÷ 30.
+3. Check that the TAM can sustain a 3-month reuse cycle.
+
+## 6. Save
 Write `campaigns/<slug>/brief.md` with these sections:
-1. Offer sentence
-2. ICP and tiers
-3. Triggers
-4. Proof bank (verbatim, user-supplied)
-5. Objections and how the offer handles them
-6. Ranked angles
-7. Compliance notes by country
-8. Test plan (one variable at a time; at least 200–300 contacts per variant; judge on positive replies and meetings per 1,000)
+- Offer sentence: "We help {ICP} get {outcome} in {time} without {objection}."
+- Segments
+- Signals and data sources
+- Proof (references to proof-bank IDs only)
+- Objections and how the offer handles them
+- Ranked angles
+- Compliance by country
+- Volume maths
+- Test plan (one variable first)
 
 Then hand off to `cold-email-write` or `cold-email-sequence`.

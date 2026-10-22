@@ -1,44 +1,45 @@
 ---
 name: cold-email-deliverability
-description: Audit and plan cold email infrastructure and compliance. Covers SPF/DKIM/DMARC, secondary domains, inboxes, warmup, sending volumes, tracking settings, list verification, Gmail/Yahoo/Outlook sender rules, and the legal footer by country (CAN-SPAM, GDPR, UK PECR, CASL). Use when the user asks "how many domains do I need", "set up cold email infrastructure", "are my emails going to spam", "is this legal", or before launching any campaign.
+description: Plans and audits cold email infrastructure and compliance. Covers SPF/DKIM/DMARC, secondary domains, 2 inboxes per domain, 30 sends per inbox per day, 3-week warmup, 50% spare warming capacity, no open/click tracking, list verification and skipping catch-alls, 550-bounce triage, spam-complaint limits, and the legal rules and footer per country (US, UK, EU, Germany and Austria consent, Canada, India DPDP). Use when the user asks "how many domains/inboxes", "set up cold email", "are we going to spam", "bounces are high", "is this legal in X", or before any launch.
 ---
 
-# Cold email deliverability and compliance
+# Deliverability and compliance
 
-Read `cold-email/playbook.md` §7 and `research/cold-email/03-deliverability-compliance-psychology.md` §A. That file marks which rules come from mailbox providers (**[Official]**) and which are vendor advice (**[Vendor]**). Keep that distinction when you advise.
+**Load:** `cold-email/knowledge/11-deliverability-legal.md`. Detail is in report 03 §A and report 05 §4.1.
 
-## 1. Size the infrastructure
-Ask for target new contacts per day and the sequence length. Then:
-1. Daily sends ≈ new contacts per day × average steps actually sent.
-2. Inboxes = daily sends ÷ 20 (safe range 10–30 per inbox).
-3. Domains = inboxes ÷ 2–3.
-4. Add about 20% spare capacity for rotation.
+## 1. Sizing
+1. Ask for the target new contacts per day and the sequence length.
+2. Daily sends ≈ new contacts per day × steps actually sent.
+3. **Inboxes = daily sends ÷ 30.**
+4. **Domains = inboxes ÷ 2.**
+5. **Add 50% spare capacity, warming.** Agencies: 4 batches alternating Google and Outlook.
+6. Show the maths, with the warmup timeline (3 weeks).
 
-Show the maths. Example: Saraev's earlier plan was 20 domains with 60 mailboxes, or 3 per domain.
+## 2. Audit checklist (pass/fail for each)
+- [ ] Secondary domains only, each redirecting to the main site.
+- [ ] SPF, DKIM and DMARC aligned.
+- [ ] One-click unsubscribe if bulk; opt-outs honored within 48h.
+- [ ] Google Workspace and/or Microsoft inboxes, no private SMTP; 2 per domain.
+- [ ] 30 sends per inbox per day (up to 60 only for proven campaigns); 10+ minutes between sends.
+- [ ] Warmed for at least 3 weeks; using real copy in warmup where possible.
+- [ ] No open or click tracking (or a custom tracking domain).
+- [ ] Plain text; email 1 has no links, images or attachments.
+- [ ] List verified with 2 verifiers; **catch-alls skipped**; bounces under 2%; no pattern-guessed emails.
+- [ ] Spam complaints under 0.1% (Postmaster Tools).
+- [ ] Health: about 1% reply rate excluding out-of-office after 200+ sends.
 
-## 2. Setup checklist (pass/fail for each)
-- [ ] Sending from secondary domains, never the main brand domain. Each one redirects to the main site.
-- [ ] SPF, DKIM (2048-bit) and DMARC (start with `p=none`, add reporting) all aligned with the From domain.
-- [ ] One-click unsubscribe headers (RFC 8058) if any domain could reach about 5,000 a day to Gmail. The opt-out is honored within 2 days.
-- [ ] Inboxes warmed up for 14–28 days before cold sends, with sends ramped from 5–10 a day.
-- [ ] Plain text. Click tracking off. Open tracking off, or on a custom tracking domain only.
-- [ ] No links, images or attachments in email 1.
-- [ ] List verified within the last 60–90 days. Catch-all addresses excluded or sent separately. Hard bounces under 2%.
-- [ ] Spam complaints monitored (Google Postmaster Tools) and kept under 0.1%, never reaching 0.3%.
-- [ ] Sending window set to recipients' business hours, with randomized gaps between sends.
-- [ ] Wording varies only at the sentence level, never by swapping single words. Real per-lead first lines are better.
-
-## 3. Legal footer by the recipient's country
-| Country | Must include |
+## 3. Incident triage
+| Symptom | Action |
 |---|---|
-| US (CAN-SPAM) | A real sender name and company, a non-deceptive subject, a physical postal address, and a working opt-out honored within 10 business days (2 days for Gmail/Yahoo bulk senders) |
-| EU (GDPR + ePrivacy) | A documented legitimate-interest assessment, a right-to-object line in email 1, where the data came from, and a privacy notice link. Some EU countries require prior consent for B2B email, so check the country. |
-| UK (PECR + UK GDPR) | Limited companies are fine with legitimate interest plus an opt-out; sole traders and partnerships need consent. Include a right-to-object line. |
-| Canada (CASL) | Implied consent only if the address was conspicuously published *and* the message relates to their role. Include sender identification and an unsubscribe. |
+| **550 bounces** | The receiver thinks you're spam. Pause, change the copy drastically, swap inboxes, re-verify the list |
+| **Bounces above 2%** | Re-verify; skip catch-alls; check the data source |
+| **Sudden zero replies** | Check placement with a seed test; rotate to the warmed spare batch |
+| **Outlook rejecting** | Consider pausing sends to Outlook recipients (GEX late-2024 tactic) or matching mail providers |
 
-A light opt-out line that keeps the tone: "Not relevant? Reply 'no' and I won't email again."
+## 4. Compliance by country
+Output the footer and opt-out line for each target country. **Germany and Austria: recommend not cold emailing** (prior consent is required, even B2B). UK sole traders need consent. EU: right-to-object notice in email 1 plus the data source. India: be transparent, plan for DPDP by May 2027.
 
-**This is guidance, not legal advice.** Flag EU country rules and the exact dates for Outlook and Yahoo requirements as things to check against official pages.
+*Guidance, not legal advice.*
 
-## 4. Output
-A pass/fail checklist, the sizing maths, the top 3 fixes in priority order, and the footer text for each target country.
+## Output
+The sizing maths, the pass/fail checklist, the top 3 fixes in priority order, and footer text for each country.
