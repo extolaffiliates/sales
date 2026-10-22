@@ -1,41 +1,53 @@
-# Cold Email Master
+# Cold Email Master (v2)
 
-This is Extol's cold email system: a specialist agent, 8 skills, a rulebook built from research, and an automatic checker for drafts.
+Extol's cold email system: **2 agents, 16 skills, 15 knowledge files, 6 libraries and an automatic checker**. Every rule traces back to sourced research in `research/cold-email/` (index: `REFERENCES.md`).
 
-## How to use it (in Claude Code, inside this repo)
-
-Ask in plain English. The `cold-email-master` agent picks up any cold-outreach task.
+## How to use it (Claude Code, inside this repo)
+Ask in plain English. `CLAUDE.md` sends cold email work to the **`cold-email-master`** agent, and every draft gets an independent score from **`cold-email-critic`** before you see it.
 
 | Say | What happens |
 |---|---|
-| "Plan a cold email campaign for {offer} to {ICP}" | `cold-email-strategy` asks for what it needs (the brief), stress-tests the offer, ranks 3–5 angles, and saves `campaigns/<slug>/brief.md` |
-| "Write a cold email to {role} at {company type}" | `cold-email-write` writes 2 A/B variants and checks and scores each one |
-| "Build a 4-step sequence" | `cold-email-sequence` writes every step, each adding something new and ending in a real breakup email |
-| "Personalize this lead list" + a CSV | `cold-email-personalize` uses Saraev-style website research to write fact-checked first lines |
-| "Review this email" + a draft, or "why isn't my campaign working" + stats | `cold-email-review` scores it, rewrites it, and diagnoses which layer is failing |
-| "How many domains/inboxes do I need?", "is this legal in the UK?" | `cold-email-deliverability` |
-| "They replied with {X}. What do I say?" | `cold-email-replies` |
-| "Learn from the new transcripts" | `cold-email-learn` updates the playbook from primary sources |
+| "Plan a cold email campaign for {offer} to {ICP}" | `strategy` → brief, segments, ranked angles, volume maths → `campaigns/<slug>/brief.md` |
+| "What should we offer dental clinics?" | `offer` → 2–3 offers from the library, strengthened with risk reversal |
+| "Find a reason to email {company} now" | `intent` → one verified signal → the why-now line |
+| "Write a cold email to {role} at {company}" | `write` → intent + subject + hook + body + CTA → 2–3 A/B variants → linter → critic ≥85 |
+| "Build a sequence" | `sequence` → 4 emails as two threaded pairs, with a clean breakup |
+| "Personalize this lead list" + CSV | `personalize` → verified first lines via the prompt library, with an approval loop |
+| "Review / roast this email" | `review` → linter + critic score + psychology lens + rewrite |
+| "Why isn't my campaign working?" + stats | `review` + `experiment` → the failing layer and the next test |
+| "Set up an A/B test" / "is 2% good?" | `experiment` → positive reply rate, sample size, experiment card |
+| "How many domains do I need?" / "is this legal in Germany?" | `deliverability` |
+| "They replied {X}. What do I say?" | `replies` |
+| "Learn from the new transcripts" | `learn` → proposes sourced updates for your approval |
 
-You can also call the agent directly: *"Use the cold-email-master agent to …"*.
+You can also call any skill or agent directly (e.g. "use cold-email-hooks to give me 3 openers").
 
-## What's in here
+## Structure
+```
+.claude/agents/   cold-email-master.md     lead writer, routes to the 16 skills
+                  cold-email-critic.md     independent 100-point reviewer (sees the email only)
+.claude/skills/   STRATEGY  cold-email-strategy · cold-email-offer · cold-email-intent
+                  ANATOMY   cold-email-subject-lines · cold-email-hooks · cold-email-body · cold-email-cta · cold-email-psychology
+                  ASSEMBLY  cold-email-write · cold-email-sequence · cold-email-personalize
+                  QUALITY   cold-email-review · cold-email-experiment · cold-email-deliverability · cold-email-replies · cold-email-learn
+cold-email/
+  knowledge/      00 philosophy · 01 intent · 02 offers · 03 subjects · 04 hooks · 05 body · 06 CTA · 07 psychology
+                  08 frameworks · 09 sequences · 10 personalization/AI · 11 deliverability/law · 12 replies · 13 quality bar · 14 benchmarks
+  libraries/      swipe-file · offer-library · prompt-library · subject-bank · hook-bank · proof-bank (← fill this in)
+  lint_email.py   automatic checks: length, grade, subject rules, banned phrases, AI tells (em dash), links, CTA, placeholders
+research/cold-email/   6 sourced reports + MIT primary sources + REFERENCES.md
+research/transcripts/  YouTube transcripts (via tools/yt-transcripts/)
+campaigns/<slug>/      brief · emails · sequence · personalization.csv · replies · results · experiments
+```
 
-| Path | What it is |
-|---|---|
-| `.claude/agents/cold-email-master.md` | The agent: its role, workflow and non-negotiables |
-| `.claude/skills/cold-email-*/SKILL.md` | The 8 skills |
-| `cold-email/playbook.md` | **The rulebook.** The hierarchy of what matters, hard rules, 10 frameworks, offers, personalization tiers, sequences, deliverability, replies, a 10-point quality bar and testing |
-| `cold-email/swipe-file.md` | Annotated example emails for each framework |
-| `cold-email/lint_email.py` | Automatic checker covering word count, reading grade, subject rules, banned phrases and buzzwords, links, unfilled placeholders, meeting-ask detection and the you-vs-me ratio. `python3 cold-email/lint_email.py draft.txt` |
-| `research/cold-email/` | Sourced research: Nick Saraev; 10 creators and the 2025–26 benchmark reports; deliverability, compliance and psychology |
-| `tools/yt-transcripts/` | Downloads full YouTube channel transcripts into `research/transcripts/` |
+## The checker
+```bash
+python3 cold-email/lint_email.py draft.txt              # finished copy
+python3 cold-email/lint_email.py --template seq.txt     # allow {{merge_fields}} for sending tools
+```
+Separate the emails in a sequence with a line containing only `===`. It exits with code 1 on any ERROR.
 
-## Research basis and its limits
-
-v1 was built from web search results. The research tools couldn't open full pages or YouTube transcripts from the cloud environment. Every claim in the research files has a source URL and is marked as verbatim or paraphrase. The rules that come from measured studies (Gong, Lavender, Instantly, Smartlead, Belkins, Boomerang) are solid. The creator-specific details are thinner, especially Nick Saraev's exact prompts, subject lines and follow-up cadence.
-
-**To make it complete:**
-1. Run `tools/yt-transcripts/fetch_channel_transcripts.py` on your own computer and push the results. See `tools/yt-transcripts/README.md`.
-2. Ask Claude to "learn from the new transcripts".
-3. Add your real campaign results to `campaigns/<slug>/results.md`. Our own data outranks every creator.
+## To make it stronger
+1. **Fill in `libraries/proof-bank.md`** with Extol's real results. Until then the agent uses free work or risk reversal and never cites clients.
+2. **Push Nick Saraev's transcripts** (28 downloaded locally, 62 pending) to `research/transcripts/`, then run `cold-email-learn`.
+3. **Log campaign results** in `campaigns/<slug>/results.md`. Our own data outranks every creator.

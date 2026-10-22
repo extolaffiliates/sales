@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Lint cold emails against the measurable rules in cold-email/playbook.md (sections 2 and 9).
+"""Lint cold emails against the measurable rules in cold-email/knowledge/ (03 subject, 04 hooks, 05 body,
+06 CTA, 13 quality bar). The judgement layer is the cold-email-critic agent.
 
 Input format (file or stdin). Separate multiple emails (a sequence) with a line containing only `===`:
 
@@ -17,6 +18,7 @@ a shorter body is expected, and links/images are allowed.
 Usage:
     python cold-email/lint_email.py drafts/acme.txt
     python cold-email/lint_email.py --json < draft.txt
+    python cold-email/lint_email.py --template campaign.txt   # allow {{merge_fields}} for sending tools
 Exit code is 1 if any email has an ERROR, so it can gate automation.
 """
 
@@ -32,10 +34,21 @@ BANNED_PHRASES = [
     "just bumping", "bumping this", "circling back", "touch base", "touching base", "as per my last email",
     "let me know if you're interested", "let me know if you are interested", "i'd love to", "i would love to",
     "i was impressed by", "i love what you", "i'm impressed", "your commitment to", "as a leader in",
-    "quick question", "thought this might be useful", "don't hesitate", "do not hesitate", "feel free to",
+    "thought this might be useful", "don't hesitate", "do not hesitate", "feel free to",
     "at your earliest convenience", "i hope you", "in today's fast-paced", "dear sir", "dear madam",
     "to whom it may concern", "i know you're busy", "sorry to bother",
+    # AI tells and hype framing (Harvey, Eric Nowoslawski, report 05)
+    "picture this", "imagine if", "what if i told you", "here's what i keep seeing", "i was intrigued",
+    "no pressure", "no obligation", "in today's", "game-changing",
+    # dead openers / follow-ups (Kyle Coleman, Morgan Ingram, Eric)
+    "based on your title", "i saw your profile", "following up on my last", "one more thought",
+    "bubbling this", "making sure you saw", "did you see my last", "checking in on my last",
+    "this is my fourth attempt", "are you taking on more clients", "partnership opportunity",
 ]
+SOFT_PHRASES = {  # allowed, but flagged
+    "worth a quick": "\"Worth a quick look/chat\" is overused (Harvey); fine only after a strong pain line.",
+    "i noticed": "\"I noticed\" starts with you; try \"Noticed…\" or \"Looks like you…\" (Orlob).",
+}
 
 BUZZWORDS = [
     "ai-powered", "cutting-edge", "cutting edge", "state-of-the-art", "game-changer", "game changer",
@@ -96,6 +109,9 @@ def parse(raw):
     return subject, body, body_no_greeting
 
 
+TEMPLATE_MODE = False
+
+
 def lint(raw, step):
     subject, body, core = parse(raw)
     issues = []
@@ -114,8 +130,17 @@ def lint(raw, step):
         n = len(subject.split())
         if n > 4:
             add("ERROR" if first else "WARN", "subject", f"Subject is {n} words; keep it 1-4.")
-        if "?" in subject or "!" in subject:
-            add("ERROR", "subject", "No ? or ! in the subject line.")
+        if "!" in subject:
+            add("ERROR", "subject", "No ! in the subject line.")
+        if "?" in subject:
+            add("WARN", "subject", "Question in subject is a [TEST] (Lavender -56% opens; Eric's whole-offer style uses them).")
+        sl = subject.lower()
+        if "quick question" in sl:
+            add("WARN", "subject", "\"quick question\" reads as automation; use only as a B-arm control (Eric).")
+        if sl.strip() == "curious":
+            add("ERROR", "subject", "\"Curious\" is banned as a subject (too generic).")
+        if re.search(r"\bai\b", sl):
+            add("WARN", "subject", "\"AI\" in the subject: -17% opens (30MPC/Gong 85M emails).")
         if re.match(r"^\s*(re|fwd?)\s*:", subject, re.I):
             add("ERROR", "subject", "Fake Re:/Fwd: subject is deceptive and tanks replies.")
         if subject.isupper() and len(subject) > 3:
@@ -156,14 +181,24 @@ def lint(raw, step):
     for b in BUZZWORDS:
         if re.search(rf"\b{re.escape(b)}\b", low):
             add("WARN", "buzzword", f"Buzzword: \"{b}\"; describe the outcome instead.")
+    for p, why in SOFT_PHRASES.items():
+        if p in low:
+            add("WARN", "tone", why)
     if "!" in core:
         add("WARN", "tone", "Exclamation mark; reads as marketing.")
+    if "\u2014" in core or " -- " in core:
+        add("ERROR", "ai-tell", "Em dash: a dead giveaway of AI writing. Use a period or comma (Eric, Harvey).")
+    if first and re.search(r"^\s*([-*\u2022]|\d+[.)])\s+", core, re.M):
+        add("WARN", "format", "Bullets in email 1 read as a feature dump; OK only for the creative-ideas format.")
 
     # Format
     if first and LINK.search(core):
         add("ERROR", "format", "Link in email 1; hurts deliverability and looks like marketing.")
-    if PLACEHOLDER.search(raw):
-        add("ERROR", "placeholder", f"Unfilled placeholder: {PLACEHOLDER.search(raw).group(0)}")
+    for m in PLACEHOLDER.finditer(raw):
+        if TEMPLATE_MODE and m.group(0).startswith("{{"):
+            continue  # merge fields are fine in sending-tool templates
+        add("ERROR", "placeholder", f"Unfilled placeholder: {m.group(0)}")
+        break
 
     # Them over me
     you = len(re.findall(r"\b(you|your|you're|yours)\b", core, re.I))
@@ -186,7 +221,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("file", nargs="?", help="Draft file (default: stdin)")
     ap.add_argument("--json", action="store_true", help="Machine-readable output")
+    ap.add_argument("--template", action="store_true", help="Allow {{merge_fields}} (sending-tool templates)")
     args = ap.parse_args()
+    global TEMPLATE_MODE
+    TEMPLATE_MODE = args.template
     raw = open(args.file, encoding="utf-8").read() if args.file else sys.stdin.read()
     emails = [e for e in re.split(r"^===\s*$", raw, flags=re.M) if e.strip()]
     results = [lint(e, i + 1) for i, e in enumerate(emails)]
