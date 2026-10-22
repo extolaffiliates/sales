@@ -2,6 +2,15 @@
 
 Extol's cold email system: **2 agents, 16 skills, 15 knowledge files, 6 libraries and an automatic checker**. Every rule traces back to sourced research in `agents/cold-email/research/` (index: `REFERENCES.md`).
 
+## Slash commands
+| Command | What it does |
+|---|---|
+| `/cold-email <request>` | Anything cold email; routes to `cold-email-master`, critic-gated at 85 |
+| `/cold-email-lead <lead row>` | Researches the lead (register, reviews, fresh signals), finds the crux, writes and scores variants |
+| `/cold-email-roast <email>` | Linter + critic score + a fact-preserving rewrite, re-scored |
+
+Every skill is also a command, e.g. `/cold-email-hooks`.
+
 ## How to use it (Claude Code, inside this repo)
 Ask in plain English. `CLAUDE.md` sends cold email work to the **`cold-email-master`** agent, and every draft gets an independent score from **`cold-email-critic`** before you see it.
 

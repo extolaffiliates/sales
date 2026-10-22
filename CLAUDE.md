@@ -7,12 +7,15 @@ Each agent gets one home folder, `agents/<agent>/`, holding everything it uses: 
 |---|---|
 | Subagent definitions | `.claude/agents/<agent>/*.md` (subfolders are scanned) |
 | Skills | `.claude/skills/<agent>-<skill>/SKILL.md` (must be one level deep, so prefix with the agent name) |
+| Slash commands | `.claude/commands/<agent>/<agent>*.md` (filename = command name) |
 | Everything else | `agents/<agent>/` |
 
 See `agents/README.md` for the template for a new agent.
 
 ## Cold email system (`agents/cold-email/`)
 For any cold email or outbound task (writing, sequences, personalization, review, offers, deliverability, replies, campaign stats):
+
+Slash commands: `/cold-email <request>` (anything), `/cold-email-lead <lead row>` (research then write), `/cold-email-roast <email>` (score and rewrite).
 
 1. Delegate to the **`cold-email-master`** agent, or use the `cold-email-*` skills directly. Start at `agents/cold-email/README.md`.
 2. **Before showing any drafted email to the user, have the `cold-email-critic` agent score it**, passing only the email text and the persona. Ship at 85/100 or above; otherwise revise. This independent review is required.
