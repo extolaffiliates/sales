@@ -52,7 +52,7 @@ def list_videos(target, limit):
     if not is_video and "/playlist" not in target and not target.rstrip("/").endswith(("/videos", "/streams")):
         target = target.rstrip("/") + "/videos"
 
-    opts = {"quiet": True, "skip_download": True, "extract_flat": "in_playlist"}
+    opts = {"quiet": True, "no_warnings": True, "skip_download": True, "extract_flat": "in_playlist"}
     if limit:
         opts["playlistend"] = limit
     proxy = os.getenv("TRANSCRIPT_PROXY_URL")
@@ -82,7 +82,9 @@ def main():
     parser.add_argument("--limit", type=int, default=0, help="Only scan the newest N videos (0 = all)")
     parser.add_argument("--lang", action="append", default=None, help="Preferred transcript language(s), default en")
     parser.add_argument("--out", default=None, help="Output dir (default research/transcripts/<channel>)")
-    parser.add_argument("--delay", type=float, default=1.5, help="Seconds between requests, to avoid rate limits")
+    parser.add_argument("--delay", type=float, default=4, help="Seconds between requests, to avoid rate limits")
+    parser.add_argument("--max-blocks", type=int, default=3,
+                        help="Stop after this many IP blocks in a row (retrying only extends the ban)")
     args = parser.parse_args()
 
     channel, videos = list_videos(args.target, args.limit)
@@ -96,7 +98,7 @@ def main():
     api = build_api()
     langs = args.lang or ["en", "en-US", "en-GB"]
 
-    saved, failed = 0, []
+    saved, failed, blocks_in_a_row = 0, [], 0
     for v in videos:
         path = out_dir / f"{slugify(v['title'])}--{v['id']}.md"
         if path.exists():
@@ -106,6 +108,10 @@ def main():
         except Exception as exc:  # disabled captions, IP block, private video, ...
             failed.append((v, type(exc).__name__))
             print(f"  FAIL {v['title']} ({type(exc).__name__})")
+            blocks_in_a_row = blocks_in_a_row + 1 if type(exc).__name__ in ("RequestBlocked", "IpBlocked") else 0
+            if blocks_in_a_row >= args.max_blocks:
+                print("YouTube is rate-limiting this IP. Stopping early; wait 1-2 hours (or switch network) and re-run.")
+                break
             time.sleep(args.delay)
             continue
         text = " ".join(s.text.replace("\n", " ") for s in fetched.snippets)
@@ -116,6 +122,7 @@ def main():
             encoding="utf-8",
         )
         saved += 1
+        blocks_in_a_row = 0
         print(f"  OK   {v['title']}")
         time.sleep(args.delay)
 
