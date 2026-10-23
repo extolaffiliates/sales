@@ -145,7 +145,7 @@ function footnote(s, text) {
     "Extol is two founders plus a set of AI tools we built ourselves. AI drafts; people approve.");
   cards(s, [
     ["FaSeedling", "What we do", "Find the right buyers, reach them, and keep the expert visible every week."],
-    ["FaUsers", "Who we are", "Two founders: Dave runs strategy, Anshul runs delivery."],
+    ["FaUsers", "Who we are", "Devasya Dwivedi\nAnshul Mikita Prajapati"],
     ["FaCheckCircle", "How we work", "AI does the heavy lifting. Nothing goes out without the client’s approval."],
   ]);
 
