@@ -11,7 +11,7 @@ const { applyTheme } = require(process.env.APPLY_THEME || "./apply_theme.js");
 const OUT = process.argv[2] || "deck.pptx";
 const HEX = { forest: "101F14", pine: "1D3524", green: "2B4A34", moss: "7E9C6B", sage: "9EBB80", pistachio: "C6DE9F", cream: "E9F0C9", grey: "5B6B5E" };
 const THEME = {
-  name: "Extol Affiliates", headFontFace: "Cambria", bodyFontFace: "Calibri",
+  name: "Extol Affiliates", headFontFace: "Helvetica", bodyFontFace: "Helvetica",
   colors: { dk1: HEX.forest, lt1: "FFFFFF", dk2: HEX.pine, lt2: HEX.cream, accent1: HEX.green, accent2: HEX.moss,
     accent3: HEX.sage, accent4: HEX.pistachio, accent5: HEX.grey, accent6: "F4F7EA", hlink: HEX.green, folHlink: HEX.moss },
 };
@@ -34,7 +34,7 @@ pres.defineSlideMaster({
   background: { color: C.text1 },
   objects: [
     { placeholder: { options: { name: "kicker", type: "body", x: 0.9, y: 1.5, w: 11.5, h: 0.45, fontSize: 14, bold: true, color: C.accent3, charSpacing: 3, margin: 0, valign: "top" }, text: "" } },
-    { placeholder: { options: { name: "title", type: "title", x: 0.9, y: 2.1, w: 11.5, h: 2.0, fontSize: 48, bold: true, color: C.background2, fontFace: "Cambria", margin: 0, valign: "top", align: "left" }, text: "" } },
+    { placeholder: { options: { name: "title", type: "title", x: 0.9, y: 2.1, w: 11.5, h: 2.0, fontSize: 48, bold: true, color: C.background2, fontFace: "Helvetica", margin: 0, valign: "top", align: "left" }, text: "" } },
     { placeholder: { options: { name: "sub", type: "body", x: 0.9, y: 4.25, w: 10, h: 1.0, fontSize: 22, color: C.accent4, margin: 0, valign: "top" }, text: "" } },
     { placeholder: { options: { name: "meta", type: "body", x: 0.9, y: 6.3, w: 11.5, h: 0.5, fontSize: 14, color: C.accent3, margin: 0, valign: "top" }, text: "" } },
   ],
@@ -43,8 +43,8 @@ pres.defineSlideMaster({
   title: "SECTION",
   background: { color: C.text2 },
   objects: [
-    { placeholder: { options: { name: "num", type: "body", x: 0.9, y: 2.0, w: 3, h: 1.2, fontSize: 66, bold: true, color: C.accent3, fontFace: "Cambria", margin: 0, valign: "top" }, text: "" } },
-    { placeholder: { options: { name: "title", type: "title", x: 0.9, y: 3.3, w: 11.5, h: 1.0, fontSize: 42, bold: true, color: C.background2, fontFace: "Cambria", margin: 0, valign: "top", align: "left" }, text: "" } },
+    { placeholder: { options: { name: "num", type: "body", x: 0.9, y: 2.0, w: 3, h: 1.2, fontSize: 66, bold: true, color: C.accent3, fontFace: "Helvetica", margin: 0, valign: "top" }, text: "" } },
+    { placeholder: { options: { name: "title", type: "title", x: 0.9, y: 3.3, w: 11.5, h: 1.0, fontSize: 42, bold: true, color: C.background2, fontFace: "Helvetica", margin: 0, valign: "top", align: "left" }, text: "" } },
     { placeholder: { options: { name: "sub", type: "body", x: 0.9, y: 4.4, w: 10, h: 0.8, fontSize: 22, color: C.accent4, margin: 0, valign: "top" }, text: "" } },
   ],
   slideNumber: { x: 12.3, y: 6.95, w: 0.5, h: 0.3, fontSize: 10, color: C.accent3, align: "right" },
@@ -54,7 +54,7 @@ pres.defineSlideMaster({
   background: { color: C.background1 },
   objects: [
     { placeholder: { options: { name: "tag", type: "body", x: 0.7, y: 0.45, w: 9, h: 0.35, fontSize: 12, bold: true, color: C.accent2, charSpacing: 2, margin: 0, valign: "top" }, text: "" } },
-    { placeholder: { options: { name: "title", type: "title", x: 0.7, y: 0.85, w: 11.9, h: 1.0, fontSize: 34, bold: true, color: C.text1, fontFace: "Cambria", margin: 0, valign: "top", align: "left" }, text: "" } },
+    { placeholder: { options: { name: "title", type: "title", x: 0.7, y: 0.85, w: 11.9, h: 1.0, fontSize: 34, bold: true, color: C.text1, fontFace: "Helvetica", margin: 0, valign: "top", align: "left" }, text: "" } },
     { text: { text: "EXTOL AFFILIATES  ×  DAVID SAMUEL", options: { x: 0.7, y: 6.95, w: 8, h: 0.3, fontSize: 10, color: C.accent2, charSpacing: 1, margin: 0 } } },
   ],
   slideNumber: { x: 12.2, y: 6.95, w: 0.45, h: 0.3, fontSize: 10, color: C.accent2, align: "right" },
@@ -103,7 +103,7 @@ function cards(s, items, y = 2.4, h = 3.3) {
     const x = 0.7 + i * (w + gap);
     box(s, x, y, w, h, dark ? C.text2 : C.background2);
     icon(s, ic, x + 0.4, y + 0.4, 0.8, dark ? C.accent2 : C.accent1);
-    t(s, head, { x: x + 0.4, y: y + 1.45, w: w - 0.8, h: 0.6, fontSize: 22, bold: true, fontFace: "Cambria", color: dark ? C.background2 : C.text1 });
+    t(s, head, { x: x + 0.4, y: y + 1.45, w: w - 0.8, h: 0.6, fontSize: 22, bold: true, fontFace: "Helvetica", color: dark ? C.background2 : C.text1 });
     t(s, body, { x: x + 0.4, y: y + 2.15, w: w - 0.8, h: h - 2.4, fontSize: 17, color: dark ? C.accent4 : C.text2 });
   });
 }
@@ -141,8 +141,8 @@ function footnote(s, text) {
   qs.forEach(([h, d], i) => {
     const y = 2.25 + i * 1.08;
     s.addShape(pres.shapes.OVAL, { x: 0.7, y, w: 0.75, h: 0.75, fill: { color: C.accent1 }, line: { color: C.accent1 }, objectName: id("num") });
-    t(s, String(i + 1), { x: 0.7, y, w: 0.75, h: 0.75, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", fontFace: "Cambria" });
-    t(s, h, { x: 1.75, y: y + 0.02, w: 4.2, h: 0.75, fontSize: 24, bold: true, fontFace: "Cambria", valign: "middle" });
+    t(s, String(i + 1), { x: 0.7, y, w: 0.75, h: 0.75, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", fontFace: "Helvetica" });
+    t(s, h, { x: 1.75, y: y + 0.02, w: 4.2, h: 0.75, fontSize: 24, bold: true, fontFace: "Helvetica", valign: "middle" });
     t(s, d, { x: 6.0, y: y + 0.02, w: 6.6, h: 0.75, fontSize: 18, color: C.accent5, valign: "middle" });
   });
 
@@ -183,7 +183,7 @@ function footnote(s, text) {
 
   s = content(2, "Three clients, three different markets, one method",
     "3D Images AI and Bloggerly are public. The consultancy is under NDA, so it is not named.");
-  const hdr = (x) => ({ text: x, options: { bold: true, color: C.background1, fill: { color: C.text2 }, fontSize: 16, fontFace: "Cambria" } });
+  const hdr = (x) => ({ text: x, options: { bold: true, color: C.background1, fill: { color: C.text2 }, fontSize: 16, fontFace: "Helvetica" } });
   const cell = (x, b) => ({ text: x, options: { fontSize: 16, bold: !!b, color: C.text1, fill: { color: C.background1 } } });
   s.addTable([
     [hdr("Client"), hdr("What they sell"), hdr("What we did")],
@@ -201,21 +201,21 @@ function footnote(s, text) {
 
   s = content(3, "A client gets four things",
     "Each card: what we do, then why. Steps 1 and 4 are set up in the first month; 2 and 3 run every week.");
-  const offer = [["FaUserTie", "1. Look credible", "Fix the profile and website.", "Buyers check you before they reply."],
-    ["FaSearch", "2. Reach buyers", "Message the right people daily.", "A reason to talk gets replies."],
-    ["FaBullhorn", "3. Stay visible", "Post and comment every week.", "Buyers remember who they see."],
-    ["FaChartLine", "4. Track results", "Live dashboard, monthly review.", "Keep what works, drop what doesn’t."]];
+  const offer = [["FaUserTie", "1. Credibility", "Fix the profile and website.", "Buyers check you before they reply."],
+    ["FaSearch", "2. Outreach", "Message the right people daily.", "A reason to talk gets replies."],
+    ["FaBullhorn", "3. Visibility", "Post and comment every week.", "Buyers remember who they see."],
+    ["FaChartLine", "4. Results", "Live dashboard, monthly review.", "Keep what works, drop what doesn’t."]];
   const w4 = (11.9 - 0.35 * 3) / 4;
   offer.forEach(([ic, h, what, why], i) => {
     const x = 0.7 + i * (w4 + 0.35);
     box(s, x, 2.3, w4, 3.9);
     icon(s, ic, x + 0.35, 2.65, 0.8);
-    t(s, h, { x: x + 0.35, y: 3.7, w: w4 - 0.6, h: 0.55, fontSize: 21, bold: true, fontFace: "Cambria" });
+    t(s, h, { x: x + 0.35, y: 3.7, w: w4 - 0.6, h: 0.55, fontSize: 21, bold: true, fontFace: "Helvetica" });
     t(s, what, { x: x + 0.35, y: 4.3, w: w4 - 0.6, h: 0.8, fontSize: 17, color: C.text2 });
     t(s, "Why: " + why, { x: x + 0.35, y: 5.15, w: w4 - 0.6, h: 0.9, fontSize: 15, italic: true, color: C.accent1 });
   });
 
-  s = content(3, "How it works: the client spends about 2½ hours a week",
+  s = content(3, "How it works: 2½ hours a week from the client",
     "This answers the most common worry: 'I don't have time.'");
   const steps = [["FaMicrophone", "Client", "Sends one short note a week"], ["FaPenNib", "Extol", "Turns it into posts and messages"],
     ["FaCheckCircle", "Client", "Approves on their phone"], ["FaPaperPlane", "Extol", "Publishes and reports results"]];
@@ -251,7 +251,7 @@ function footnote(s, text) {
   t(s, "BY MONTH 6", { x: 9.0, y: 2.6, w: 3.3, h: 0.35, fontSize: 13, bold: true, charSpacing: 2, color: C.accent3 });
   [["100", "leads a month"], ["10", "real sales calls"], ["2–3", "new clients"]].forEach(([n, l], i) => {
     const y = 3.05 + i * 1.0;
-    t(s, n, { x: 9.0, y, w: 1.5, h: 0.8, fontSize: 36, bold: true, fontFace: "Cambria", color: C.accent4, valign: "middle" });
+    t(s, n, { x: 9.0, y, w: 1.5, h: 0.8, fontSize: 36, bold: true, fontFace: "Helvetica", color: C.accent4, valign: "middle" });
     t(s, l, { x: 10.5, y, w: 2.0, h: 0.8, fontSize: 17, color: C.background2, valign: "middle" });
   });
   footnote(s, "Forecast, not yet proven. Big contracts take 6–12 months to close.");
@@ -263,7 +263,7 @@ function footnote(s, text) {
     const x = 0.7 + i * 4.08, last = i === 2;
     box(s, x, 2.3, 3.75, 2.6, last ? C.text2 : C.background2);
     t(s, when.toUpperCase(), { x: x + 0.4, y: 2.6, w: 3.0, h: 0.35, fontSize: 13, bold: true, charSpacing: 2, color: last ? C.accent3 : C.accent2 });
-    t(s, n, { x: x + 0.4, y: 3.0, w: 3.0, h: 0.9, fontSize: 44, bold: true, fontFace: "Cambria", color: last ? C.background2 : C.accent1 });
+    t(s, n, { x: x + 0.4, y: 3.0, w: 3.0, h: 0.9, fontSize: 44, bold: true, fontFace: "Helvetica", color: last ? C.background2 : C.accent1 });
     t(s, what, { x: x + 0.4, y: 4.0, w: 3.0, h: 0.5, fontSize: 17, color: last ? C.accent4 : C.text2 });
   });
   icon(s, "FaCheckCircle", 0.7, 5.35, 0.6);
@@ -280,7 +280,7 @@ function footnote(s, text) {
   t(s, "RETURN ON THE FEE", { x: 9.0, y: 2.6, w: 3.3, h: 0.35, fontSize: 13, bold: true, charSpacing: 2, color: C.accent3 });
   [["0.9×", "small piece"], ["2.8×", "mid-size win"], ["9.5×", "two wins"]].forEach(([n, l], i) => {
     const y = 3.05 + i * 1.0;
-    t(s, n, { x: 9.0, y, w: 1.6, h: 0.8, fontSize: 36, bold: true, fontFace: "Cambria", color: C.accent4, valign: "middle" });
+    t(s, n, { x: 9.0, y, w: 1.6, h: 0.8, fontSize: 36, bold: true, fontFace: "Helvetica", color: C.accent4, valign: "middle" });
     t(s, l, { x: 10.6, y, w: 1.9, h: 0.8, fontSize: 17, color: C.background2, valign: "middle" });
   });
   footnote(s, "Illustrative figures, not results. Year-one fee: £26,400.");
@@ -298,14 +298,14 @@ function footnote(s, text) {
 
   s = content(4, "Where your experience matters most",
     "Being honest about our gaps gets better advice.");
-  const gaps = [["Proof", "We don’t yet have a case study with hard numbers.", "What proof would your network trust?"],
+  const gaps = [["Proof", "No case study with hard numbers yet.", "What proof would your network trust?"],
     ["Focus", "We work in three very different markets.", "Which one should we own?"],
     ["Pricing", "Our price is tested with only one client.", "Is it right for the value?"],
     ["Growth", "Two founders do sales and delivery.", "When should we hire, and who?"]];
   gaps.forEach(([h, now, q], i) => {
     const x = 0.7 + (i % 2) * 6.1, y = 2.25 + Math.floor(i / 2) * 2.1;
     box(s, x, y, 5.8, 1.85);
-    t(s, h, { x: x + 0.35, y: y + 0.25, w: 5.1, h: 0.45, fontSize: 21, bold: true, fontFace: "Cambria" });
+    t(s, h, { x: x + 0.35, y: y + 0.25, w: 5.1, h: 0.45, fontSize: 21, bold: true, fontFace: "Helvetica" });
     t(s, now, { x: x + 0.35, y: y + 0.75, w: 5.1, h: 0.45, fontSize: 17, color: C.text2 });
     t(s, q, { x: x + 0.35, y: y + 1.2, w: 5.1, h: 0.45, fontSize: 17, italic: true, color: C.accent1 });
   });
@@ -321,7 +321,7 @@ function footnote(s, text) {
     box(s, x, 2.3, w3, 3.3, rec ? C.text2 : C.background2);
     icon(s, ic, x + 0.4, 2.65, 0.8, rec ? C.accent2 : C.accent1);
     if (rec) t(s, "OUR SUGGESTION TO START", { x: x + 1.4, y: 2.85, w: w3 - 1.6, h: 0.4, fontSize: 12, bold: true, charSpacing: 1, color: C.accent3, valign: "middle" });
-    t(s, h, { x: x + 0.4, y: 3.75, w: w3 - 0.8, h: 0.55, fontSize: 21, bold: true, fontFace: "Cambria", color: rec ? C.background2 : C.text1 });
+    t(s, h, { x: x + 0.4, y: 3.75, w: w3 - 0.8, h: 0.55, fontSize: 21, bold: true, fontFace: "Helvetica", color: rec ? C.background2 : C.text1 });
     t(s, d, { x: x + 0.4, y: 4.35, w: w3 - 0.8, h: 1.1, fontSize: 17, color: rec ? C.accent4 : C.text2 });
   });
   footnote(s, "Start with A for 90 days, then review together and move to B or C if it works for both sides.");
@@ -335,7 +335,7 @@ function footnote(s, text) {
     const x = 0.7 + i * 3.1;
     s.addShape(pres.shapes.OVAL, { x: x + 0.1, y: 2.5, w: 0.5, h: 0.5, fill: { color: C.accent1 }, line: { color: C.background1, width: 2 }, objectName: id("dot") });
     t(s, when.toUpperCase(), { x, y: 3.25, w: 2.8, h: 0.4, fontSize: 14, bold: true, charSpacing: 2, color: C.accent2 });
-    t(s, what, { x, y: 3.7, w: 2.8, h: 1.3, fontSize: 20, bold: true, fontFace: "Cambria" });
+    t(s, what, { x, y: 3.7, w: 2.8, h: 1.3, fontSize: 20, bold: true, fontFace: "Helvetica" });
   });
   box(s, 0.7, 5.35, 11.9, 0.9, C.text2);
   t(s, "Today: which market do you know best? Who comes to mind first?",
@@ -351,5 +351,14 @@ function footnote(s, text) {
 
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);
+  // Helvetica only: pptxgenjs hard-codes Arial in a few chart labels and the bullet glyph font.
+  const JSZip = require("jszip");
+  const fs = require("fs");
+  const zip = await JSZip.loadAsync(fs.readFileSync(OUT));
+  for (const name of Object.keys(zip.files).filter((n) => /^ppt\/(charts\/chart\d+|slideMasters\/slideMaster\d+|slideLayouts\/slideLayout\d+)\.xml$/.test(n))) {
+    const xml = await zip.file(name).async("string");
+    zip.file(name, xml.replace(/typeface="Arial"/g, 'typeface="Helvetica"'));
+  }
+  fs.writeFileSync(OUT, await zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE" }));
   console.log("wrote", OUT);
 })();
