@@ -107,6 +107,14 @@ function cards(s, items, y = 2.4, h = 3.3) {
     t(s, body, { x: x + 0.4, y: y + 2.15, w: w - 0.8, h: h - 2.4, fontSize: 17, color: dark ? C.accent4 : C.text2 });
   });
 }
+
+// Shared chart styling so every chart reads the same.
+function chartOpts(o) {
+  return Object.assign({ showValue: true, dataLabelColor: HEX.forest, dataLabelFontSize: 16, dataLabelFontFace: "+mn-lt",
+    catAxisLabelColor: HEX.forest, catAxisLabelFontSize: 15, catAxisLabelFontFace: "+mn-lt", valAxisHidden: true,
+    valGridLine: { style: "none" }, catGridLine: { style: "none" }, showLegend: false, chartColors: [HEX.green],
+    showTitle: true, titleColor: HEX.grey, titleFontSize: 14, titleFontFace: "+mn-lt" }, o);
+}
 function footnote(s, text) {
   t(s, text, { x: 0.7, y: 6.45, w: 11.9, h: 0.35, fontSize: 13, italic: true, color: C.accent5 });
 }
@@ -157,6 +165,18 @@ function footnote(s, text) {
     ["FaRobot", "Too much noise", "Buyers ignore generic, AI-written messages."],
   ], 2.4, 3.3);
   footnote(s, "Real example: a former Big Four partner had 1,597 LinkedIn followers and 9 reactions per post. Expert, but invisible.");
+
+  s = content(1, "The audit shows it: real stories get 6× more attention",
+    "From our October LinkedIn audit of a consultancy client (name kept private). Same person, same audience: posts with named people in them got 69 reactions on average; framework posts got 11.");
+  s.addChart(pres.charts.BAR, [{ name: "Average reactions", labels: ["Posts with real people", "Framework posts"], values: [69, 11] }], chartOpts({
+    x: 0.7, y: 2.2, w: 6.2, h: 4.0, barDir: "col", dataLabelPosition: "outEnd", barGapWidthPct: 60,
+    title: "Average reactions per post", objectName: "stories-chart" }));
+  s.addChart(pres.charts.DOUGHNUT, [{ name: "Comments", labels: ["Just “congrats”", "Made a real point"], values: [76, 24] }], {
+    x: 7.3, y: 2.2, w: 5.3, h: 4.0, holeSize: 60, chartColors: [HEX.pistachio, HEX.moss], showPercent: true, showValue: false,
+    dataLabelColor: HEX.forest, dataLabelFontSize: 15, dataLabelFontFace: "+mn-lt", showLegend: true, legendPos: "b",
+    legendFontSize: 14, legendFontFace: "+mn-lt", legendColor: HEX.forest, showTitle: true, title: "What their comments said",
+    titleColor: HEX.grey, titleFontSize: 14, titleFontFace: "+mn-lt", objectName: "comments-chart" });
+  footnote(s, "The expertise is there. It just isn’t reaching buyers in a way they notice.");
 
   // ===== 2 · WHAT WE'VE DONE =====
   section(2, "The clients we’ve worked with so far.");
@@ -214,11 +234,19 @@ function footnote(s, text) {
   s = content(3, "What we expect it to produce each month",
     "These are planning estimates from our consultancy client's plan, not proven results yet.");
   s.addChart(pres.charts.BAR, [{ name: "Per month", labels: ["Connection requests", "Accepted", "Replied", "Calls booked"], values: [400, 150, 27, 8] }], {
-    x: 0.7, y: 2.2, w: 7.6, h: 4.1, barDir: "bar", chartColors: [HEX.green], catAxisOrientation: "maxMin",
+    x: 0.7, y: 2.2, w: 11.9, h: 4.1, barDir: "bar", chartColors: [HEX.green], catAxisOrientation: "maxMin",
     showValue: true, dataLabelPosition: "outEnd", dataLabelColor: HEX.forest, dataLabelFontSize: 16, dataLabelFontFace: "+mn-lt",
     catAxisLabelColor: HEX.forest, catAxisLabelFontSize: 16, catAxisLabelFontFace: "+mn-lt", valAxisHidden: true,
     valGridLine: { style: "none" }, catGridLine: { style: "none" }, showLegend: false, barGapWidthPct: 45, objectName: "funnel-chart",
+    showTitle: true, title: "Outreach in one month, at full pace (estimate)", titleColor: HEX.grey, titleFontSize: 14, titleFontFace: "+mn-lt",
   });
+  footnote(s, "Planning estimates at full pace (20 requests a day), not yet proven results.");
+
+  s = content(3, "Leads should build up month by month",
+    "Forecast mid-points from our consultancy client's plan. A qualified lead is a buyer who replies, books or signs up. Likes don't count.");
+  s.addChart(pres.charts.BAR, [{ name: "Qualified leads", labels: ["Month 1", "Month 3", "Month 6", "Month 12"], values: [13, 71, 101, 126] }], chartOpts({
+    x: 0.7, y: 2.2, w: 7.6, h: 4.1, barDir: "col", dataLabelPosition: "outEnd", barGapWidthPct: 50,
+    title: "Qualified leads per month (forecast)", objectName: "leads-chart" }));
   box(s, 8.7, 2.3, 3.9, 3.9, C.text2);
   t(s, "BY MONTH 6", { x: 9.0, y: 2.6, w: 3.3, h: 0.35, fontSize: 13, bold: true, charSpacing: 2, color: C.accent3 });
   [["100", "leads a month"], ["10", "real sales calls"], ["2–3", "new clients"]].forEach(([n, l], i) => {
@@ -226,7 +254,7 @@ function footnote(s, text) {
     t(s, n, { x: 9.0, y, w: 1.5, h: 0.8, fontSize: 36, bold: true, fontFace: "Cambria", color: C.accent4, valign: "middle" });
     t(s, l, { x: 10.5, y, w: 2.0, h: 0.8, fontSize: 17, color: C.background2, valign: "middle" });
   });
-  footnote(s, "Planning estimates, not yet proven results. Big contracts take 6–12 months to close.");
+  footnote(s, "Forecast, not yet proven. Big contracts take 6–12 months to close.");
 
   s = content(3, "What it costs: one monthly fee, every tool included",
     "Founding-client price. Prices exclude VAT.");
@@ -241,6 +269,21 @@ function footnote(s, text) {
   icon(s, "FaCheckCircle", 0.7, 5.35, 0.6);
   t(s, "Our promise: at day 60 we review the results together. If we’re behind plan, we fix it in writing, or the client can leave.",
     { x: 1.5, y: 5.3, w: 11.1, h: 0.75, fontSize: 18, valign: "middle", color: C.text2 });
+
+  s = content(3, "One client win can pay for the whole year",
+    "Illustrative, from the consultancy plan. Return is on profit at a 50% margin. Most cash from big contracts lands in year two.");
+  s.addChart(pres.charts.BAR, [{ name: "Value", labels: ["Year-one fee", "One small advisory piece", "One mid-size engagement", "Two engagements"], values: [26400, 50000, 150000, 500000] }], chartOpts({
+    x: 0.7, y: 2.2, w: 7.6, h: 4.1, barDir: "bar", catAxisOrientation: "maxMin", dataLabelPosition: "outEnd", dataLabelFormatCode: "£#,##0",
+    barGapWidthPct: 45, chartColors: [HEX.sage, HEX.green, HEX.green, HEX.green], invertedColors: [HEX.sage],
+    title: "Year-one fee vs. value of a client win (£)", objectName: "payback-chart" }));
+  box(s, 8.7, 2.3, 3.9, 3.9, C.text2);
+  t(s, "RETURN ON THE FEE", { x: 9.0, y: 2.6, w: 3.3, h: 0.35, fontSize: 13, bold: true, charSpacing: 2, color: C.accent3 });
+  [["0.9×", "small piece"], ["2.8×", "mid-size win"], ["9.5×", "two wins"]].forEach(([n, l], i) => {
+    const y = 3.05 + i * 1.0;
+    t(s, n, { x: 9.0, y, w: 1.6, h: 0.8, fontSize: 36, bold: true, fontFace: "Cambria", color: C.accent4, valign: "middle" });
+    t(s, l, { x: 10.6, y, w: 1.9, h: 0.8, fontSize: 17, color: C.background2, valign: "middle" });
+  });
+  footnote(s, "Illustrative figures, not results. Year-one fee: £26,400.");
 
   // ===== 4 · YOUR ROLE =====
   section(4, "How you can help, and how we’d work together.");
