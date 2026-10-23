@@ -167,11 +167,16 @@ function hub(s, cx, cy, centre, sats, rx = 3.0, ry = 1.75, bw = 2.5) {
     ["03", "Too much noise", "Buyers ignore generic, AI-written posts and messages."]], 3.0, 2.6);
   mono(s, "Real example: a former Big Four partner had 1,597 LinkedIn followers and 9 reactions per post.", { x: X, y: 6.3, w: W, h: 0.3, color: C.accent2 });
 
-  chartSlide("Who we are", "The audit shows it: real stories get 6× more attention",
+  s = chartSlide("Who we are", "The audit shows it: real stories get 6× more attention",
     "Posts with named people got 69 reactions on average. Framework posts got 11.\n\n76% of their comments were just “congrats”.\n\nThe expertise is there. It isn’t reaching buyers.",
     "Average reactions per post", "Source: Extol LinkedIn audit, October 2026 (client name kept private)",
     { type: pres.charts.BAR, data: [{ name: "Reactions", labels: ["Posts with real people", "Framework posts"], values: [69, 11] }],
-      opts: { barDir: "col", dataLabelPosition: "outEnd", barGapWidthPct: 90, objectName: "stories-chart" } });
+      opts: { w: 4.5, barDir: "col", dataLabelPosition: "outEnd", barGapWidthPct: 70, objectName: "stories-chart" } });
+  mono(s, "What their comments said", { x: 9.75, y: 2.9, w: 2.95, h: 0.3 });
+  s.addChart(pres.charts.DOUGHNUT, [{ name: "Comments", labels: ["Just “congrats”", "Made a real point"], values: [76, 24] }], {
+    x: 9.6, y: 3.25, w: 3.1, h: 3.35, holeSize: 62, chartColors: ["000000", "BDBDBD"], showPercent: true, showValue: false,
+    dataLabelColor: "FFFFFF", dataLabelFontSize: 13, dataLabelFontFace: "+mn-lt", showLegend: true, legendPos: "b",
+    legendFontSize: 11, legendFontFace: "+mn-lt", legendColor: "000000", objectName: "comments-chart" });
 
   // ===== What we've done =====
   section("What\nwe’ve done");
@@ -258,6 +263,13 @@ function hub(s, cx, cy, centre, sats, rx = 3.0, ry = 1.75, bw = 2.5) {
     ["04 · Extol", "Publishes and reports", "Everywhere, at a human pace, with results tracked."]], 3.0, 2.8);
   mono(s, "Nothing is ever published without the client’s yes.", { x: X, y: 6.3, w: W, h: 0.3, color: C.accent2 });
 
+  chartSlide("What we offer", "Where the client’s 2½ hours a week go",
+    "Writing is gone from the client’s week. What’s left is thinking, deciding and one conversation with us.\n\nRaw note: 30 minutes.\nApprovals: about 10 minutes a day.\nWeekly call: 1 hour.",
+    "Client time per week (minutes)", "From the consultancy plan: raw note 30 min, approvals about 10 min a day, weekly call 1 hour",
+    { type: pres.charts.DOUGHNUT, data: [{ name: "Minutes", labels: ["Weekly call", "Approvals", "Raw note"], values: [60, 50, 30] }],
+      opts: { holeSize: 60, chartColors: ["000000", "6B6B6B", "BDBDBD"], showValue: true, dataLabelColor: "FFFFFF", showLegend: true, legendPos: "r",
+        legendFontSize: 14, legendFontFace: "+mn-lt", legendColor: "000000", objectName: "time-chart" } });
+
   chartSlide("What we offer", "What we expect outreach to produce each month",
     "At full pace: 20 connection requests a day.\n\n37% accepted.\n18% of those reply.\n30% of replies book a call.",
     "Outreach in one month (estimate)", "Planning estimates from our consultancy client’s plan, not yet proven results",
@@ -280,6 +292,13 @@ function hub(s, cx, cy, centre, sats, rx = 3.0, ry = 1.75, bw = 2.5) {
   });
   rule(s, X, 5.75, W);
   t(s, "Our promise: at day 60 we review the results together. If we’re behind plan, we fix it in writing, or the client can leave.", { x: X, y: 5.95, w: W, h: 0.7, fontSize: 16 });
+
+  chartSlide("What we offer", "How the year-one fee adds up",
+    "Months 1–3 cost £3,900 at the founding price, instead of £7,500 at the standard fee.\n\nFrom month 4 the fee is £2,500 a month, with every tool included.\n\nYear one in total: £26,400.",
+    "Cumulative fee by month (£ thousand)", "Founding-client price. Prices exclude VAT",
+    { type: pres.charts.BAR, data: [{ name: "Cumulative fee", labels: ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12"],
+        values: [1.5, 2.7, 3.9, 6.4, 8.9, 11.4, 13.9, 16.4, 18.9, 21.4, 23.9, 26.4] }],
+      opts: { barDir: "col", dataLabelPosition: "outEnd", dataLabelFormatCode: "0.0", dataLabelFontSize: 11, barGapWidthPct: 45, objectName: "fee-chart" } });
 
   chartSlide("What we offer", "One client win can pay for the whole year",
     "Year-one fee: £26,400.\n\nReturn on the fee, on profit at a 50% margin:\n0.9× one small piece\n2.8× one mid-size engagement\n9.5× two engagements",
