@@ -1,4 +1,4 @@
-// Builds the 10-page Extol briefing document for David Samuel (A4, Word).
+// Builds the 9-page Extol briefing document for David Samuel (A4, Word).
 // Usage: node build-doc.js <out.docx>   (needs `docx` and `sharp` on NODE_PATH)
 const fs = require("fs");
 const sharp = require("sharp");
@@ -251,12 +251,6 @@ async function build(out) {
     ch.time,
     gap(300),
     big("Nothing goes out without the client’s yes."),
-
-    // 10 · Next
-    ...open("09 · What comes next", "Where David fits", "Three ways to help us grow."),
-    tiles([{ k: "Advise", t: "Sharpen our offer and pitch" }, { k: "Guide", t: "Pick the one market to own" }, { k: "Connect", t: "Introduce us to the right people" }]),
-    gap(600),
-    big("You know the people. We build the system."),
   ];
 
   const doc = new Document({
@@ -268,7 +262,7 @@ async function build(out) {
       properties: { page: { size: { width: 11906, height: 16838 }, margin: { top: 1134, bottom: 1134, left: 1134, right: 1134, footer: 560 } } },
       footers: { default: new Footer({ children: [new Paragraph({ tabStops: [{ type: TabStopType.RIGHT, position: CW }], children: [
         new TextRun({ text: "EXTOL AFFILIATES  ·  GROWTH SYSTEMS FOR B2B COMPANIES", font: MONO, size: 14, color: C.moss }),
-        new TextRun({ children: ["\t", PageNumber.CURRENT, " / 10"], font: MONO, size: 14, color: C.moss }),
+        new TextRun({ children: ["\t", PageNumber.CURRENT, " / 9"], font: MONO, size: 14, color: C.moss }),
       ] })] }) },
       children,
     }],
