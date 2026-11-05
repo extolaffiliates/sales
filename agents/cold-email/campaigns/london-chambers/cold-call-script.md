@@ -18,9 +18,9 @@ Call list: [London Chambers of Commerces](https://docs.google.com/spreadsheets/d
 | Chamber(s) we have actually joined | [e.g. Merton] | Only say "we've just joined" for these. Every other chamber uses **Opener B**. |
 | Members' price | £[price] for one automation, built and running | Our suggestion is in Section 11. Don't say "normally £X" unless we have really charged £X before (CMA pricing rules). |
 | Running cost after build | £[0 / £Y a month] | Know this before you call. "How much?" always comes. |
-| Book-by date | **Friday 18 December 2026** | Last full working week before Christmas (25 Dec is a Friday). |
-| Build window | December, and the first week of January for anyone who books by 18 Dec | |
-| Slots | [N] at this price | Say "limited" only if there really is a limit. |
+| Members' price runs until | **Sunday 31 January 2027** (builds agreed by then) | One rule everywhere. Owners compare notes within a chamber. |
+| December build slots | [N], first come, first served | Real capacity is the only scarcity we use. Last calls go out **Friday 18 December** (25 Dec is a Friday). |
+| Build time | Live within [n] days | Know the real number. "Before Christmas" is too late for hospitality. |
 | Testimonial in return | Yes: a short review and permission to describe the result | This is how we fill `libraries/proof-bank.md`. |
 
 **Pick the opener by lead type.**
@@ -155,7 +155,7 @@ No arguing. No pressure. If they still say no, go straight to Section 8 and ask 
 
 ## 5. The members' offer: clear and finite
 
-"Here's what we're doing for chamber members before New Year. We pick **one** job in your business, [the thing they said in Section 3], and build the automation for it, **for £[price], up and running before Christmas or in the first week of January.**
+"Here's what we're doing for chamber members before New Year. We pick **one** job in your business, [the thing they said in Section 3], and build the automation for it, **for £[price], up and running within [n] days.**
 
 - built around how you already work, with your tone and your answers
 - you see it working before it goes live
@@ -185,7 +185,7 @@ Then:
 
 "It's 15 minutes, and there are only two ways it goes:
 
-1. You spot one thing worth automating, and it's running before January at the members' price.
+1. You spot one thing worth automating, and it's running within [n] days at the members' price.
 2. You don't, and you've met another member who'll send work your way where I can.
 
 Either way, the coffee's on me."
@@ -198,14 +198,14 @@ Either way, the coffee's on me."
 |---|---|---|
 | "Is this a sales call?" | I don't trust you yet. | "Fair question. Partly, yes: there's one offer I'll mention. But mainly I'm getting to know members. If it's not for you, no problem at all." |
 | "We don't need AI." / "Not for us." | AI sounds expensive, risky or irrelevant. | "Totally fair. Forget the word AI. Is there one job that eats an hour a day? That's all we'd look at." |
-| "It's Christmas, we're flat out." | I don't have time to think about this. | "Completely understand, and that's why we do the work, not you. Shall we book the 15 minutes for the first week of January? If you book before 18 December, I'll keep the members' price for you." |
+| "It's Christmas, we're flat out." | I don't have time to think about this. | "Completely understand, and that's why we do the work, not you. Shall we book the 15 minutes for the first week of January? The members' price still stands then." |
 | "Just send me an email." | Get off the phone politely. | "Happy to. So it's not a generic one: was it the [Option A / B] one that sounded most useful? I'll send just that." Get their email, then: "And shall I pencil in 15 minutes so it doesn't get lost?" |
 | "How much is it?" | Is this going to cost a fortune? | "£[price] for one automation, built and running. The software behind it is usually £[Y] a month, and I'll tell you the exact number before you agree to anything." |
 | "We tried a chatbot. It was rubbish." | I've been burned before. | "That's really common. Most are generic. We build it around your questions and your tone, and you test it before any customer sees it." |
 | "What about our data / GDPR?" | I don't want to get into trouble. | "Good question. It runs inside your own accounts, and we'll sign a data processing agreement. We don't put sensitive data into AI tools without that in place." *(Confirm our DPA and tools before saying this.)* |
 | "We've got an IT person / agency." | We're covered. | "Great, we're happy to work with them. This is the day-to-day workflow side, not the IT itself." |
 | "I'm not the right person." | Wrong contact. | "Who would be? Would you mind if I said you suggested I call?" |
-| "Call me in the new year." | Not a priority yet. | "Of course. Shall I pencil in [Tuesday 5 January]? If we fix a time now, I'll hold the members' price." Log the date in the sheet. |
+| "Call me in the new year." | Not a priority yet. | "Of course. OK if I ring you on [Tuesday 5 January]? The members' price runs to the end of January." Log the date in the sheet. |
 | "Are you even a member?" (Opener B) | Are you being straight with me? | "Not of [their chamber] yet. We've just joined [our chamber], and I'm getting to know people across London first." |
 | "How do I know you're any good?" | Where's your proof? | "Honest answer: we're new to the chamber, so I'm not going to quote clients you can't check. That's why the price is low and you see it working before it goes live." |
 
@@ -257,41 +257,9 @@ Thanks,
 [Your name]
 Extol Affiliates · [phone]
 
-### "Just send me an email"
+### "Just send me an email" and "Not now" emails
 
-> Scored by the cold-email-critic agent before release (see the scorecard at the end of this file).
-
-**Subject:** {first_name}
-
-Hi {first_name},
-
-Thanks for the chat just now. As promised, one idea, not a brochure.
-
-You said {their words}. We'd set up {automation}, built around how {company} already works.
-
-For {chamber} members we're building one automation for £{price}, live before Christmas. It's low because we're new to the chamber and want local businesses who can vouch for us.
-
-Worth a 15-minute coffee so I can show you how it'd look?
-
-{sender_name}
-Extol Affiliates · {phone}
-
-### Not now, keep the door open
-
-**Subject:** after christmas
-
-Hi {first_name},
-
-Good to speak earlier, and no rush at all.
-
-When January is quieter, the one job I'd look at first for {company} is {automation}.
-
-I'll ring you on {callback_date}. If you book a time before 18 December, I'll keep the chamber members' price of £{price} for you.
-
-And if I meet anyone who needs {what they do}, I'll send them your way.
-
-{sender_name}
-Extol Affiliates · {phone}
+*Being re-scored by the independent critic (your repo rule: 85/100 or above before release). Added here once they pass.*
 
 ---
 
@@ -345,7 +313,7 @@ Hospitality and retail are slammed in December, so book them for January. Accoun
 
 - **Chamber goodwill.** One pushy call gets talked about. That's why the script asks about them first and always offers a referral.
 - **Delivery.** Don't book more builds than we can finish by early January. A late Christmas offer hurts more than no offer.
-- **Price anchoring.** Present the price as a chamber members' price until 18 Dec, not "cheap". That keeps the normal price credible in 2027.
+- **Price anchoring.** Present the price as a chamber members' price until 31 January, not "cheap". That keeps the normal price credible later in 2027.
 
 ---
 
