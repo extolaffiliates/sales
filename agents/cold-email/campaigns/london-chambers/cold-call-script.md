@@ -50,11 +50,13 @@ Call list: [London Chambers of Commerces](https://docs.google.com/spreadsheets/d
 
 ### Opener A: fellow member (a chamber we've joined)
 
-"Hi [First name], it's [Your name] from Extol Affiliates. We've just joined [Chamber], and rather than wait to bump into everyone at the next event, I'm ringing round members to get to know who's who. Do you have a quick minute?"
+🗣️ "Hi [First name], it's [Your name] from Extol Affiliates. We've just joined [Chamber name], and I'm calling a few fellow members to introduce ourselves.
+
+Have you got a quick two minutes?"
 
 **Yes** → continue
 
-**No** → "No problem at all. Your listing says you're open [business hours]. Is there a quieter time I could try you?"
+**No** → "No problem at all. When would suit you better?"
 
 "Just to let you know, this call is recorded for quality." *(only if recorded)*
 
