@@ -259,9 +259,35 @@ Thanks,
 [Your name]
 Extol Affiliates · [phone]
 
-### "Just send me an email" and "Not now" emails
+### Rules for filling the follow-up emails
 
-*Being re-scored by the independent critic (your repo rule: 85/100 or above before release). Added here once they pass.*
+- **{their_words}** is what they actually said on the call, word for word, in second person ("Christmas party enquiries pile up in your Instagram DMs"). If you only wrote a paraphrase, don't use "You said". It becomes fake familiarity.
+- **{running_cost}** is the true terms: "one-off, no monthly fee" or "plus about £Y a month for the software". Never leave it out.
+- **Deposits:** only say "and take the deposit" if we really build payments into that price and build time.
+- Run `python3 agents/cold-email/lint_email.py <file>` on the filled email before sending. It must show 0 errors.
+
+### "Just send me an email"
+
+*Independent critic score: 86/100, SHIP.*
+
+**Subject:** {pain_short} *(their words, 2–3 words, lowercase, e.g. "christmas DMs")*
+
+Hi {first_name},
+
+Thanks for the chat. You said {their_words}.
+
+An auto-reply could answer those with {what_it_answers}[, and take the deposit]. For {chamber} members it's £{price}, {running_cost}, live within {n} days. That's the members' price while we're new to the chamber.
+
+Want me to mock up the reply it'd send a customer?
+
+If it's not for you, just say and I'll leave it.
+
+{sender_name}
+Extol Affiliates · {phone}
+
+### Not now, maybe in the new year
+
+*Being re-scored by the independent critic. Added here once it reaches 85/100.*
 
 ---
 
