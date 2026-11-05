@@ -287,7 +287,26 @@ Extol Affiliates · {phone}
 
 ### Not now, maybe in the new year
 
-*Being re-scored by the independent critic. Added here once it reaches 85/100.*
+*Independent critic score: 85/100, SHIP. Send only to limited companies, or to sole traders who agreed to hear from us. The sending tool must add the UK footer with an opt-out line.*
+
+**Subject:** january, after our call
+
+{first_name}, you mentioned {their_words}.
+
+An auto-reply could answer them on {channel} with {what_it_answers} while you're {busy_moment}. We'd set it up before {january_reason}.
+
+Chamber price is £{price}, {running_cost}, if agreed by 31 January. I'll have a free mock-up ready to show you.
+
+OK if I ring {callback_slot}?
+
+{sender_name}
+Extol Affiliates · {phone}
+
+P.S. If I hear of anyone {referral_need}, I'll send them your way.
+
+*Example fill (restaurant):* "Sarah, you mentioned the booking messages pile up during service. An auto-reply could answer them on Instagram with your menus and free tables while you're on the floor. We'd set it up before Valentine's bookings start. … OK if I ring Tuesday 5 January, before lunch service? … P.S. If I hear of anyone planning a party in Wimbledon, I'll send them your way."
+
+***Coaching note:*** *{january_reason} and {callback_slot} must come from what they said on the call. If they didn't give a reason, cut that sentence. Don't put words in their mouth.*
 
 ---
 
