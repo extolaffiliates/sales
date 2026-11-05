@@ -215,7 +215,11 @@ Either way, the coffee's on me."
 
 ## 7b. Voicemail (20 seconds, no pitch)
 
-"Hi [First name], it's [Your name] from Extol Affiliates. We've just joined [Chamber] and I'm ringing round to get to know members. Nothing urgent. I'll try you again on [day], or you can reach me on [number]. Thanks, bye."
+**Chamber we've joined:** "Hi [First name], it's [Your name] from Extol Affiliates. We've just joined [Chamber] and I'm ringing round to get to know members. Nothing urgent. I'll try you again on [day], or you can reach me on [number]. Thanks, bye."
+
+**Chamber we haven't joined (Opener B leads):** "Hi [First name], it's [Your name] from Extol Affiliates. We're new to the London chambers, and I found you on the [Chamber] directory. Nothing urgent. I'll try you again on [day], or you can reach me on [number]. Thanks, bye."
+
+After a voicemail, send the missed-call email (`missed-call-email.md`) only to limited companies, LLPs and PLCs. For sole traders and partnerships, just call again.
 
 ***Coaching note:*** *never pitch on a voicemail. Its only job is to make the second call a warm one. Try each row up to three times, on different days and at different times of day.*
 
