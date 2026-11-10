@@ -19,3 +19,4 @@ Then add a section for it in the root `CLAUDE.md`.
 | Agent | Folder | Entry point |
 |---|---|---|
 | Cold email | `agents/cold-email/` | `cold-email-master` (reviewed by `cold-email-critic`) |
+| Skool | `agents/skool/` | `skool` MCP server (`mcp__skool__*` tools) |

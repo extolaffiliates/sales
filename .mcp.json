@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "skool": {
+      "command": "node",
+      "args": ["agents/skool/tools/skool-mcp/dist/server.mjs"]
+    }
+  }
+}
