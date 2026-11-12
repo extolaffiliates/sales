@@ -16,6 +16,9 @@ The root `.mcp.json` starts `tools/skool-mcp/dist/server.mjs` (a single bundled 
 
 Variables are read when a session starts, so start a new session after changing them. The cookie is a long-lived login: treat it like a password and never commit it.
 
+## Classroom export
+`tools/classroom-export/` downloads a classroom (lesson notes, links, attached files) for internal reference. See its README.
+
 ## Tools
 - Always on (read): `skool_community_info`, `skool_community_labels`, `skool_members_list`, `skool_members_pending`, `skool_posts_list`, `skool_posts_get`, `skool_courses_list`, `skool_lessons_list`, `skool_notifications`, `skool_request` (GET only).
 - Only with `SKOOL_ALLOW_WRITES=1`: `skool_posts_create`, `skool_posts_comment`, `skool_members_approve`, `skool_members_reject`, and non-GET `skool_request`.
