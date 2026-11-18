@@ -145,3 +145,80 @@ Linter "errors" were only the unfilled {{first_name}} and {{company}} merge fiel
 3. Confirm the free offer (what the list contains and that Extol can build it per recipient).
 4. Cut the P.S. lines; add sender name, company, postal address and an opt-out line (UK B2B).
 5. Replace "we build systems" with one concrete outcome in plain English.
+
+## v3 (2026-11-18): email-writer voice + Nick method, real first lines. Not cleared (best 76)
+
+Voice: the email-writer skill's overall tone (short separate lines, warm, UK, 'Very best,'), minus 'Hope all's well.' (critics: wastes the preview). Credibility line from proof-bank B001. First lines verified on the prospects' own sites on 2026-11-18.
+
+| Email | Score | Verdict |
+|---|---|---|
+| Here Now Films (Alexander), email 1 | 72 | One more pass |
+| Toolebox Films (Callum), email 1 | 76 | One more pass |
+| Here Now Films, email 2 | 72 | One more pass |
+| Toolebox Films, email 2 | 64 | Start over |
+
+Blockers to 85: (1) the free list's filter must be one Extol can actually build (critic: brands/agencies that hire outside studios, not brands that publish video); (2) email 2 needs one named, verified example from the real list; (3) footer needs full sender name, data source and privacy link.
+
+### Here Now Films (video)
+```
+Subject: brands needing edits
+
+Hi Alexander,
+
+Congrats on your Big Syn win for A Place of One's Own.
+
+Work like yours brings referrals, though they land in bursts, not when your edit suite goes quiet.
+
+My co-founder and I ran outreach in-house at a London production house, so we know that cycle.
+
+I'd happily put together 20 UK brands that publish video often, each with the person who commissions it. No charge for you.
+
+Worth sending over?
+
+If it's not relevant, reply 'no' and I won't email again.
+
+Very best,
+Dev, Extol Affiliates
+===
+Alexander, every brand on your list posts new video every week or two and has no editor in-house. So the edit goes out to someone.
+
+You'd get the person who signs those off at each.
+
+Want the first five, so you can judge them?
+
+If not, reply 'no' and I won't follow up.
+
+Dev
+```
+
+### Toolebox Films (photo/video)
+```
+Subject: brands booking shoots
+
+Hi Callum,
+
+Saw your Leeds United and adidas Originals work, and that you started Toolebox after sports TV.
+
+Studios like yours often win most work through referrals, which rarely arrive when you need them.
+
+My co-founder and I ran outreach in-house at a London production house, so we know that cycle.
+
+I'd gladly send you 10 UK brands that commission shoots regularly, with the person who books them. No charge.
+
+Worth sending over?
+
+If it's not relevant, reply 'no' and I won't email again.
+
+Very best,
+Dev, Extol Affiliates
+===
+Callum, every brand on your 10 booked a shoot in the last few months. They're spending now.
+
+You'd get the person who books shoots at each.
+
+Shall I send them across?
+
+If not, reply 'no' and I won't email again.
+
+Dev
+```
