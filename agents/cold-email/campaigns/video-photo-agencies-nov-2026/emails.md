@@ -126,3 +126,22 @@ Adds something new: a fresh micro-reason plus a lower-friction free-work offer (
 
 ## A/B plan
 Per niche, 1A vs 1B and 2A vs 2B differ in one variable: the offer (background + question vs free work or pilot). Launch both arms together, 500 to 2,000 sends per arm, read at day 21, adopt at a 20% or greater lift in positive reply rate (knowledge/14). Subject is held per email as written.
+
+## Critic scores (2026-11-18): none cleared to send
+| Email | Score | Verdict | Main reasons |
+|---|---|---|---|
+| 1A video agencies, referrals | 48 | Start over | Background claim ("we both worked in-house at a London media production house") not in proof-bank.md; generic opener; vague "we build systems"; no sender identity or opt-out |
+| 1B video agencies, free list of 20 brands | 50 | One more pass | Offer is sound; opener generic; "we build systems" reads like an AI pitch; cut P.S.; add sender identity and opt-out; define what the list contains |
+| 2A photo/video, quiet months | 46 | Start over | Same background-claim problem; generic opener; value line vague |
+| 2B photo/video, free pilot | 39 | Start over | Background claim; generic opener; pilot terms unconfirmed; subject uses "pilot" |
+| Email 2 for 1B (follow-up) | 58 | Start over | Describes method only, no new angle, no example; offer not yet defined |
+| Email 2 for 2A (follow-up) | 62 | Start over | Generic opener; "such teams" undefined; list contents and deliverability unconfirmed |
+
+Linter "errors" were only the unfilled {{first_name}} and {{company}} merge fields (the drafts were linted with --template; the critic linted without it).
+
+## What it takes to pass 85
+1. Record the founders' media-production background in proof-bank.md (with their confirmation and what "we both" covers), or remove it.
+2. One real, checkable signal per prospect (recent project, client win, hiring or showreel post), found by research before writing.
+3. Confirm the free offer (what the list contains and that Extol can build it per recipient).
+4. Cut the P.S. lines; add sender name, company, postal address and an opt-out line (UK B2B).
+5. Replace "we build systems" with one concrete outcome in plain English.
