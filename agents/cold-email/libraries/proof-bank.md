@@ -24,4 +24,33 @@ Precise beats round: "3.72x" is more believable than "4x" (Eric). Say whether th
 ```
 
 ## Results
-_(none yet: add them here)_
+```yaml
+- id: P001
+  client: "Extol Affiliates' own cold email campaigns"
+  may_name_publicly: true          # Extol's own result, stated by the founder
+  niche: "B2B outbound (Extol)"
+  size: "TBC"
+  region: "TBC"
+  problem_before: "TBC"
+  what_we_built: "Cold email campaigns"
+  result: "57.8% reply rate"       # denominator (sends) and positive share still to be logged
+  timeframe: "TBC"
+  quote: ""
+  evidence: "TBC: add the campaign export (sends, replies, positive replies)"
+  date: "2026-11"
+
+- id: P002
+  client: "Extol Affiliates' lead magnet campaign"
+  may_name_publicly: true
+  niche: "B2B outbound (Extol)"
+  size: "TBC"
+  region: "TBC"
+  problem_before: "TBC"
+  what_we_built: "Lead magnet campaign"
+  result: "16+ qualified calls booked"
+  timeframe: "First 2 months after launch"
+  quote: ""
+  evidence: "TBC: add the calendar/CRM export"
+  date: "2026-11"
+```
+Source: stated by the founder in session, 20 Nov 2026. Fill the TBC fields before using these in cold email copy.
