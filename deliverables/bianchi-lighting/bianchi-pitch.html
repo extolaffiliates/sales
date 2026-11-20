@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: a paged deck. Dark Extol forest slides alternate with pale lime slides; a lamp-glow accent comes from the subject itself. */
+/* Layout: a 10-page deck. Part 1 (pages 1-7) lighting leads, Part 2 (pages 8-9) care-home voice notes, page 10 next steps. Extol forest/lime palette, lamp-glow accent. */
 :root{
   --forest:#101F14; --pine:#1D3524; --green:#2B4A34; --moss:#7E9C6B; --sage:#9EBB80; --pist:#C6DE9F; --cream:#E9F0C9;
   --paper:#F3F6E4; --ink:#101F14; --ink-2:#44594A; --line:#CFDDB4;
@@ -17,66 +17,66 @@
 }
 html,body{height:100%}
 body{background:var(--forest);color:var(--on-dark);font-family:var(--body);font-size:16px;line-height:1.55;overflow:hidden}
-.deck{position:relative;height:100%;}
-.slide{position:absolute;inset:0;overflow-y:auto;display:none;padding-block:clamp(28px,6vh,72px) 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.deck{position:relative;height:100%}
+.slide{position:absolute;inset:0;overflow-y:auto;display:none;padding-block:clamp(24px,5vh,64px) 96px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .slide.on{display:block;animation:in .45s ease both}
 @keyframes in{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.slide.on{animation:none}}
 .dark{background:var(--forest);color:var(--on-dark)}
 .light{background:var(--paper);color:var(--ink)}
-.wrap{box-sizing:border-box;max-width:1160px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:28px;min-height:100%;justify-content:center}
+.wrap{box-sizing:border-box;max-width:1160px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:24px;min-height:100%;justify-content:center}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--moss)}
 .dark .eyebrow{color:var(--sage)}
 h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
 h1{font-size:clamp(40px,6.4vw,84px);line-height:.98;font-weight:800}
-h2{font-size:clamp(28px,3.8vw,48px);line-height:1.05;font-weight:700}
+h2{font-size:clamp(28px,3.6vw,46px);line-height:1.05;font-weight:700}
 h3{font-size:20px;font-weight:700;line-height:1.2}
 p{margin:0;max-width:62ch}
 .lede{font-size:clamp(17px,1.6vw,20px);color:var(--on-dark-2)}
 .light .lede{color:var(--ink-2)}
 .muted{color:var(--ink-2)} .dark .muted{color:var(--on-dark-2)}
 .small{font-size:13px}
-.grid{display:grid;gap:18px}
-.g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
-.split{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center}
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
 .split > *{min-width:0}
-@media (max-width:860px){.g2,.g3,.g4,.split{grid-template-columns:1fr}}
-.panel{border-radius:18px;padding:22px}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.panel{border-radius:18px;padding:22px;box-sizing:border-box}
 .light .panel{background:#fff;border:1px solid var(--line)}
 .dark .panel{background:var(--pine);border:1px solid var(--line-dark)}
-.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;padding:4px 10px;border-radius:999px;font-weight:600;letter-spacing:.04em}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;padding:4px 10px;border-radius:999px;font-weight:600;letter-spacing:.04em;align-self:flex-start;justify-self:start}
 .hot{background:#F6D9C6;color:#7A3410} .warm{background:var(--pist);color:var(--pine)}
-.pass{background:var(--sage);color:var(--forest)} .fail{background:var(--warn);color:var(--forest)}
+.pass{background:var(--sage);color:var(--forest)}
+.part{background:var(--lamp);color:var(--forest)}
 button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
-.light button:focus-visible{outline-color:var(--green)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+.light button:focus-visible,.light input:focus-visible{outline-color:var(--green)}
 
 /* cover */
 #cover{padding:0}
 #cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-#cover .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,31,20,.94) 0%,rgba(16,31,20,.72) 45%,rgba(16,31,20,.05) 100%)}
-#cover .wrap{position:relative;padding-block:clamp(28px,8vh,90px) 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));justify-content:flex-end;min-height:100%}
+#cover .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,31,20,.95) 0%,rgba(16,31,20,.78) 45%,rgba(16,31,20,.1) 100%)}
+#cover .wrap{position:relative;padding-block:clamp(28px,8vh,90px) 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));justify-content:flex-end}
 #cover h1 span{color:var(--lamp)}
+.agenda{display:flex;gap:10px;flex-wrap:wrap}
+.agenda button{border:1px solid var(--line-dark);background:rgba(29,53,36,.85);border-radius:14px;padding:12px 16px;text-align:left;display:flex;flex-direction:column;gap:2px}
+.agenda small{font-family:var(--mono);font-size:11px;color:var(--sage);letter-spacing:.08em}
+.agenda b{font-family:var(--display);font-size:17px}
 .brandrow{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-2)}
 .brandrow b{color:var(--cream);font-weight:600}
 .dotsep{width:4px;height:4px;border-radius:50%;background:var(--moss)}
 
-/* meters */
-.toggle{display:inline-flex;background:#E2EBC9;border-radius:999px;padding:4px;gap:4px}
+/* toggles + meters */
+.toggle{display:inline-flex;background:#E2EBC9;border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
 .dark .toggle{background:var(--pine)}
-.toggle button{border:0;background:transparent;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px}
+.toggle button{border:0;background:transparent;padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px}
 .toggle button[aria-pressed="true"]{background:var(--forest);color:var(--cream)}
 .dark .toggle button[aria-pressed="true"]{background:var(--sage);color:var(--forest)}
 .meter{display:grid;gap:8px;padding-bottom:18px}
 .meter .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.meter .val{font-family:var(--mono);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
+.meter .val{font-family:var(--mono);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums}
 .track{position:relative;height:14px;border-radius:7px;background:#E2EBC9}
 .fill{position:absolute;inset:0 auto 0 0;border-radius:7px;background:var(--green);transition:width .6s cubic-bezier(.2,.8,.2,1)}
 .req{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--warn)}
 .req i{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-style:normal;font-family:var(--mono);font-size:11px;color:#9A4A20;white-space:nowrap}
-.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;font-size:14px}
-.specs div{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:8px}
-.specs b{font-family:var(--mono);font-size:15px;font-weight:600}
 
 /* gap timeline */
 .tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding-top:56px}
@@ -91,19 +91,19 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 
 /* signals */
 .sigs{display:flex;flex-direction:column;gap:8px}
-.sig{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px 16px;transition:background .2s,border-color .2s}
+.sig{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 16px;transition:background .2s,border-color .2s}
 .sig:hover{border-color:var(--moss)}
 .sig[aria-selected="true"]{background:var(--forest);color:var(--cream);border-color:var(--forest)}
 .sig span:first-child{font-weight:600}
-.detail{background:var(--forest);color:var(--cream);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px;min-height:100%}
-.detail .chip{align-self:flex-start}
-.detail .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.detail{background:var(--forest);color:var(--cream);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:16px;min-height:100%;box-sizing:border-box}
+.k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.light .k{color:var(--moss)}
 .detail q{font-family:var(--mono);font-size:14px;color:var(--lamp);quotes:none;display:block;background:var(--pine);padding:12px 14px;border-radius:10px}
 
 /* engine */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
-.step{text-align:left;border:1px solid var(--line-dark);background:var(--pine);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,background .2s}
+.step{text-align:left;border:1px solid var(--line-dark);background:var(--pine);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,background .2s}
 .step:hover{transform:translateY(-2px)}
 .step[aria-pressed="true"]{background:var(--sage);color:var(--forest);border-color:var(--sage)}
 .step .n{font-family:var(--mono);font-size:12px;opacity:.75}
@@ -111,79 +111,107 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .engine-detail{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media (max-width:860px){.engine-detail{grid-template-columns:1fr}}
 .engine-detail ul{margin:0;padding-left:18px;display:grid;gap:6px}
-
-/* lead card */
-.lead{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(16,31,20,.35)}
-.lead .hd{background:var(--forest);color:var(--cream);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.lead .hd b{font-family:var(--display);font-size:20px}
-.lead .rows{display:grid;grid-template-columns:1fr 1fr}
-@media (max-width:600px){.lead .rows{grid-template-columns:1fr}}
-.field{text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:14px 22px;display:flex;flex-direction:column;gap:2px}
-.field:nth-child(odd){border-right:1px solid var(--line)}
-.field small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--moss)}
-.field span{font-weight:600}
-.field[aria-pressed="true"]{background:#EEF4DA}
-.why{background:var(--forest);color:var(--cream);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.why .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
-
-/* options */
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media (max-width:860px){.opts{grid-template-columns:1fr}}
-.opt{text-align:left;border:2px solid var(--line-dark);background:var(--pine);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;transition:border-color .2s,background .2s}
-.opt[aria-pressed="true"]{border-color:var(--sage);background:var(--green)}
-.opt ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--on-dark-2)}
-.opt .tag{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--sage)}
-.badge{position:absolute;top:18px;right:18px;background:var(--lamp);color:var(--forest);font-family:var(--mono);font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.06em}
+.fieldrow{display:flex;flex-wrap:wrap;gap:8px}
+.fieldrow span{font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:8px;background:var(--pine);border:1px solid var(--line-dark);color:var(--cream)}
 
 /* visuals */
-.stage{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:#0A140D;border:1px solid var(--line-dark)}
+.stage{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:#0A140D;border:1px solid var(--line-dark)}
 .stage canvas{width:100%;height:100%;display:block}
 .hud{position:absolute;left:14px;top:14px;display:flex;gap:8px;flex-wrap:wrap}
-.hud .chip{background:rgba(16,31,20,.8);color:var(--cream);backdrop-filter:blur(4px)}
+.hud .chip{background:rgba(16,31,20,.82);color:var(--cream)}
 .ctrl{display:flex;flex-direction:column;gap:10px}
 input[type=range]{width:100%;accent-color:var(--sage)}
-.readout{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
-.readout .big{font-family:var(--mono);font-size:40px;font-weight:600;color:var(--lamp);font-variant-numeric:tabular-nums}
+.light input[type=range]{accent-color:var(--green)}
+.readout{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.readout .big{font-family:var(--mono);font-size:36px;font-weight:600;color:var(--lamp);font-variant-numeric:tabular-nums}
 .vcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:500px){.vcards{grid-template-columns:1fr}}
 .vcard{background:var(--pine);border:1px solid var(--line-dark);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
 .vcard b{font-family:var(--display);font-size:18px}
 
 /* pilot */
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.cchip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px}
+.cchip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-weight:600;font-size:14px}
 .cchip[aria-pressed="true"]{background:var(--forest);color:var(--cream);border-color:var(--forest)}
-.days{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media (max-width:860px){.days{grid-template-columns:1fr 1fr}}
-.day{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.opt2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{text-align:left;border:2px solid var(--line);background:#fff;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.opt b{font-family:var(--display);font-size:18px}
+.opt[aria-pressed="true"]{border-color:var(--forest);background:#EEF4DA}
+.days{display:grid;gap:10px}
+.day{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .day .d{font-family:var(--mono);font-size:13px;color:var(--moss);font-weight:600}
-.day b{font-family:var(--display);font-size:18px}
+.day b{font-family:var(--display);font-size:17px}
 
-/* questions */
-.qs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:860px){.qs{grid-template-columns:1fr}}
-.q{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:start}
-.q input[type=checkbox]{width:20px;height:20px;margin-top:2px;accent-color:var(--green)}
-.q label{font-weight:600}
-.q textarea{grid-column:2;width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:inherit;font-size:14px;resize:vertical;min-height:38px;background:var(--paper);color:var(--ink)}
-.q.done{background:#EEF4DA}
+/* care demo */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:860px){.flow{grid-template-columns:1fr 1fr}}
+.fstep{background:var(--pine);border:1px solid var(--line-dark);border-radius:16px;padding:10px 14px;display:flex;flex-direction:column;gap:4px;position:relative}
+.fstep b{font-family:var(--display);font-size:19px}
+.fstep .n{font-family:var(--mono);font-size:12px;color:var(--sage)}
+.fstep.on{background:var(--sage);color:var(--forest);border-color:var(--sage)}
+.fstep.on .n,.fstep.on .muted{color:var(--forest)}
+.demo{display:grid;grid-template-columns:1fr 1.15fr;gap:16px}
+@media (max-width:860px){.demo{grid-template-columns:1fr}}
+.demo > *{min-width:0}
+.phone{background:var(--pine);border:1px solid var(--line-dark);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.wave{display:flex;gap:4px;align-items:center;height:34px}
+.wave i{display:block;width:5px;border-radius:3px;background:var(--sage);height:6px;transition:height .15s}
+.wave.live i{animation:wv .9s ease-in-out infinite}
+@keyframes wv{0%,100%{height:6px}50%{height:30px}}
+@media (prefers-reduced-motion:reduce){.wave.live i{animation:none;height:18px}}
+.transcript{font-size:15px;line-height:1.55;min-height:96px;color:var(--cream)}
+.report{background:var(--paper);color:var(--ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:2px}
+.report .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.report .hd b{font-family:var(--display);font-size:18px}
+.rrow{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px;opacity:.25;transition:opacity .4s}
+.rrow.show{opacity:1}
+.rrow span:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--moss);padding-top:2px}
+.rrow.flagged{background:#FBEBDD;border-radius:8px;padding-inline:8px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:11px 20px;font-weight:700;background:var(--lamp);color:var(--forest)}
+.btn.ghost{background:transparent;border:1px solid var(--line-dark);color:var(--cream)}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:start}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.calc > *{min-width:0}
+.inp{display:grid;gap:4px}
+.inp .row{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+.inp output{font-family:var(--mono)}
+.chart{width:100%;height:auto;display:block}
+.saved{font-family:var(--mono);font-size:clamp(40px,5vw,60px);font-weight:600;color:var(--green);line-height:1;font-variant-numeric:tabular-nums}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:860px){.benefits{grid-template-columns:1fr}}
+.benefits div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.benefits b{font-family:var(--display);font-size:17px}
 
 /* close */
-.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-@media (max-width:860px){.summary{grid-template-columns:1fr}}
-.summary .panel b{display:block;font-family:var(--display);font-size:22px;color:var(--lamp);margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.two .panel{display:flex;flex-direction:column;gap:10px}
+.two ol{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--on-dark-2)}
+.sum{font-family:var(--display);font-size:20px;color:var(--lamp)}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:860px){.qs{grid-template-columns:1fr}}
+.q{display:flex;gap:10px;align-items:flex-start;background:var(--pine);border:1px solid var(--line-dark);border-radius:12px;padding:10px 12px;font-size:14px}
+.q input{width:18px;height:18px;margin-top:2px;accent-color:var(--sage);flex:none}
+.q.done{background:var(--green)}
 
 /* nav */
-nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(16,31,20,.86);backdrop-filter:blur(8px);border-top:1px solid var(--line-dark)}
-.navbtn{border:1px solid var(--line-dark);background:var(--pine);color:var(--cream);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;font-size:18px}
+nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(16,31,20,.88);backdrop-filter:blur(8px);border-top:1px solid var(--line-dark)}
+.navbtn{border:1px solid var(--line-dark);background:var(--pine);color:var(--cream);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;font-size:18px;flex:none}
 .navbtn:disabled{opacity:.35;cursor:default}
-.pips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:1;min-width:0}
+.pips{display:flex;gap:6px;justify-content:center;align-items:center;flex:1;min-width:0}
 .pip{width:26px;height:6px;border-radius:3px;border:0;background:var(--line-dark);padding:0}
+.pip.p2{background:#4A3E28}
 .pip[aria-current="true"]{background:var(--sage)}
-.count{font-family:var(--mono);font-size:12px;color:var(--on-dark-2);min-width:64px;text-align:right}
+.pip.p2[aria-current="true"]{background:var(--lamp)}
+.gapx{width:10px}
+.count{font-family:var(--mono);font-size:12px;color:var(--on-dark-2);min-width:120px;text-align:right}
 @media (max-width:600px){.pip{width:14px}.count{display:none}}
 </style>
 
-<div class="deck" id="deck">
+<div class="deck">
 
 <!-- 1 cover -->
 <section class="slide dark" id="cover" data-name="cover" aria-label="Cover">
@@ -192,41 +220,37 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
   <div class="wrap">
     <div class="brandrow"><b>Extol Affiliates</b><span class="dotsep"></span><span>For Bianchi Lighting Ltd</span><span class="dotsep"></span><span>November 2026</span></div>
     <h1>More developer projects,<br><span>found earlier.</span></h1>
-    <p class="lede">We watch the planning portal for developers who need a lighting report, then put Bianchi Lighting in front of them before anyone else.</p>
-    <p class="small muted">Use the arrow keys or the buttons below to move through the slides.</p>
+    <p class="lede">We find developers who need a lighting design before they start looking, and put you in front of them first.</p>
+    <div class="agenda">
+      <button type="button" data-go="1"><small>PAGES 1–7</small><b>Lighting leads</b></button>
+      <button type="button" data-go="7"><small>PAGES 8–9</small><b>Care notes by voice</b></button>
+      <button type="button" data-go="9"><small>PAGE 10</small><b>Next steps</b></button>
+    </div>
   </div>
 </section>
 
 <!-- 2 proof -->
-<section class="slide light" data-name="proof" aria-label="Meridian Way proof">
+<section class="slide light" data-name="proof" aria-label="Your work">
   <div class="wrap">
-    <div class="eyebrow">Your work for a housing-led development · Meridian Water, Enfield · BLL-0126-MW-RCALC-12-01</div>
-    <h2>It passes class C3 even with the lights dimmed to 80%.</h2>
+    <div class="eyebrow">Your work · Meridian Water, Enfield · housing-led development</div>
+    <h2>Your design passes the standard, even with the lights dimmed.</h2>
     <div class="split">
-      <div class="panel" style="display:grid;gap:24px">
+      <div class="panel" style="display:grid;gap:22px">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-          <h3>Results vs requirement</h3>
+          <h3>Achieved vs required</h3>
           <div class="toggle" role="group" aria-label="Light output">
-            <button type="button" id="o100" aria-pressed="false">100% output</button>
+            <button type="button" id="o100" aria-pressed="false">Full power</button>
             <button type="button" id="o80" aria-pressed="true">Dimmed to 80%</button>
           </div>
         </div>
-        <div class="meter"><div class="top"><span>Average light (Eav)</span><span class="val" id="mE">16.14 lux</span></div><div class="track"><div class="fill" id="fE"></div><div class="req" style="left:50%"><i>15 lux min</i></div></div></div>
-        <div class="meter"><div class="top"><span>Uniformity (Uo)</span><span class="val" id="mU">0.47</span></div><div class="track"><div class="fill" id="fU"></div><div class="req" style="left:40%"><i>0.40 min</i></div></div></div>
-        <div class="meter"><div class="top"><span>Glare, threshold increment (TI)</span><span class="val" id="mT">6.19%</span></div><div class="track"><div class="fill" id="fT"></div><div class="req" style="left:80%"><i>20% max</i></div></div></div>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="chip pass">Complies with C3</span><span class="small muted" id="mNote">Minimum point 7.57 lux. Spare capacity to step up a class if traffic grows.</span></div>
+        <div class="meter"><div class="top"><span>Brightness (average lux)</span><span class="val" id="mE">16.14</span></div><div class="track"><div class="fill" id="fE"></div><div class="req" style="left:50%"><i>15 needed</i></div></div></div>
+        <div class="meter"><div class="top"><span>Evenness (uniformity)</span><span class="val" id="mU">0.47</span></div><div class="track"><div class="fill" id="fU"></div><div class="req" style="left:40%"><i>0.40 needed</i></div></div></div>
+        <div class="meter"><div class="top"><span>Glare (lower is better)</span><span class="val" id="mT">6.19%</span></div><div class="track"><div class="fill" id="fT"></div><div class="req" style="left:80%"><i>20% limit</i></div></div></div>
+        <span class="chip pass">Passes on all three</span>
       </div>
-      <div style="display:grid;gap:18px">
-        <p class="muted">Roads inside a new development have to be lit to standard before the council will adopt them, so the developer must buy this report. Meridian Way is a bus route through a high-crime area, next to a new station hub. The design was checked against BS 5489-1:2020 and BS EN 13201-2:2015, with constant light output (CLO) applied and tree-canopy spacing taken into account.</p>
-        <div class="specs">
-          <div><span class="muted small">Column spacing</span><b>36 m, opposite</b></div>
-          <div><span class="muted small">Mounting height</span><b>10 m</b></div>
-          <div><span class="muted small">Luminaire</span><b>LumiStreet Gen2 Mini</b></div>
-          <div><span class="muted small">Output</span><b>12.5 klm · 4000K</b></div>
-          <div><span class="muted small">Maintenance factor</span><b>0.84 (72-month cycle)</b></div>
-          <div><span class="muted small">Energy (AECI)</span><b>0.77 kWh/m²</b></div>
-        </div>
-        <p class="small muted">Figures from your Stage 3 report for Meridian Water, prepared with Waterman Group highway drawings, May 2023.</p>
+      <div style="display:grid;gap:16px">
+        <p class="lede">This is exactly what developers have to buy. The council won't sign off a new development's lighting until a report like this proves it meets the standard.</p>
+        <p class="muted">Your Meridian Way report, May 2023: BS 5489-1:2020 and BS EN 13201-2, 36 m column spacing, 10 m columns, 0.77 kWh/m² a year. It still passes when dimmed to 80%, which saves energy and leaves room to turn up later.</p>
       </div>
     </div>
   </div>
@@ -235,25 +259,25 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
 <!-- 3 gap -->
 <section class="slide dark" data-name="gap" aria-label="The gap">
   <div class="wrap">
-    <div class="eyebrow">The gap</div>
-    <h2>The need is public. The work still arrives by referral.</h2>
-    <p class="lede">Every development that needs a lighting report says so in the planning record, often months before the developer starts looking for a designer.</p>
+    <div class="eyebrow">The problem</div>
+    <h2>Developers need you months before they find you.</h2>
+    <p class="lede">The planning portal shows who needs a lighting design. Today you only hear about it when an architect refers you.</p>
     <div class="tl">
-      <div class="st lit"><span class="flag us">We find them here</span><b>Application filed</b><span class="small muted">Lighting, ecology and road layout documents go on the portal</span></div>
-      <div class="st lit"><b>Approved with conditions</b><span class="small muted">"Details of external lighting to be submitted"</span></div>
-      <div class="st"><span class="flag now">You usually hear here</span><b>Architect refers</b><span class="small muted">The developer asks their team who to use</span></div>
-      <div class="st"><b>Condition discharge</b><span class="small muted">The report is due, and time is short</span></div>
-      <div class="st"><b>Adoption and build</b><span class="small muted">S38/S278 sign-off on the roads</span></div>
+      <div class="st lit"><span class="flag us">We find them here</span><b>Plans submitted</b><span class="small muted">Lighting and layout documents go on the portal</span></div>
+      <div class="st lit"><b>Approved with conditions</b><span class="small muted">"Lighting details to be submitted"</span></div>
+      <div class="st"><span class="flag now">You hear here</span><b>Architect refers</b><span class="small muted">If you're lucky</span></div>
+      <div class="st"><b>Deadline</b><span class="small muted">Report due, time is short</span></div>
+      <div class="st"><b>Build</b><span class="small muted">Lighting installed and signed off</span></div>
     </div>
-    <p class="small muted">The first consultant to show the developer a credible answer usually wins the job. Today nobody is watching for that moment on your behalf.</p>
+    <p class="muted">Whoever reaches the developer first usually wins the job.</p>
   </div>
 </section>
 
 <!-- 4 signals -->
-<section class="slide light" data-name="signals" aria-label="Portal signals">
+<section class="slide light" data-name="signals" aria-label="Who needs you">
   <div class="wrap">
-    <div class="eyebrow">What the scraper looks for</div>
-    <h2>Six signals that a project needs your report.</h2>
+    <div class="eyebrow">What we look for · tap one</div>
+    <h2>Six signs a developer needs you right now.</h2>
     <div class="split" style="align-items:stretch">
       <div class="sigs" role="tablist" aria-label="Signals" id="sigList"></div>
       <div class="detail" id="sigDetail" role="tabpanel" aria-live="polite"></div>
@@ -262,338 +286,356 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
 </section>
 
 <!-- 5 engine -->
-<section class="slide dark" data-name="engine" aria-label="How the engine works">
+<section class="slide dark" data-name="engine" aria-label="How it works">
   <div class="wrap">
-    <div class="eyebrow">How it works</div>
-    <h2>From planning portal to booked call, in four steps.</h2>
+    <div class="eyebrow">How it works · tap a step</div>
+    <h2>Planning portal in. Booked calls out.</h2>
     <div class="steps" id="steps"></div>
     <div class="panel engine-detail" id="stepDetail" aria-live="polite"></div>
-  </div>
-</section>
-
-<!-- 6 lead -->
-<section class="slide light" data-name="lead" aria-label="Lead record">
-  <div class="wrap">
-    <div class="eyebrow">What lands on your desk</div>
-    <h2>Every lead tells you what to say and who to say it to.</h2>
-    <div class="split" style="align-items:start">
-      <div class="lead">
-        <div class="hd"><b>Lead record</b><span class="chip hot">Hot</span></div>
-        <div class="rows" id="fields"></div>
-      </div>
-      <div class="why" id="why" aria-live="polite"></div>
+    <div style="display:grid;gap:8px"><span class="k">Every lead you get includes</span>
+      <div class="fieldrow"><span>Planning ref + link</span><span>Site and size</span><span>The exact condition</span><span>Stage and deadline</span><span>Developer contact</span><span>Architect and agent</span><span>Hot or warm</span><span>Suggested first line</span></div>
     </div>
-    <p class="small muted">The layout is an example. The values show the format, not a real application. Every real row links back to the council portal so you can check the source.</p>
   </div>
 </section>
 
-<!-- 7 options -->
-<section class="slide dark" data-name="options" aria-label="Two ways to work it">
-  <div class="wrap">
-    <div class="eyebrow">Choose how you work it</div>
-    <h2>A lead list, or we run the outreach for you.</h2>
-    <div class="opts">
-      <button type="button" class="opt" id="optA" aria-pressed="false">
-        <span class="tag">OPTION A</span><h3>Lead list</h3>
-        <ul><li>A weekly sheet of qualified projects</li><li>You or your team make contact</li><li>Lowest cost, and you keep full control</li><li>Results depend on your time to follow up</li></ul>
-      </button>
-      <button type="button" class="opt" id="optB" aria-pressed="true">
-        <span class="badge">RECOMMENDED</span>
-        <span class="tag">OPTION B</span><h3>Done-for-you outreach</h3>
-        <ul><li>We email developers on your behalf</li><li>You approve every email before it goes out</li><li>Replies and calls come straight to you</li><li>You spend time only on interested buyers</li></ul>
-      </button>
-    </div>
-    <p class="small muted">Both follow UK GDPR and PECR: business contacts only, a clear reason to write, and an opt-out in every email. Tap an option to choose it.</p>
-  </div>
-</section>
-
-<!-- 8 visuals -->
+<!-- 6 visuals -->
 <section class="slide dark" data-name="visuals" aria-label="Visuals add-on">
   <div class="wrap">
-    <div class="eyebrow">Add-on</div>
-    <h2>Show the developer what their buyers will see at night.</h2>
+    <div class="eyebrow">Add-on we can build for you</div>
+    <h2>Show developers the finished room before it's built.</h2>
     <div class="split">
-      <div class="stage"><canvas id="streetCanvas" aria-label="Night view of a new residential street with street and landscape lighting"></canvas>
-        <div class="hud"><span class="chip">Illustration · new-build residential street</span></div>
+      <div class="stage"><canvas id="roomCanvas" aria-label="Night view of an apartment living room with layered lighting"></canvas>
+        <div class="hud"><span class="chip">Illustration · apartment living room</span></div>
       </div>
-      <div style="display:grid;gap:20px">
+      <div style="display:grid;gap:18px">
         <div class="ctrl">
-          <label for="dim" class="eyebrow">Drag to switch the scheme on and off</label>
-          <input type="range" id="dim" min="0" max="100" step="1" value="80">
-          <div class="readout"><span class="big" id="lux">80%</span><span class="muted" id="luxNote">street columns and path bollards at 80% output</span></div>
+          <label for="dim" class="eyebrow">Drag to switch the lighting on</label>
+          <input type="range" id="dim" min="0" max="100" step="1" value="85">
+          <div class="readout"><span class="big" id="lux">85%</span><span class="muted" id="luxNote">downlights, wall wash, pendant and cove</span></div>
+          <div class="toggle" role="group" aria-label="Colour of light">
+            <button type="button" id="tWarm" aria-pressed="true">Warm evening</button>
+            <button type="button" id="tCool" aria-pressed="false">Cool daylight</button>
+          </div>
         </div>
         <div class="vcards">
-          <div class="vcard"><b>Walkthrough video</b><span class="small muted">A night-time fly-through of the homes, roads, paths and car park, lit the way your design specifies.</span></div>
-          <div class="vcard"><b>Rendered image</b><span class="small muted">A realistic night view for the planning pack, sales brochure or show-home screen.</span></div>
+          <div class="vcard"><b>Walkthrough video</b><span class="small muted">Walk through the flat, lobby and corridors at night, lit to your design.</span></div>
+          <div class="vcard"><b>Rendered images</b><span class="small muted">Realistic stills for the sales brochure, show-home screen or planning pack.</span></div>
         </div>
-        <p class="small muted">This scene is an illustration, not a calculation. Real visuals are built from your lighting model for each scheme, so they match your numbers. Compliance stays in your report.</p>
+        <p class="small muted">Illustration only. Real visuals come from your lighting model, so they match your numbers.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9 pilot -->
+<!-- 7 pilot -->
 <section class="slide light" data-name="pilot" aria-label="30-day pilot">
   <div class="wrap">
-    <div class="eyebrow">Start small</div>
-    <h2>A 30-day pilot on your own patch.</h2>
-    <div class="panel" style="display:grid;gap:12px">
-      <h3>Pick up to three councils</h3>
-      <div class="chips" id="councils"></div>
-      <p class="small muted" id="councilNote">You are in Eastcote (Hillingdon). Meridian Water is in Enfield.</p>
+    <div class="eyebrow">Start small · 30-day pilot</div>
+    <h2>Try it on your own patch for 30 days.</h2>
+    <div class="split" style="align-items:start">
+      <div style="display:grid;gap:18px">
+        <div class="panel" style="display:grid;gap:10px">
+          <span class="k">1 · Pick up to 3 councils</span>
+          <div class="chips" id="councils"></div>
+          <p class="small muted" id="councilNote">You're in Hillingdon. Meridian Water is in Enfield.</p>
+        </div>
+        <div class="panel" style="display:grid;gap:10px">
+          <span class="k">2 · Choose how you want it</span>
+          <div class="opt2">
+            <button type="button" class="opt" id="optA" aria-pressed="false"><b>Lead list</b><span class="small muted">You contact them</span></button>
+            <button type="button" class="opt" id="optB" aria-pressed="true"><b>Done for you</b><span class="small muted">We email, you approve</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="days">
+        <div class="day"><span class="d">This week</span><div><b>Agree the brief</b><div class="small muted">Councils, job types, smallest job worth it</div></div></div>
+        <div class="day"><span class="d">Day 7</span><div><b>Sample lead sheet</b><div class="small muted">Real projects from your councils, scored</div></div></div>
+        <div class="day"><span class="d">Day 10</span><div><b>Outreach starts</b><div class="small muted">Only after you approve the emails</div></div></div>
+        <div class="day"><span class="d">Day 30</span><div><b>Review together</b><div class="small muted">Leads, replies, calls booked</div></div></div>
+        <p class="small muted">No good projects in the sample? We stop there. UK GDPR and PECR followed: business contacts only, opt-out in every email.</p>
+      </div>
     </div>
-    <div class="days">
-      <div class="day"><span class="d">This week</span><b>Agree the brief</b><span class="small muted">Councils, report types, smallest job worth your time</span></div>
-      <div class="day"><span class="d">Day 7</span><b>Sample lead sheet</b><span class="small muted">Six months of applications and condition discharges, scored</span></div>
-      <div class="day"><span class="d">Day 10</span><b>Choose A or B</b><span class="small muted">You approve the email copy before anything is sent</span></div>
-      <div class="day"><span class="d">Day 30</span><b>Review together</b><span class="small muted">Leads delivered, replies and calls booked</span></div>
-    </div>
-    <p class="small muted">If the sample sheet doesn't contain jobs you'd want, we stop there.</p>
   </div>
 </section>
 
-<!-- 10 questions -->
-<section class="slide light" data-name="questions" aria-label="Questions to agree today">
+<!-- 8 care: what -->
+<section class="slide dark" data-name="care" aria-label="Care notes by voice">
   <div class="wrap">
-    <div class="eyebrow">Questions to agree today · <span id="qCount">0 of 6 answered</span></div>
-    <h2>Six answers and we can start.</h2>
-    <div class="qs" id="qs"></div>
-    <p class="small muted">Ticks and notes are saved in this browser only.</p>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="chip part">PART 2</span><span class="eyebrow">Your introduction · a care home provider</span></div>
+    <h2>Carers speak. AI writes the care report.</h2>
+    <p class="lede">You told us a care home writes every task by hand. Staff could just speak, and AI writes the report. Yes, we can build that.</p>
+    <div class="flow" id="flow">
+      <div class="fstep"><span class="n">1</span><b>Speak</b><span class="small muted">Carer talks into a phone after each visit</span></div>
+      <div class="fstep"><span class="n">2</span><b>AI writes</b><span class="small muted">Turns it into a neat, structured note</span></div>
+      <div class="fstep"><span class="n">3</span><b>Carer checks</b><span class="small muted">Reads it, fixes anything, saves</span></div>
+      <div class="fstep"><span class="n">4</span><b>Report ready</b><span class="small muted">Daily reports and handovers, done</span></div>
+    </div>
+    <div class="demo">
+      <div class="phone">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span class="k">Carer speaking · example</span><div class="wave" id="wave" aria-hidden="true"></div></div>
+        <div class="transcript" id="transcript" aria-live="polite">Press play to hear a carer's 30-second update.</div>
+        <div class="btnrow"><button type="button" class="btn" id="play">▶ Play the example</button><button type="button" class="btn ghost" id="reset">Reset</button></div>
+      </div>
+      <div class="report" id="report">
+        <div class="hd"><b>Care note · written by AI</b><span class="chip pass" id="rstat">Waiting</span></div>
+      </div>
+    </div>
+    <p class="small muted">Made-up example to show the idea. No real resident.</p>
   </div>
 </section>
 
-<!-- 11 close -->
+<!-- 9 care: value -->
+<section class="slide light" data-name="care-time" aria-label="Time saved">
+  <div class="wrap">
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="chip part">PART 2</span><span class="eyebrow">What it saves · move the sliders</span></div>
+    <h2>Less time writing. More time with residents.</h2>
+    <div class="calc">
+      <div class="panel" style="display:grid;gap:18px">
+        <div class="inp"><div class="row"><label for="cStaff">Carers on shift each day</label><output id="oStaff">10</output></div><input type="range" id="cStaff" min="2" max="40" value="10"></div>
+        <div class="inp"><div class="row"><label for="cNotes">Notes each carer writes a day</label><output id="oNotes">6</output></div><input type="range" id="cNotes" min="1" max="20" value="6"></div>
+        <div class="inp"><div class="row"><label for="cMin">Minutes to write one note</label><output id="oMin">5</output></div><input type="range" id="cMin" min="2" max="15" value="5"></div>
+        <p class="small muted">Example numbers. Change them to match the home. We assume about 1 minute to speak a note and 30 seconds to check it.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:14px">
+        <span class="k">Hours a month spent on notes</span>
+        <svg class="chart" id="chart" viewBox="0 0 520 190" role="img" aria-label="Bar chart comparing hours spent writing notes with hours using voice"></svg>
+        <div style="display:flex;gap:14px;align-items:baseline;flex-wrap:wrap"><span class="saved" id="saved">0</span><span class="muted">care hours handed back every month</span></div>
+      </div>
+    </div>
+    <div class="benefits">
+      <div><b>Better notes</b><span class="small muted">Same format every time, with the time recorded and nothing missed.</span></div>
+      <div><b>Ready for inspection</b><span class="small muted">Clear, consistent records when the CQC visits.</span></div>
+      <div><b>Safe by design</b><span class="small muted">Staff approve every note. Health data handled under UK GDPR.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 next -->
 <section class="slide dark" data-name="next" aria-label="Next steps">
   <div class="wrap">
-    <div class="eyebrow">Next step</div>
-    <h2>Pick your councils today. Your sample sheet arrives on day 7.</h2>
-    <div class="summary">
-      <div class="panel"><span class="small muted">Pilot area</span><b id="sumC">Not chosen yet</b></div>
-      <div class="panel"><span class="small muted">Way of working</span><b id="sumO">Option B</b></div>
-      <div class="panel"><span class="small muted">Questions answered</span><b id="sumQ">0 of 6</b></div>
+    <div class="eyebrow">Next steps</div>
+    <h2>Two projects. One small step each.</h2>
+    <div class="two">
+      <div class="panel"><span class="k">Lighting leads</span><span class="sum" id="sumL">Pick your councils on page 7</span>
+        <ol><li>Agree councils and job types today</li><li>Sample lead sheet on day 7</li><li>You approve emails, outreach starts day 10</li></ol></div>
+      <div class="panel"><span class="k">Care notes by voice</span><span class="sum">Introduce us to the care home</span>
+        <ol><li>A short call with the manager</li><li>One example of their current report</li><li>A 2-week trial with 2 or 3 carers</li></ol></div>
     </div>
-    <p class="lede">Nothing goes to any developer until you approve the words.</p>
+    <div style="display:grid;gap:8px"><span class="k">Questions for today · <span id="qCount">0 of 6</span></span><div class="qs" id="qs"></div></div>
     <div class="brandrow"><b>Extol Affiliates</b><span class="dotsep"></span><span>Growth systems for B2B companies</span></div>
   </div>
 </section>
 
 </div>
 
-<nav class="bar" aria-label="Slides">
-  <button type="button" class="navbtn" id="prev" aria-label="Previous slide">&#8592;</button>
+<nav class="bar" aria-label="Pages">
+  <button type="button" class="navbtn" id="prev" aria-label="Previous page">&#8592;</button>
   <div class="pips" id="pips"></div>
-  <span class="count" id="count">1 / 11</span>
-  <button type="button" class="navbtn" id="next" aria-label="Next slide">&#8594;</button>
+  <span class="count" id="count">1 / 10</span>
+  <button type="button" class="navbtn" id="next" aria-label="Next page">&#8594;</button>
 </nav>
 
 <script>
 (function(){
-const store = {
-  get(k, d){ try{ const v = localStorage.getItem("bianchi-"+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
-  set(k, v){ try{ localStorage.setItem("bianchi-"+k, JSON.stringify(v)); }catch(e){} }
-};
+const store={get(k,d){try{const v=localStorage.getItem("bianchi2-"+k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem("bianchi2-"+k,JSON.stringify(v));}catch(e){}}};
+const $=id=>document.getElementById(id);
 
-/* ---------- navigation ---------- */
-const slides = [...document.querySelectorAll(".slide")];
-const pips = document.getElementById("pips");
-let cur = 0;
-slides.forEach((s,i)=>{
-  const b = document.createElement("button");
-  b.type="button"; b.className="pip"; b.setAttribute("aria-label","Go to slide "+(i+1)+": "+s.getAttribute("aria-label"));
-  b.onclick=()=>go(i); pips.appendChild(b);
-});
-function go(i, fromHash){
-  cur = Math.max(0, Math.min(slides.length-1, i));
-  slides.forEach((s,j)=>s.classList.toggle("on", j===cur));
-  [...pips.children].forEach((p,j)=>p.setAttribute("aria-current", j===cur ? "true":"false"));
-  document.getElementById("count").textContent = (cur+1)+" / "+slides.length;
-  document.getElementById("prev").disabled = cur===0;
-  document.getElementById("next").disabled = cur===slides.length-1;
-  const name = slides[cur].dataset.name;
-  if(!fromHash && location.hash !== "#"+name){ try{ history.replaceState(null,"","#"+name); }catch(e){} }
-  slides[cur].scrollTop = 0;
-  requestAnimationFrame(drawAll);
-  if(name==="next") updateSummary();
+/* nav */
+const slides=[...document.querySelectorAll(".slide")], pips=$("pips"); let cur=0;
+slides.forEach((s,i)=>{ if(i===7||i===9){const g=document.createElement("span");g.className="gapx";pips.appendChild(g);}
+  const b=document.createElement("button"); b.type="button"; b.className="pip"+(i===7||i===8?" p2":""); b.dataset.i=i; b.setAttribute("aria-label","Page "+(i+1)+": "+s.getAttribute("aria-label")); b.onclick=()=>go(i); pips.appendChild(b); });
+const pipBtns=[...pips.querySelectorAll(".pip")];
+function go(i,fromHash){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,j)=>s.classList.toggle("on",j===cur));
+  pipBtns.forEach((p,j)=>p.setAttribute("aria-current",j===cur?"true":"false"));
+  $("count").textContent=(cur+1)+" / 10 · "+(cur<7?"Lighting":cur<9?"Care notes":"Next steps");
+  $("prev").disabled=cur===0; $("next").disabled=cur===slides.length-1;
+  const n=slides[cur].dataset.name; if(!fromHash&&location.hash!=="#"+n){try{history.replaceState(null,"","#"+n);}catch(e){}}
+  slides[cur].scrollTop=0; requestAnimationFrame(drawAll);
+  if(n==="next") summary(); if(n==="care-time") calc();
 }
-document.getElementById("prev").onclick=()=>go(cur-1);
-document.getElementById("next").onclick=()=>go(cur+1);
-document.addEventListener("keydown", e=>{
-  if(e.target.matches("input,textarea")) return;
-  if(e.key==="ArrowRight"||e.key==="PageDown"){ go(cur+1); e.preventDefault(); }
-  if(e.key==="ArrowLeft"||e.key==="PageUp"){ go(cur-1); e.preventDefault(); }
-});
-function fromHash(){ const n = location.hash.slice(1); const i = slides.findIndex(s=>s.dataset.name===n); go(i>=0?i:0, true); }
-window.addEventListener("hashchange", fromHash);
+$("prev").onclick=()=>go(cur-1); $("next").onclick=()=>go(cur+1);
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go));
+document.addEventListener("keydown",e=>{ if(e.target.matches("input,textarea"))return;
+  if(e.key==="ArrowRight"||e.key==="PageDown"){go(cur+1);e.preventDefault();}
+  if(e.key==="ArrowLeft"||e.key==="PageUp"){go(cur-1);e.preventDefault();} });
+function fromHash(){const n=location.hash.slice(1);const i=slides.findIndex(s=>s.dataset.name===n);go(i>=0?i:0,true);}
+window.addEventListener("hashchange",fromHash);
 
-/* ---------- residential scene ---------- */
+/* interior scene */
 const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
-function drawStreet(canvas, level){
-  const r = canvas.getBoundingClientRect(); if(!r.width) return;
-  const dpr = Math.min(2, window.devicePixelRatio||1);
-  canvas.width = Math.round(r.width*dpr); canvas.height = Math.round(r.height*dpr);
-  const c = canvas.getContext("2d"); c.setTransform(dpr,0,0,dpr,0,0);
-  const W=r.width, H=r.height, hy=H*0.47, f=Math.max(W,H*1.6)*0.55, camH=1.6, cx=W*0.5;
+let warm=true;
+function drawRoom(canvas, level){
+  const r=canvas.getBoundingClientRect(); if(!r.width) return;
+  const dpr=Math.min(2,window.devicePixelRatio||1); canvas.width=Math.round(r.width*dpr); canvas.height=Math.round(r.height*dpr);
+  const c=canvas.getContext("2d"); c.setTransform(dpr,0,0,dpr,0,0);
+  const W=r.width,H=r.height,camH=1.45,hy=H*0.5,f=Math.min(W*0.62,H*1.15),cx=W*0.5;
+  const L=warm?"255,214,160":"232,240,255";
   const P=(X,Y,Z)=>[cx+f*X/Z, hy+f*(camH-Y)/Z];
   const quad=(pts,fill)=>{c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.closePath();c.fillStyle=fill;c.fill();};
-  const sky=c.createLinearGradient(0,0,0,hy); sky.addColorStop(0,"#050C07"); sky.addColorStop(1,"#1A3021");
-  c.fillStyle=sky; c.fillRect(0,0,W,hy); c.fillStyle="#0A140C"; c.fillRect(0,hy,W,H-hy);
-  const NZ=1, FZ=600;
-  [-1,1].forEach(s=>{
-    quad([P(s*5.6,0,NZ),P(s*14,0,NZ),P(s*14,0,FZ),P(s*5.6,0,FZ)],"#0D1910");
-    quad([P(s*3.6,0,NZ),P(s*5.6,0,NZ),P(s*5.6,0,FZ),P(s*3.6,0,FZ)],"#1A261C");
-  });
-  quad([P(-3.6,0,NZ),P(3.6,0,NZ),P(3.6,0,FZ),P(-3.6,0,FZ)],"#101912");
-  for(let z=3; z<300; z+=8) quad([P(-.06,0,z),P(.06,0,z),P(.06,0,z+2.5),P(-.06,0,z+2.5)],"rgba(233,240,201,"+(0.08+0.22*level)+")");
-  // buildings
-  const blds=[]; [-1,1].forEach(s=>{ let z=9+(s>0?4:0), k=0; while(z<330){ const id=k*7+(s>0?3:0); const w=7+rnd(id)*4, h=6.5+Math.floor(rnd(id+1)*3)*3; blds.push({s,z,w,h,id}); z+=w+1.6; k++; } });
-  blds.sort((a,b)=>b.z-a.z).forEach(b=>{
-    const xs=b.s*11, xb=b.s*21, tone=["#142319","#17281C","#122016"][b.id%3];
-    quad([P(xs,0,b.z),P(xs,b.h,b.z),P(xs,b.h,b.z+b.w),P(xs,0,b.z+b.w)],tone);
-    const floors=Math.floor(b.h/3), cols=Math.max(1,Math.floor(b.w/2.3));
-    for(let fl=0; fl<floors; fl++) for(let k=0; k<cols; k++){
-      const z0=b.z+0.7+k*2.3, z1=z0+1.2, y0=fl*3+0.9, y1=y0+1.5, on=rnd(b.id*31+fl*7+k)>0.42;
-      quad([P(xs,y0,z0),P(xs,y1,z0),P(xs,y1,z1),P(xs,y0,z1)], on ? "rgba(255,212,150,.78)" : "#1E3024");
-    }
-    quad([P(xs,0,b.z),P(xs,b.h,b.z),P(xb,b.h,b.z),P(xb,0,b.z)],"#0E1A11");
-    quad([P(xs,b.h,b.z),P((xs+xb)/2,b.h+3.2,b.z),P(xb,b.h,b.z)],"#0B160E");
-    quad([P(xs,b.h,b.z),P((xs+xb)/2,b.h+3.2,b.z),P((xs+xb)/2,b.h+3.2,b.z+b.w),P(xs,b.h,b.z+b.w)],"#0F1C12");
-  });
-  // street furniture
-  const items=[];
-  for(let i=0;i<10;i++){ const s=i%2?1:-1; items.push({t:"col",s,z:12+i*26}); }
-  blds.forEach(b=>items.push({t:"bol",s:b.s,z:b.z+b.w/2}));
-  for(let i=0;i<14;i++){ [-1,1].forEach(s=>items.push({t:"tree",s,z:20+i*21+(s>0?10:0)})); }
+  const X0=-3,X1=3,Y1=2.7,ZN=0.9,ZB=7;
+  c.fillStyle="#0B140E"; c.fillRect(0,0,W,H);
+  quad([P(X0,0,ZN),P(X1,0,ZN),P(X1,0,ZB),P(X0,0,ZB)],"#1A1712");            // floor (oak, dark)
+  quad([P(X0,Y1,ZN),P(X1,Y1,ZN),P(X1,Y1,ZB),P(X0,Y1,ZB)],"#121A14");        // ceiling
+  quad([P(X0,0,ZN),P(X0,Y1,ZN),P(X0,Y1,ZB),P(X0,0,ZB)],"#18241B");          // left wall
+  quad([P(X1,0,ZN),P(X1,Y1,ZN),P(X1,Y1,ZB),P(X1,0,ZB)],"#1A271D");          // right wall
+  quad([P(X0,0,ZB),P(X1,0,ZB),P(X1,Y1,ZB),P(X0,Y1,ZB)],"#1E2C21");          // back wall
+  // floorboards
+  c.strokeStyle="rgba(0,0,0,.25)"; c.lineWidth=1; for(let x=-2.7;x<3;x+=0.45){const a=P(x,0,ZN),b=P(x,0,ZB);c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.stroke();}
+  // window on back wall with night skyline
+  const w0=P(-2.4,0.6,ZB), w1=P(-0.5,2.25,ZB);
+  const sky=c.createLinearGradient(0,w1[1],0,w0[1]); sky.addColorStop(0,"#07101A"); sky.addColorStop(1,"#13263A");
+  c.fillStyle=sky; c.fillRect(w0[0],w1[1],w1[0]-w0[0],w0[1]-w1[1]);
+  for(let i=0;i<9;i++){ const bx=w0[0]+(w1[0]-w0[0])*(i/9), bw=(w1[0]-w0[0])/9, bh=(w0[1]-w1[1])*(0.2+rnd(i)*0.45);
+    c.fillStyle="#08121C"; c.fillRect(bx,w0[1]-bh,bw-1,bh);
+    for(let k=0;k<6;k++){ if(rnd(i*13+k)>0.55){ c.fillStyle="rgba(255,220,150,.75)"; c.fillRect(bx+2+(k%2)*bw*.45, w0[1]-bh+4+Math.floor(k/2)*bh*.28, Math.max(1.5,bw*.18), Math.max(1.5,bh*.08)); } } }
+  c.strokeStyle="#2B3A2F"; c.lineWidth=Math.max(2,f*0.05/ZB); c.strokeRect(w0[0],w1[1],w1[0]-w0[0],w0[1]-w1[1]);
+  const wm=P(-1.45,0,ZB)[0]; c.beginPath(); c.moveTo(wm,w1[1]); c.lineTo(wm,w0[1]); c.stroke();
+  // artwork on right wall
+  quad([P(X1,1.15,3.6),P(X1,1.85,3.6),P(X1,1.85,4.8),P(X1,1.15,4.8)],"#2B4A34");
+  quad([P(X1,1.25,3.75),P(X1,1.75,3.75),P(X1,1.75,4.65),P(X1,1.25,4.65)],"#7E9C6B");
+  quad([P(X1,1.25,4.2),P(X1,1.6,4.0),P(X1,1.25,4.6)],"#C6DE9F");
+  // rug, sofa, coffee table
+  quad([P(-0.6,0.005,4.6),P(2.6,0.005,4.6),P(2.6,0.005,6.6),P(-0.6,0.005,6.6)],"#1D3524");
+  quad([P(0.1,0.45,6.3),P(2.7,0.45,6.3),P(2.7,0.9,6.8),P(0.1,0.9,6.8)],"#24402D");
+  quad([P(0.1,0,6.3),P(2.7,0,6.3),P(2.7,0.45,6.3),P(0.1,0.45,6.3)],"#2B4A34");
+  quad([P(0.6,0.4,5.0),P(2.0,0.4,5.0),P(2.0,0.4,5.6),P(0.6,0.4,5.6)],"#3A2E22");
+  quad([P(0.6,0,5.0),P(2.0,0,5.0),P(2.0,0.4,5.0),P(0.6,0.4,5.0)],"#2A2119");
+  // dining table + chairs (left)
+  quad([P(-2.7,0.75,3.0),P(-1.2,0.75,3.0),P(-1.2,0.75,4.4),P(-2.7,0.75,4.4)],"#3A2E22");
+  quad([P(-2.7,0,3.0),P(-1.2,0,3.0),P(-1.2,0.75,3.0),P(-2.7,0.75,3.0)],"#241C15");
+  // floor lamp stem
+  const fl0=P(2.85,0,6.6), fl1=P(2.85,1.5,6.6); c.strokeStyle="#3B5240"; c.lineWidth=Math.max(1,f*0.03/6.6); c.beginPath(); c.moveTo(fl0[0],fl0[1]); c.lineTo(fl1[0],fl1[1]); c.stroke();
+  // pendant cord + shade
+  const pc=P(-1.95,Y1,3.7), pd=P(-1.95,1.75,3.7); c.beginPath(); c.moveTo(pc[0],pc[1]); c.lineTo(pd[0],pd[1]); c.lineWidth=1; c.stroke();
+  const pr=f*0.28/3.7; c.fillStyle="#2B4A34"; c.beginPath(); c.arc(pd[0],pd[1]+pr*0.2,pr,Math.PI,0); c.fill();
+  if(level<=0.001){ return; }
   c.globalCompositeOperation="lighter";
-  const pool=(X,Z,R,a)=>{ const [px,py]=P(X,0,Z); const rx=f*R/Z; const ry=Math.max(.5,(P(X,0,Math.max(.4,Z-R))[1]-P(X,0,Z+R)[1])/2);
-    c.save(); c.translate(px,py); c.scale(1,ry/rx); const g=c.createRadialGradient(0,0,0,0,0,rx);
-    g.addColorStop(0,"rgba(255,233,184,"+a+")"); g.addColorStop(.5,"rgba(255,226,170,"+(a*.3)+")"); g.addColorStop(1,"rgba(255,226,170,0)");
-    c.fillStyle=g; c.beginPath(); c.arc(0,0,rx,0,Math.PI*2); c.fill(); c.restore(); };
-  items.forEach(o=>{ if(o.t==="col") pool(o.s*2.2,o.z,9,0.26*level); if(o.t==="bol") pool(o.s*7.6,o.z,2.2,0.32*level); });
+  const glow=(x,y,rx,ry,a)=>{ c.save(); c.translate(x,y); c.scale(1,ry/rx); const g=c.createRadialGradient(0,0,0,0,0,rx); g.addColorStop(0,"rgba("+L+","+a+")"); g.addColorStop(.45,"rgba("+L+","+(a*.35)+")"); g.addColorStop(1,"rgba("+L+",0)"); c.fillStyle=g; c.beginPath(); c.arc(0,0,rx,0,Math.PI*2); c.fill(); c.restore(); };
+  // ambient bounce on back wall and floor
+  const bw=P(0.5,1.3,ZB); glow(bw[0],bw[1],f*3.2/ZB,f*1.6/ZB,0.16*level);
+  const fp=P(0.8,0,5.4); glow(fp[0],fp[1],f*2.4/5.4,f*0.55/5.4,0.18*level);
+  // wall washers: downlights near both side walls make scallops
+  [2.0,3.4,4.8,6.2].forEach(z=>[-1,1].forEach(s=>{
+    const d=P(s*2.55,Y1,z); glow(d[0],d[1],Math.max(2,f*0.12/z),Math.max(2,f*0.05/z),0.95*level);
+    const w=P(s*3,1.75,z); glow(w[0],w[1],f*0.42/z,f*0.95/z,0.33*level);
+  }));
+  // cove along back wall top
+  const cv0=P(X0,Y1-0.05,ZB), cv1=P(X1,Y1-0.05,ZB); const cg=c.createLinearGradient(0,cv0[1],0,cv0[1]+f*0.6/ZB);
+  cg.addColorStop(0,"rgba("+L+","+(0.55*level)+")"); cg.addColorStop(1,"rgba("+L+",0)"); c.fillStyle=cg; c.fillRect(cv0[0],cv0[1],cv1[0]-cv0[0],f*0.6/ZB);
+  // picture light
+  const pl=P(X1,1.9,4.2); glow(pl[0],pl[1]+f*0.25/4.2,f*0.45/4.2,f*0.4/4.2,0.4*level);
+  // pendant glow + pool on table
+  glow(pd[0],pd[1]+pr*0.3,pr*2.2,pr*1.4,0.9*level);
+  const tp=P(-1.95,0.75,3.7); glow(tp[0],tp[1],f*0.9/3.7,f*0.22/3.7,0.45*level);
+  // floor lamp
+  glow(fl1[0],fl1[1],f*0.45/6.6,f*0.45/6.6,0.9*level);
+  const fw=P(2.7,1.1,ZB-0.2); glow(fw[0],fw[1],f*0.9/ZB,f*1.0/ZB,0.25*level);
   c.globalCompositeOperation="source-over";
-  const glow=(x,y,rr,a)=>{ const g=c.createRadialGradient(x,y,0,x,y,rr); g.addColorStop(0,"rgba(255,246,222,"+a+")"); g.addColorStop(.3,"rgba(255,233,184,"+(a*.5)+")"); g.addColorStop(1,"rgba(255,233,184,0)"); c.fillStyle=g; c.beginPath(); c.arc(x,y,rr,0,Math.PI*2); c.fill(); };
-  items.sort((a,b)=>b.z-a.z).forEach(o=>{
-    if(o.t==="tree"){ const [b1,b2]=P(o.s*6.4,0,o.z), [t1,t2]=P(o.s*6.4,4,o.z), rr=f*2.3/o.z;
-      c.strokeStyle="#122016"; c.lineWidth=Math.max(1,f*.22/o.z); c.beginPath(); c.moveTo(b1,b2); c.lineTo(t1,t2); c.stroke();
-      c.fillStyle="#0C1A0F"; c.beginPath(); c.arc(t1,t2-rr*.6,rr,0,Math.PI*2); c.fill();
-      c.fillStyle="rgba(158,187,128,"+(0.12*level)+")"; c.beginPath(); c.arc(t1,t2-rr*.3,rr*.8,0,Math.PI); c.fill(); }
-    if(o.t==="col"){ const x=o.s*4.0, [a1,a2]=P(x,0,o.z), [t1,t2]=P(x,6,o.z), [h1,h2]=P(x-o.s*.6,6,o.z);
-      c.strokeStyle="#3B5240"; c.lineCap="round"; c.lineWidth=Math.max(1,f*.12/o.z); c.beginPath(); c.moveTo(a1,a2); c.lineTo(t1,t2); c.lineTo(h1,h2); c.stroke();
-      glow(h1,h2,Math.max(3,f*2/o.z),0.2+0.8*level); }
-    if(o.t==="bol"){ const x=o.s*7.6, [a1,a2]=P(x,0,o.z), [t1,t2]=P(x,.9,o.z);
-      c.strokeStyle="#3B5240"; c.lineWidth=Math.max(1,f*.16/o.z); c.beginPath(); c.moveTo(a1,a2); c.lineTo(t1,t2); c.stroke();
-      glow(t1,t2,Math.max(2,f*.7/o.z),0.15+0.85*level); }
-  });
 }
-const cover=document.getElementById("coverCanvas"), street=document.getElementById("streetCanvas"), dim=document.getElementById("dim");
-function drawAll(){ drawStreet(cover, .85); drawStreet(street, dim.value/100); }
-window.addEventListener("resize", ()=>requestAnimationFrame(drawAll));
-dim.addEventListener("input", ()=>{
-  const v=+dim.value; document.getElementById("lux").textContent = v===0 ? "Off" : v+"%";
-  document.getElementById("luxNote").textContent = v===0 ? "No external lighting: how the scheme reads to a buyer at night" : "street columns and path bollards at "+v+"% output";
-  drawStreet(street, v/100);
-});
+const coverC=$("coverCanvas"), roomC=$("roomCanvas"), dim=$("dim");
+function drawAll(){ drawRoom(coverC,.9); drawRoom(roomC,dim.value/100); }
+window.addEventListener("resize",()=>requestAnimationFrame(drawAll));
+dim.addEventListener("input",()=>{ const v=+dim.value; $("lux").textContent=v===0?"Off":v+"%"; $("luxNote").textContent=v===0?"Lights off: how the room looks to a buyer at night":"downlights, wall wash, pendant and cove"; drawRoom(roomC,v/100); });
+function setTemp(w){ warm=w; $("tWarm").setAttribute("aria-pressed",w); $("tCool").setAttribute("aria-pressed",!w); drawAll(); }
+$("tWarm").onclick=()=>setTemp(true); $("tCool").onclick=()=>setTemp(false);
 
-/* ---------- proof meters ---------- */
-const modes={100:{E:20.17,Emin:9.46,U:.47,T:6.48},80:{E:16.14,Emin:7.57,U:.47,T:6.19}};
-function setMode(m){
-  const d=modes[m];
-  document.getElementById("o100").setAttribute("aria-pressed", m===100); document.getElementById("o80").setAttribute("aria-pressed", m===80);
-  document.getElementById("mE").textContent=d.E.toFixed(2)+" lux"; document.getElementById("fE").style.width=(d.E/30*100)+"%";
-  document.getElementById("mU").textContent=d.U.toFixed(2); document.getElementById("fU").style.width=(d.U*100)+"%";
-  document.getElementById("mT").textContent=d.T.toFixed(2)+"%"; document.getElementById("fT").style.width=(d.T/25*100)+"%";
-  document.getElementById("mNote").textContent = m===80 ? "Minimum point 7.57 lux. Spare capacity to step up a class if traffic grows." : "Full output: minimum point 9.46 lux, maximum 26.6 lux.";
-}
-document.getElementById("o100").onclick=()=>setMode(100); document.getElementById("o80").onclick=()=>setMode(80); setMode(80);
+/* proof meters */
+const modes={100:{E:20.17,U:.47,T:6.48},80:{E:16.14,U:.47,T:6.19}};
+function setMode(m){ const d=modes[m]; $("o100").setAttribute("aria-pressed",m===100); $("o80").setAttribute("aria-pressed",m===80);
+  $("mE").textContent=d.E.toFixed(2); $("fE").style.width=(d.E/30*100)+"%";
+  $("mU").textContent=d.U.toFixed(2); $("fU").style.width=(d.U*100)+"%";
+  $("mT").textContent=d.T.toFixed(2)+"%"; $("fT").style.width=(d.T/25*100)+"%"; }
+$("o100").onclick=()=>setMode(100); $("o80").onclick=()=>setMode(80); setMode(80);
 
-/* ---------- signals ---------- */
+/* signals */
 const sigs=[
-  {t:"External lighting condition",p:"hot",look:"details of external lighting shall be submitted to and approved",why:"The scheme is approved, but work can't start until the lighting details are signed off. The developer must buy this report.",when:"From approval to the start on site"},
-  {t:"Condition discharge filed",p:"hot",look:"application for approval of details reserved by condition",why:"The developer is clearing conditions right now. If lighting is one of them, they need a designer this month.",when:"Live, within weeks"},
-  {t:"New roads for adoption",p:"hot",look:"S38 agreement · S278 works · adoptable highway",why:"Roads the council will adopt need lighting designed to BS 5489 and BS EN 13201. This is the work in your Meridian Way report.",when:"Detailed design stage"},
-  {t:"Bats or dark corridors",p:"warm",look:"bat activity · dark corridor · sensitive lighting strategy",why:"Ecology reports that mention bats lead to low-spill lighting plans and light impact checks.",when:"Before or just after approval"},
-  {t:"Major scheme, car park or public realm",p:"warm",look:"10+ dwellings · car park · public realm · estate roads",why:"External lighting is almost certain, and the lighting consultant often hasn't been named yet.",when:"Application stage"},
-  {t:"Secured by Design",p:"warm",look:"Secured by Design · designing out crime officer",why:"Light levels have to be shown in a report to meet the police guidance.",when:"Application and condition stage"}
+  {t:"Lighting condition on approval",p:"hot",look:"details of external lighting shall be submitted",why:"They can't start building until the lighting is signed off. They have to hire someone.",when:"Now, before work starts"},
+  {t:"Conditions being cleared",p:"hot",look:"approval of details reserved by condition",why:"They're working through their list this month. Lighting is often on it.",when:"Within weeks"},
+  {t:"New roads in the development",p:"hot",look:"S38 / S278 · adoptable roads",why:"New roads need lighting designed to standard before the council takes them over.",when:"Detailed design"},
+  {t:"Bats or wildlife",p:"warm",look:"bat activity · dark corridor",why:"Low-spill lighting and a light impact check will be needed.",when:"Around approval"},
+  {t:"Large scheme or car park",p:"warm",look:"10+ homes · car park · public realm",why:"Outside and common-area lighting is almost certain, and no designer is named yet.",when:"Application stage"},
+  {t:"Secured by Design",p:"warm",look:"Secured by Design",why:"Light levels must be shown in a report to meet police guidance.",when:"Application stage"}
 ];
-const sl=document.getElementById("sigList"), sd=document.getElementById("sigDetail");
-function showSig(i){
-  [...sl.children].forEach((b,j)=>b.setAttribute("aria-selected", j===i));
-  const s=sigs[i];
-  sd.innerHTML='<span class="chip '+s.p+'">'+(s.p==="hot"?"HOT":"WARM")+'</span><h3 style="font-size:26px">'+s.t+'</h3><div><div class="k">Wording we search for</div><q>'+s.look+'</q></div><div><div class="k">Why it means they need you</div><p>'+s.why+'</p></div><div><div class="k">Timing</div><p>'+s.when+'</p></div>';
-}
-sigs.forEach((s,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="sig"; b.setAttribute("role","tab"); b.innerHTML='<span>'+s.t+'</span><span class="chip '+s.p+'">'+(s.p==="hot"?"HOT":"WARM")+'</span>'; b.onclick=()=>showSig(i); sl.appendChild(b); });
+const sl=$("sigList"), sd=$("sigDetail");
+function showSig(i){ [...sl.children].forEach((b,j)=>b.setAttribute("aria-selected",j===i)); const s=sigs[i];
+  sd.innerHTML='<span class="chip '+s.p+'">'+s.p.toUpperCase()+'</span><h3 style="font-size:26px">'+s.t+'</h3><div><div class="k">Words we search for</div><q>'+s.look+'</q></div><div><div class="k">Why they need you</div><p>'+s.why+'</p></div><div><div class="k">When</div><p>'+s.when+'</p></div>'; }
+sigs.forEach((s,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="sig"; b.setAttribute("role","tab"); b.innerHTML='<span>'+s.t+'</span><span class="chip '+s.p+'">'+s.p.toUpperCase()+'</span>'; b.onclick=()=>showSig(i); sl.appendChild(b); });
 showSig(0);
 
-/* ---------- engine ---------- */
+/* engine */
 const steps=[
-  {t:"Scrape",s:"Weekly",a:["New applications and decision notices","Condition discharge applications","Documents: lighting, ecology, highway, design and access"],b:"Runs automatically on the councils you choose. We already have the scraper and portal access."},
-  {t:"Filter",s:"Signals",a:["Search conditions and documents for the six signals","Drop anything without an external lighting need","Score each project Hot or Warm"],b:"You only see projects that need your service. Everything else is removed here."},
-  {t:"Qualify",s:"People",a:["Name the developer, planning agent and architect","Find the decision-maker and their business email","Check the stage and how close the deadline is"],b:"Each lead comes with who to contact and why now."},
-  {t:"Deliver",s:"Your choice",a:["Option A: a weekly lead sheet for you to work","Option B: we write, you approve, we send","Replies and calls go straight to you"],b:"Nothing is sent to any developer without your approval."}
+  {t:"Find",s:"Weekly",a:["New planning applications","Approvals and their conditions","Lighting and layout documents"],b:"Our scraper reads the planning portal for your councils every week."},
+  {t:"Filter",s:"Signals",a:["Look for the six signs","Drop anything without a lighting need","Mark each one Hot or Warm"],b:"You only see projects that actually need you."},
+  {t:"Qualify",s:"People",a:["Name the developer, architect and agent","Find the decision-maker's business email","Check the stage and the deadline"],b:"Each lead says who to contact and why now."},
+  {t:"Connect",s:"Calls",a:["Lead list: you make contact","Done for you: we write, you approve, we send","Replies come straight to you"],b:"Nothing goes out without your OK."}
 ];
-const st=document.getElementById("steps"), sdt=document.getElementById("stepDetail");
-function showStep(i){
-  [...st.children].forEach((b,j)=>b.setAttribute("aria-pressed", j===i));
-  const s=steps[i]; sdt.innerHTML='<div><div class="eyebrow">Step '+(i+1)+' · '+s.t+'</div><ul style="margin-top:10px">'+s.a.map(x=>'<li>'+x+'</li>').join("")+'</ul></div><p class="lede" style="align-self:center">'+s.b+'</p>';
-}
+const st=$("steps"), sdt=$("stepDetail");
+function showStep(i){ [...st.children].forEach((b,j)=>b.setAttribute("aria-pressed",j===i)); const s=steps[i];
+  sdt.innerHTML='<div><div class="k">Step '+(i+1)+' · '+s.t+'</div><ul style="margin-top:10px">'+s.a.map(x=>'<li>'+x+'</li>').join("")+'</ul></div><p class="lede" style="align-self:center">'+s.b+'</p>'; }
 steps.forEach((s,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="step"; b.innerHTML='<span class="n">0'+(i+1)+' · '+s.s+'</span><b>'+s.t+'</b>'; b.onclick=()=>showStep(i); st.appendChild(b); });
 showStep(0);
 
-/* ---------- lead fields ---------- */
-const fields=[
-  ["Application","e.g. 26/01234/FUL · Enfield","A direct link to the portal, so you can read the documents yourself."],
-  ["Site","e.g. 120 homes with new estate roads","Size tells you the likely fee and whether it's worth your time."],
-  ["Trigger","Condition 14: external lighting details","The exact wording, quoted. This becomes the opening line of the email."],
-  ["Stage","Approved, conditions pending","Shows how urgent it is. Pending conditions mean they need someone now."],
-  ["Developer","Company and decision-maker","The person who signs off the consultant, with a business email."],
-  ["Team","Agent, architect, engineer","Who else is involved, and who might refer you."],
-  ["Fit score","Hot: condition plus new roads","Why we ranked it, so you can disagree and we can retune the filter."],
-  ["Angle","Lead with your adoptable roads work","A suggested first line, based on your own projects."]
-];
-const fw=document.getElementById("fields"), why=document.getElementById("why");
-function showField(i){ [...fw.children].forEach((b,j)=>b.setAttribute("aria-pressed", j===i)); why.innerHTML='<span class="k">Why this field</span><h3 style="font-size:26px">'+fields[i][0]+'</h3><p>'+fields[i][2]+'</p>'; }
-fields.forEach((f,i)=>{ const b=document.createElement("button"); b.type="button"; b.className="field"; b.innerHTML='<small>'+f[0]+'</small><span>'+f[1]+'</span>'; b.onclick=()=>showField(i); fw.appendChild(b); });
-showField(2);
-
-/* ---------- options ---------- */
+/* pilot */
 let opt=store.get("opt","B");
-function setOpt(o){ opt=o; store.set("opt",o); document.getElementById("optA").setAttribute("aria-pressed", o==="A"); document.getElementById("optB").setAttribute("aria-pressed", o==="B"); }
-document.getElementById("optA").onclick=()=>setOpt("A"); document.getElementById("optB").onclick=()=>setOpt("B"); setOpt(opt);
-
-/* ---------- councils ---------- */
+function setOpt(o){ opt=o; store.set("opt",o); $("optA").setAttribute("aria-pressed",o==="A"); $("optB").setAttribute("aria-pressed",o==="B"); }
+$("optA").onclick=()=>setOpt("A"); $("optB").onclick=()=>setOpt("B"); setOpt(opt);
 const councilList=["Hillingdon","Harrow","Ealing","Brent","Barnet","Enfield","Hounslow","Haringey"];
-let picked=store.get("councils",[]);
-const cw=document.getElementById("councils");
-function renderCouncils(){
-  cw.innerHTML="";
-  councilList.forEach(n=>{ const b=document.createElement("button"); b.type="button"; b.className="cchip"; b.textContent=n; b.setAttribute("aria-pressed", picked.includes(n));
-    b.onclick=()=>{ if(picked.includes(n)) picked=picked.filter(x=>x!==n); else if(picked.length<3) picked=[...picked,n]; else { document.getElementById("councilNote").textContent="Three is the pilot limit. Remove one to swap it."; return; }
-      store.set("councils",picked); document.getElementById("councilNote").textContent = picked.length ? "Pilot area: "+picked.join(", ") : "You are in Eastcote (Hillingdon). Meridian Water is in Enfield."; renderCouncils(); };
-    cw.appendChild(b); });
-}
-renderCouncils(); if(picked.length) document.getElementById("councilNote").textContent="Pilot area: "+picked.join(", ");
+let picked=store.get("councils",[]); const cw=$("councils");
+function renderCouncils(){ cw.innerHTML="";
+  councilList.forEach(n=>{ const b=document.createElement("button"); b.type="button"; b.className="cchip"; b.textContent=n; b.setAttribute("aria-pressed",picked.includes(n));
+    b.onclick=()=>{ if(picked.includes(n)) picked=picked.filter(x=>x!==n); else if(picked.length<3) picked=[...picked,n]; else { $("councilNote").textContent="Three is the pilot limit. Remove one to swap."; return; }
+      store.set("councils",picked); $("councilNote").textContent=picked.length?"Pilot area: "+picked.join(", "):"You're in Hillingdon. Meridian Water is in Enfield."; renderCouncils(); };
+    cw.appendChild(b); }); }
+renderCouncils(); if(picked.length) $("councilNote").textContent="Pilot area: "+picked.join(", ");
 
-/* ---------- questions ---------- */
-const questions=["Which report types do you want more of: highway, estate roads, car parks, public realm, bat-sensitive?","What is the smallest job worth your time, in homes or fee?","Which councils, and how far will you travel?","How many new jobs a month can you take on?","Can you export 3D scenes or renders from AGI32 or Dialux?","Which past clients or projects can we name in emails?"];
-let qa=store.get("qa", questions.map(()=>({d:false,n:""})));
-const qw=document.getElementById("qs");
-function qCount(){ const n=qa.filter(x=>x.d).length; document.getElementById("qCount").textContent=n+" of 6 answered"; return n; }
-questions.forEach((q,i)=>{
-  const d=document.createElement("div"); d.className="q"+(qa[i].d?" done":"");
-  d.innerHTML='<input type="checkbox" id="q'+i+'"'+(qa[i].d?" checked":"")+'><label for="q'+i+'">'+q+'</label><textarea id="qn'+i+'" rows="1" placeholder="Notes" aria-label="Notes for question '+(i+1)+'"></textarea>';
-  qw.appendChild(d);
-  const cb=d.querySelector("input"), ta=d.querySelector("textarea"); ta.value=qa[i].n||"";
-  cb.onchange=()=>{ qa[i].d=cb.checked; d.classList.toggle("done",cb.checked); store.set("qa",qa); qCount(); };
-  ta.oninput=()=>{ qa[i].n=ta.value; store.set("qa",qa); };
-});
+/* care demo */
+const wave=$("wave"); for(let i=0;i<14;i++){ const s=document.createElement("i"); s.style.animationDelay=(i*0.07)+"s"; wave.appendChild(s); }
+const said="Just finished with Margaret in room 12. She ate most of her porridge, about three quarters, and had a full cup of tea. Morning tablets given at quarter past eight. She was a bit unsteady walking back, used her frame, no fall. Good mood, talking about her daughter's visit on Sunday.";
+const rows=[
+  ["Resident","Margaret, room 12 (example)"],["Time","08:15, morning visit"],["Food & drink","Porridge, about ¾ eaten. 1 cup of tea."],
+  ["Medication","Morning tablets given at 08:15"],["Mobility","Unsteady on the walk back. Used walking frame. No fall.",true],
+  ["Mood","Good. Looking forward to daughter's visit on Sunday."],["Follow-up","Tell the nurse about the unsteadiness. Watch at lunch.",true]
+];
+const rep=$("report"); const rEls=rows.map(r=>{ const d=document.createElement("div"); d.className="rrow"+(r[2]?" flagged":""); d.innerHTML='<span>'+r[0]+'</span><span>'+(r[2]?"⚑ ":"")+r[1]+'</span>'; rep.appendChild(d); return d; });
+const fsteps=[...$("flow").children]; let timers=[];
+const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function resetDemo(){ timers.forEach(clearTimeout); timers=[]; wave.classList.remove("live"); $("transcript").textContent="Press play to hear a carer's 30-second update."; rEls.forEach(e=>e.classList.remove("show")); fsteps.forEach(e=>e.classList.remove("on")); $("rstat").textContent="Waiting"; }
+function playDemo(){ resetDemo(); const T=(fn,ms)=>timers.push(setTimeout(fn,reduce?0:ms));
+  fsteps[0].classList.add("on"); wave.classList.add("live"); const words=said.split(" "); const tx=$("transcript"); tx.textContent="";
+  words.forEach((w,i)=>T(()=>{ tx.textContent=words.slice(0,i+1).join(" "); },i*90));
+  const t1=words.length*90+200;
+  T(()=>{ wave.classList.remove("live"); fsteps[1].classList.add("on"); $("rstat").textContent="Writing…"; },t1);
+  rEls.forEach((e,i)=>T(()=>e.classList.add("show"),t1+300+i*280));
+  const t2=t1+300+rEls.length*280+300;
+  T(()=>{ fsteps[2].classList.add("on"); $("rstat").textContent="Checked by carer"; },t2);
+  T(()=>{ fsteps[3].classList.add("on"); $("rstat").textContent="Saved to report"; },t2+700);
+}
+$("play").onclick=playDemo; $("reset").onclick=resetDemo;
+
+/* calculator chart */
+function calc(){
+  const s=+$("cStaff").value, n=+$("cNotes").value, m=+$("cMin").value;
+  $("oStaff").textContent=s; $("oNotes").textContent=n; $("oMin").textContent=m;
+  const notes=s*n*30, writeH=notes*m/60, voiceH=notes*1.5/60, saved=Math.max(0,writeH-voiceH);
+  $("saved").textContent=Math.round(saved).toLocaleString("en-GB");
+  const max=Math.max(writeH,1), bw=360, x0=130;
+  const bar=(y,h,label,val,fill,txt)=>{ const w=Math.max(4,bw*val/max); return '<text x="0" y="'+(y+h/2+5)+'" fill="#44594A" font-family="Manrope, Arial" font-size="15" font-weight="600">'+label+'</text><rect x="'+x0+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="8" fill="'+fill+'"/><text x="'+(w>90?x0+w-10:x0+w+8)+'" y="'+(y+h/2+5)+'" text-anchor="'+(w>90?"end":"start")+'" fill="'+(w>90?txt:"#101F14")+'" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600">'+Math.round(val).toLocaleString("en-GB")+' h</text>'; };
+  $("chart").innerHTML='<line x1="'+x0+'" y1="10" x2="'+x0+'" y2="180" stroke="#CFDDB4"/>'+bar(30,52,"Writing today",writeH,"#D98B5F","#101F14")+bar(110,52,"Speaking + AI",voiceH,"#2B4A34","#E9F0C9");
+}
+["cStaff","cNotes","cMin"].forEach(id=>$(id).addEventListener("input",calc)); calc();
+
+/* questions + summary */
+const questions=["Which job types do you want more of?","Smallest job worth your time?","Which councils?","Can you export renders from AGI32 or Dialux?","Who is the care home contact?","Can they share one example report?"];
+let qa=store.get("qa",questions.map(()=>false)); const qw=$("qs");
+function qCount(){ const n=qa.filter(Boolean).length; $("qCount").textContent=n+" of 6"; return n; }
+questions.forEach((q,i)=>{ const d=document.createElement("label"); d.className="q"+(qa[i]?" done":""); d.innerHTML='<input type="checkbox" id="q'+i+'"'+(qa[i]?" checked":"")+'><span>'+q+'</span>'; qw.appendChild(d);
+  d.querySelector("input").onchange=e=>{ qa[i]=e.target.checked; d.classList.toggle("done",qa[i]); store.set("qa",qa); qCount(); }; });
 qCount();
+function summary(){ $("sumL").textContent = picked.length ? picked.join(", ")+" · "+(opt==="A"?"lead list":"done for you") : "Pick your councils on page 7"; }
 
-function updateSummary(){
-  document.getElementById("sumC").textContent = picked.length ? picked.join(", ") : "Not chosen yet";
-  document.getElementById("sumO").textContent = opt==="A" ? "Option A: lead list" : "Option B: done for you";
-  document.getElementById("sumQ").textContent = qCount()+" of 6";
-}
-
-if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>requestAnimationFrame(drawAll));
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>requestAnimationFrame(drawAll));
 fromHash();
 })();
 </script>
