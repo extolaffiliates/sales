@@ -200,7 +200,7 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
 <!-- 2 proof -->
 <section class="slide light" data-name="proof" aria-label="Meridian Way proof">
   <div class="wrap">
-    <div class="eyebrow">Your work · Meridian Water, Meridian Way · BLL-0126-MW-RCALC-12-01</div>
+    <div class="eyebrow">Your work for a housing-led development · Meridian Water, Enfield · BLL-0126-MW-RCALC-12-01</div>
     <h2>It passes class C3 even with the lights dimmed to 80%.</h2>
     <div class="split">
       <div class="panel" style="display:grid;gap:24px">
@@ -217,7 +217,7 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="chip pass">Complies with C3</span><span class="small muted" id="mNote">Minimum point 7.57 lux. Spare capacity to step up a class if traffic grows.</span></div>
       </div>
       <div style="display:grid;gap:18px">
-        <p class="muted">A bus route through a high-crime area, next to a new station hub. The design was checked against BS 5489-1:2020 and BS EN 13201-2:2015, with constant light output (CLO) applied and tree-canopy spacing taken into account.</p>
+        <p class="muted">Roads inside a new development have to be lit to standard before the council will adopt them, so the developer must buy this report. Meridian Way is a bus route through a high-crime area, next to a new station hub. The design was checked against BS 5489-1:2020 and BS EN 13201-2:2015, with constant light output (CLO) applied and tree-canopy spacing taken into account.</p>
         <div class="specs">
           <div><span class="muted small">Column spacing</span><b>36 m, opposite</b></div>
           <div><span class="muted small">Mounting height</span><b>10 m</b></div>
@@ -311,22 +311,22 @@ nav.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-item
 <section class="slide dark" data-name="visuals" aria-label="Visuals add-on">
   <div class="wrap">
     <div class="eyebrow">Add-on</div>
-    <h2>We turn your design into something a developer can see.</h2>
+    <h2>Show the developer what their buyers will see at night.</h2>
     <div class="split">
-      <div class="stage"><canvas id="streetCanvas" aria-label="Night view of a street lit to the Meridian Way layout"></canvas>
-        <div class="hud"><span class="chip">36 m · opposite · 10 m columns</span><span class="chip" id="hudPass">C3 pass</span></div>
+      <div class="stage"><canvas id="streetCanvas" aria-label="Night view of a new residential street with street and landscape lighting"></canvas>
+        <div class="hud"><span class="chip">Illustration · new-build residential street</span></div>
       </div>
       <div style="display:grid;gap:20px">
         <div class="ctrl">
-          <label for="dim" class="eyebrow">Light output</label>
-          <input type="range" id="dim" min="40" max="100" step="1" value="80">
-          <div class="readout"><span class="big" id="lux">16.1 lux</span><span class="muted" id="luxNote">average at 80% output, 15 lux required</span></div>
+          <label for="dim" class="eyebrow">Drag to switch the scheme on and off</label>
+          <input type="range" id="dim" min="0" max="100" step="1" value="80">
+          <div class="readout"><span class="big" id="lux">80%</span><span class="muted" id="luxNote">street columns and path bollards at 80% output</span></div>
         </div>
         <div class="vcards">
-          <div class="vcard"><b>Walkthrough video</b><span class="small muted">A short night-time fly-through of the street or site, lit the way your design specifies.</span></div>
-          <div class="vcard"><b>Rendered image</b><span class="small muted">A realistic night view for the report cover, committee pack or sales brochure.</span></div>
+          <div class="vcard"><b>Walkthrough video</b><span class="small muted">A night-time fly-through of the homes, roads, paths and car park, lit the way your design specifies.</span></div>
+          <div class="vcard"><b>Rendered image</b><span class="small muted">A realistic night view for the planning pack, sales brochure or show-home screen.</span></div>
         </div>
-        <p class="small muted">This scene is an illustration, not a calculation. The average lux scales from your 100% result of 20.17 lux. Real visuals are built from your lighting model, so they match your numbers. Compliance stays in your report.</p>
+        <p class="small muted">This scene is an illustration, not a calculation. Real visuals are built from your lighting model for each scheme, so they match your numbers. Compliance stays in your report.</p>
       </div>
     </div>
   </div>
@@ -425,56 +425,72 @@ document.addEventListener("keydown", e=>{
 function fromHash(){ const n = location.hash.slice(1); const i = slides.findIndex(s=>s.dataset.name===n); go(i>=0?i:0, true); }
 window.addEventListener("hashchange", fromHash);
 
-/* ---------- street scene ---------- */
+/* ---------- residential scene ---------- */
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x);};
 function drawStreet(canvas, level){
   const r = canvas.getBoundingClientRect(); if(!r.width) return;
   const dpr = Math.min(2, window.devicePixelRatio||1);
   canvas.width = Math.round(r.width*dpr); canvas.height = Math.round(r.height*dpr);
   const c = canvas.getContext("2d"); c.setTransform(dpr,0,0,dpr,0,0);
-  const W=r.width, H=r.height, hy=H*0.44, f=Math.max(W,H*1.6)*0.62, camH=1.7, cx=W*0.5;
+  const W=r.width, H=r.height, hy=H*0.47, f=Math.max(W,H*1.6)*0.55, camH=1.6, cx=W*0.5;
   const P=(X,Y,Z)=>[cx+f*X/Z, hy+f*(camH-Y)/Z];
-  const sky=c.createLinearGradient(0,0,0,hy); sky.addColorStop(0,"#07110A"); sky.addColorStop(1,"#1D3524");
-  c.fillStyle=sky; c.fillRect(0,0,W,hy);
-  c.fillStyle="#0B160E"; c.fillRect(0,hy,W,H-hy);
   const quad=(pts,fill)=>{c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.closePath();c.fillStyle=fill;c.fill();};
-  const NZ=1.2, FZ=900;
-  quad([P(-9,0,NZ),P(-6.2,0,NZ),P(-6.2,0,FZ),P(-9,0,FZ)],"#18261B");
-  quad([P(6.2,0,NZ),P(13.6,0,NZ),P(13.6,0,FZ),P(6.2,0,FZ)],"#18261B");
-  quad([P(-6.2,0,NZ),P(6.2,0,NZ),P(6.2,0,FZ),P(-6.2,0,FZ)],"#121D14");
-  // lane markings
-  c.fillStyle="rgba(233,240,201,"+(0.10+0.28*level)+")";
-  [-3.1,0,3.1].forEach(x=>{ for(let z=3; z<420; z+=9){ quad([P(x-.07,0,z),P(x+.07,0,z),P(x+.07,0,z+3),P(x-.07,0,z+3)], c.fillStyle); } });
-  // light
-  const posts=[]; for(let i=9;i>=0;i--){ const z=22+i*36; posts.push([-7.2,z],[7.2,z]); }
-  c.globalCompositeOperation="lighter";
-  posts.forEach(([x,z])=>{
-    const gx = x<0 ? x+3.6 : x-3.6;
-    const [px,py]=P(gx,0,z); const rx=f*12/z; const ry=Math.max(1,(P(gx,0,Math.max(.5,z-12))[1]-P(gx,0,z+12)[1])/2);
-    c.save(); c.translate(px,py); c.scale(1, ry/rx);
-    const g=c.createRadialGradient(0,0,0,0,0,rx); g.addColorStop(0,"rgba(255,233,184,"+(0.2*level)+")"); g.addColorStop(.5,"rgba(255,226,170,"+(0.06*level)+")"); g.addColorStop(1,"rgba(255,226,170,0)");
-    c.fillStyle=g; c.beginPath(); c.arc(0,0,rx,0,Math.PI*2); c.fill(); c.restore();
-    const hx = x<0 ? x+0.9 : x-0.9; const [h1,h2]=P(hx,10,z); const [b1,b2]=P(gx-6,0,z); const [b3,b4]=P(gx+6,0,z);
-    c.beginPath(); c.moveTo(h1,h2); c.lineTo(b1,b2); c.lineTo(b3,b4); c.closePath(); c.fillStyle="rgba(255,233,184,"+(0.018*level)+")"; c.fill();
+  const sky=c.createLinearGradient(0,0,0,hy); sky.addColorStop(0,"#050C07"); sky.addColorStop(1,"#1A3021");
+  c.fillStyle=sky; c.fillRect(0,0,W,hy); c.fillStyle="#0A140C"; c.fillRect(0,hy,W,H-hy);
+  const NZ=1, FZ=600;
+  [-1,1].forEach(s=>{
+    quad([P(s*5.6,0,NZ),P(s*14,0,NZ),P(s*14,0,FZ),P(s*5.6,0,FZ)],"#0D1910");
+    quad([P(s*3.6,0,NZ),P(s*5.6,0,NZ),P(s*5.6,0,FZ),P(s*3.6,0,FZ)],"#1A261C");
   });
+  quad([P(-3.6,0,NZ),P(3.6,0,NZ),P(3.6,0,FZ),P(-3.6,0,FZ)],"#101912");
+  for(let z=3; z<300; z+=8) quad([P(-.06,0,z),P(.06,0,z),P(.06,0,z+2.5),P(-.06,0,z+2.5)],"rgba(233,240,201,"+(0.08+0.22*level)+")");
+  // buildings
+  const blds=[]; [-1,1].forEach(s=>{ let z=9+(s>0?4:0), k=0; while(z<330){ const id=k*7+(s>0?3:0); const w=7+rnd(id)*4, h=6.5+Math.floor(rnd(id+1)*3)*3; blds.push({s,z,w,h,id}); z+=w+1.6; k++; } });
+  blds.sort((a,b)=>b.z-a.z).forEach(b=>{
+    const xs=b.s*11, xb=b.s*21, tone=["#142319","#17281C","#122016"][b.id%3];
+    quad([P(xs,0,b.z),P(xs,b.h,b.z),P(xs,b.h,b.z+b.w),P(xs,0,b.z+b.w)],tone);
+    const floors=Math.floor(b.h/3), cols=Math.max(1,Math.floor(b.w/2.3));
+    for(let fl=0; fl<floors; fl++) for(let k=0; k<cols; k++){
+      const z0=b.z+0.7+k*2.3, z1=z0+1.2, y0=fl*3+0.9, y1=y0+1.5, on=rnd(b.id*31+fl*7+k)>0.42;
+      quad([P(xs,y0,z0),P(xs,y1,z0),P(xs,y1,z1),P(xs,y0,z1)], on ? "rgba(255,212,150,.78)" : "#1E3024");
+    }
+    quad([P(xs,0,b.z),P(xs,b.h,b.z),P(xb,b.h,b.z),P(xb,0,b.z)],"#0E1A11");
+    quad([P(xs,b.h,b.z),P((xs+xb)/2,b.h+3.2,b.z),P(xb,b.h,b.z)],"#0B160E");
+    quad([P(xs,b.h,b.z),P((xs+xb)/2,b.h+3.2,b.z),P((xs+xb)/2,b.h+3.2,b.z+b.w),P(xs,b.h,b.z+b.w)],"#0F1C12");
+  });
+  // street furniture
+  const items=[];
+  for(let i=0;i<10;i++){ const s=i%2?1:-1; items.push({t:"col",s,z:12+i*26}); }
+  blds.forEach(b=>items.push({t:"bol",s:b.s,z:b.z+b.w/2}));
+  for(let i=0;i<14;i++){ [-1,1].forEach(s=>items.push({t:"tree",s,z:20+i*21+(s>0?10:0)})); }
+  c.globalCompositeOperation="lighter";
+  const pool=(X,Z,R,a)=>{ const [px,py]=P(X,0,Z); const rx=f*R/Z; const ry=Math.max(.5,(P(X,0,Math.max(.4,Z-R))[1]-P(X,0,Z+R)[1])/2);
+    c.save(); c.translate(px,py); c.scale(1,ry/rx); const g=c.createRadialGradient(0,0,0,0,0,rx);
+    g.addColorStop(0,"rgba(255,233,184,"+a+")"); g.addColorStop(.5,"rgba(255,226,170,"+(a*.3)+")"); g.addColorStop(1,"rgba(255,226,170,0)");
+    c.fillStyle=g; c.beginPath(); c.arc(0,0,rx,0,Math.PI*2); c.fill(); c.restore(); };
+  items.forEach(o=>{ if(o.t==="col") pool(o.s*2.2,o.z,9,0.26*level); if(o.t==="bol") pool(o.s*7.6,o.z,2.2,0.32*level); });
   c.globalCompositeOperation="source-over";
-  posts.forEach(([x,z])=>{
-    const [a1,a2]=P(x,0,z), [t1,t2]=P(x,10,z); const hx = x<0 ? x+0.9 : x-0.9; const [h1,h2]=P(hx,10,z);
-    c.strokeStyle="#3B5240"; c.lineCap="round"; c.lineWidth=Math.max(1,f*0.16/z);
-    c.beginPath(); c.moveTo(a1,a2); c.lineTo(t1,t2); c.lineTo(h1,h2); c.stroke();
-    const rr=Math.max(1.5,f*0.9/z); const g=c.createRadialGradient(h1,h2+rr*.15,0,h1,h2,rr*3);
-    g.addColorStop(0,"rgba(255,246,222,"+(0.25+0.75*level)+")"); g.addColorStop(.25,"rgba(255,233,184,"+(0.5*level)+")"); g.addColorStop(1,"rgba(255,233,184,0)");
-    c.fillStyle=g; c.beginPath(); c.arc(h1,h2,rr*3,0,Math.PI*2); c.fill();
+  const glow=(x,y,rr,a)=>{ const g=c.createRadialGradient(x,y,0,x,y,rr); g.addColorStop(0,"rgba(255,246,222,"+a+")"); g.addColorStop(.3,"rgba(255,233,184,"+(a*.5)+")"); g.addColorStop(1,"rgba(255,233,184,0)"); c.fillStyle=g; c.beginPath(); c.arc(x,y,rr,0,Math.PI*2); c.fill(); };
+  items.sort((a,b)=>b.z-a.z).forEach(o=>{
+    if(o.t==="tree"){ const [b1,b2]=P(o.s*6.4,0,o.z), [t1,t2]=P(o.s*6.4,4,o.z), rr=f*2.3/o.z;
+      c.strokeStyle="#122016"; c.lineWidth=Math.max(1,f*.22/o.z); c.beginPath(); c.moveTo(b1,b2); c.lineTo(t1,t2); c.stroke();
+      c.fillStyle="#0C1A0F"; c.beginPath(); c.arc(t1,t2-rr*.6,rr,0,Math.PI*2); c.fill();
+      c.fillStyle="rgba(158,187,128,"+(0.12*level)+")"; c.beginPath(); c.arc(t1,t2-rr*.3,rr*.8,0,Math.PI); c.fill(); }
+    if(o.t==="col"){ const x=o.s*4.0, [a1,a2]=P(x,0,o.z), [t1,t2]=P(x,6,o.z), [h1,h2]=P(x-o.s*.6,6,o.z);
+      c.strokeStyle="#3B5240"; c.lineCap="round"; c.lineWidth=Math.max(1,f*.12/o.z); c.beginPath(); c.moveTo(a1,a2); c.lineTo(t1,t2); c.lineTo(h1,h2); c.stroke();
+      glow(h1,h2,Math.max(3,f*2/o.z),0.2+0.8*level); }
+    if(o.t==="bol"){ const x=o.s*7.6, [a1,a2]=P(x,0,o.z), [t1,t2]=P(x,.9,o.z);
+      c.strokeStyle="#3B5240"; c.lineWidth=Math.max(1,f*.16/o.z); c.beginPath(); c.moveTo(a1,a2); c.lineTo(t1,t2); c.stroke();
+      glow(t1,t2,Math.max(2,f*.7/o.z),0.15+0.85*level); }
   });
 }
 const cover=document.getElementById("coverCanvas"), street=document.getElementById("streetCanvas"), dim=document.getElementById("dim");
-function drawAll(){ drawStreet(cover, .8); drawStreet(street, dim.value/100); }
+function drawAll(){ drawStreet(cover, .85); drawStreet(street, dim.value/100); }
 window.addEventListener("resize", ()=>requestAnimationFrame(drawAll));
 dim.addEventListener("input", ()=>{
-  const lv=dim.value/100, e=20.17*lv;
-  document.getElementById("lux").textContent=e.toFixed(1)+" lux";
-  document.getElementById("luxNote").textContent="average at "+dim.value+"% output, 15 lux required";
-  const ok=e>=15, h=document.getElementById("hudPass"); h.textContent= ok ? "C3 pass" : "Below C3"; h.style.background= ok ? "rgba(158,187,128,.9)" : "rgba(217,139,95,.92)"; h.style.color="#101F14";
-  drawStreet(street, lv);
+  const v=+dim.value; document.getElementById("lux").textContent = v===0 ? "Off" : v+"%";
+  document.getElementById("luxNote").textContent = v===0 ? "No external lighting: how the scheme reads to a buyer at night" : "street columns and path bollards at "+v+"% output";
+  drawStreet(street, v/100);
 });
 
 /* ---------- proof meters ---------- */
