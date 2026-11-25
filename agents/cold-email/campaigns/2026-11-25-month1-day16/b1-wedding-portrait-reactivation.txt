@@ -1,0 +1,25 @@
+Subject: {{first_name}}, question
+
+Hey {{first_name}},
+
+{{icebreaker}}
+
+I'm Dev. I ran outreach in-house at a London production house. Now I help studios like yours get more bookings.
+
+You probably have old enquiries that never booked. I'd write to them again for you, and you'd only pay for sessions that actually book.
+
+Want to see how it would work for {{company}}?
+
+Dev
+===
+Hey {{first_name}},
+
+Short version in case you missed it:
+
+- your old enquiries, written to again
+- you pay only per booked session
+- nothing to set up on your side
+
+Worth a look?
+
+Dev

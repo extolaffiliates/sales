@@ -1,0 +1,25 @@
+Subject: {{first_name}}, question
+
+Hey {{first_name}},
+
+{{icebreaker}}
+
+I'm Dev. I ran outreach in-house at a London video production house, so I know how much of your work comes from who you know.
+
+I can find you 20 brands that post video every week with no obvious in-house editor. You'd get the person who'd hire {{company}} at each.
+
+Want your list? It's free.
+
+Dev
+===
+Hey {{first_name}},
+
+Quick one in case this got lost:
+
+- 20 brands posting video weekly
+- no obvious in-house editor
+- the person who'd hire you, free
+
+Want me to send it?
+
+Dev

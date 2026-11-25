@@ -1,0 +1,25 @@
+Subject: {{first_name}}, question
+
+Hey {{first_name}},
+
+{{icebreaker}}
+
+I'm Dev. I ran outreach in-house at a London video production house. Now I set it up for photo and video businesses like yours.
+
+Here's the idea: one small campaign to agents near {{city}} for {{company}}. If it books you shoots, we talk. If not, it cost you nothing.
+
+Worth a try before your spring listings start?
+
+Dev
+===
+Hey {{first_name}},
+
+Quick recap in case this slipped past you:
+
+- one test campaign to your local agents
+- free, set up for you
+- you only talk to me if it books shoots
+
+Want me to set it up?
+
+Dev
