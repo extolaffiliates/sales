@@ -1,0 +1,47 @@
+# digitalclinic.ai
+
+> digitalclinic.ai is a business clinic for start-ups and scale-ups, based in Tunbridge Wells, Kent, UK. Every company starts with a consultation and a written diagnosis. It is then referred to the specialists it needs, in the right order, and followed up from idea to commercialisation and beyond. It starts with healthcare companies and works with other sectors too. It is a clinic for businesses, not a medical service. Tagline: "Diagnostics for any business".
+
+Founder: Amit Chavda. Contact: hello@digitalclinic.ai
+
+## What it does, in plain words
+
+- Consultation: a fixed-price discovery session with the founder, looking at the product, the customers, the money and the team.
+- Written diagnosis: a short report on where the company is, what is missing, and the order to fix it in.
+- Referral to specialists: the company is sent only to the departments its diagnosis calls for, with notes, so no specialist starts from scratch.
+- Follow-up: regular reviews against the plan. For many companies this becomes an adviser or board relationship.
+
+## The five-stage pathway
+
+1. Ideation: shape the idea with the people who will use it and the people who will pay for it.
+2. Proof of principle: test the riskiest assumption with a cheap prototype that is allowed to fail fast.
+3. Ready to sell: compliance, contracts, data protection and IP in place before the market can buy.
+4. First customers: pilots with agreed measures, so each one produces evidence and a reference.
+5. Commercialisation: turn pilots into contracts, with pricing, a repeatable sales process and recurring revenue.
+
+After commercialisation, digitalclinic.ai can stay on the board or alongside it for growth, funding rounds and harder decisions.
+
+## Departments
+
+- In-house: commercial strategy; business case and health economics; governance and board.
+- By referral to specialists: regulation and clinical safety (including medical device rules for software); legal; intellectual property; finance, tax and funding; product and technology; brand and marketing.
+
+## Ways to work together
+
+- Consultation: discovery session and written diagnosis. Everyone starts here.
+- Adviser: regular sessions with the founder on product, pricing, customers and funding.
+- Non-executive director: a formal board seat with independent challenge and accountability.
+- Hands-on project: a defined piece of work, such as a route-to-market plan, a business case or a pilot design.
+
+## Who it is for
+
+Start-ups and scale-ups at any stage, including before there is a product. A small number of companies are taken on at a time.
+
+## About the founder
+
+Amit Chavda has spent around 17 years taking products and services from idea to paying customer. He started in clinical practice, moved into public-sector analytics and commissioning, and then into senior commercial and consulting roles in technology and AI. He designed and built iSlot, booking and scheduling software for imaging departments, now being taken to market.
+
+## Pages
+
+- [Home](https://digitalclinic.ai/): the full description, method, pathway, departments, FAQ and contact.
+- [Privacy notice](https://digitalclinic.ai/privacy.html)

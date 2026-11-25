@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>digitalclinic.ai</title>
+<meta name="description" content="digitalclinic.ai is a clinic for start-ups and scale-ups. A consultation and written diagnosis first, then referral to the right specialists, from idea to commercialisation.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif&display=swap">
+<style>
+/* Layout: follows the digitalclinic.ai slide template. Dark title band, cream content sections with
+   small rust capital labels, one full rust band for the headline line, a roadmap-style pathway. */
+:root{
+  --bg:#F6F3EE; --surface:#FFFFFF; --ink:#14181C; --muted:#6E665B; --faint:#8A8175; --line:#E2DACD;
+  --accent:#C8552F; --accent-text:#A8421F; --accent-deep:#A8421F; --on-accent:#FFFFFF;
+  --green:#1F6F63; --green-text:#1F6F63;
+  --band:#14181C; --band-fg:#F6F3EE; --band-muted:#A39A8C; --band-line:#3A3F45; --band-card:#1F252B; --band-green:#4FB3A3;
+  --logo-cut:var(--bg);  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B2026; --surface:#242A31; --ink:#F6F3EE; --muted:#A39A8C; --faint:#8A8175; --line:#3A3F45;
+    --accent-text:#E0764F; --green-text:#4FB3A3;
+    --band:#0F1215; --band-card:#1A1F24;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B2026; --surface:#242A31; --ink:#F6F3EE; --muted:#A39A8C; --faint:#8A8175; --line:#3A3F45;
+  --accent-text:#E0764F; --green-text:#4FB3A3;
+  --band:#0F1215; --band-card:#1A1F24;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--sans);margin:0;text-wrap:balance}
+h1{font-family:var(--serif);font-size:clamp(2.6rem,5.8vw,4.3rem);font-weight:400;line-height:1.04;letter-spacing:-0.01em}
+h2{font-family:var(--serif);font-size:clamp(1.95rem,3.6vw,2.7rem);font-weight:400;line-height:1.1}
+h3{font-size:1.15rem;font-weight:600;line-height:1.25}
+p{margin:0}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+.lede{font-size:1.12rem;color:var(--muted);max-width:60ch}
+
+/* dark bands re-point the tokens, so everything inside follows */
+.band{--surface:var(--band-card);--line:var(--band-line);--muted:var(--band-muted);--ink:var(--band-fg);--accent-text:var(--accent);--green-text:var(--band-green);--logo-cut:var(--band);background:var(--band);color:var(--band-fg)}
+
+/* logo */
+.logo{display:block;height:44px;width:auto}
+.logo .d{fill:var(--ink)}
+.logo .c{fill:none;stroke:var(--logo-cut);stroke-width:11;stroke-linecap:round}
+.logo .o{fill:var(--accent)}
+.logo text{fill:var(--accent);font-family:var(--sans);font-size:38px;font-weight:700;letter-spacing:-1.5px}
+
+/* header */
+.top{padding-block:22px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.lockup{display:flex;align-items:center;gap:16px;text-decoration:none}
+.lockup span{font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:16px;line-height:2.4}
+.nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:.93rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--accent-deep);color:var(--on-accent);text-decoration:none;padding:12px 20px;border-radius:4px;border:0;font:600 1rem var(--sans);cursor:pointer}
+.btn:hover{background:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.nav .btn{padding:9px 16px;color:var(--on-accent)}
+@media (max-width:980px){.nav a:not(.btn){display:none}}
+@media (max-width:1180px){.lockup span{display:none}}
+
+/* hero */
+.hero{padding-block:40px 80px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero figure{margin:0;min-width:0}
+.hero svg{width:100%;height:auto;display:block}
+.hero figcaption{font-size:.82rem;color:var(--muted);margin-top:12px}
+/* horseshoe of the clinic method: steps run up the left, over the top and down the right */
+.hero .shoe{display:grid;grid-template-columns:1fr minmax(0,300px) 1fr;grid-template-areas:"s2 art s3" "s1 art s4";column-gap:16px;align-items:center}
+.shoe .art{grid-area:art}
+.shoe .lab{display:flex;flex-direction:column;gap:3px;min-width:0;line-height:1.25}
+.shoe .lab .term{white-space:nowrap;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.shoe .lab strong{font-size:1.02rem;font-weight:600}
+.shoe .s1{grid-area:s1;text-align:right;align-self:start;padding-top:6px}
+.shoe .s2{grid-area:s2;text-align:right;align-self:start;padding-top:22px}
+.shoe .s3{grid-area:s3;align-self:start;padding-top:22px}
+.shoe .s4{grid-area:s4;align-self:start;padding-top:6px}
+.shoe .s2 .term{color:var(--accent)}
+.shoe .s4 .term{color:var(--band-green)}
+.shoe-n{font-family:var(--sans);font-size:22px;font-weight:700;text-anchor:middle}
+.shoe-c{font-family:var(--serif);font-size:30px;text-anchor:middle;fill:var(--ink)}
+.shoe-r{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-anchor:middle;fill:var(--muted)}
+@media (max-width:520px){
+  .hero .shoe{grid-template-columns:1fr 1fr;grid-template-areas:"art art" "s1 s2" "s3 s4";gap:18px 16px}
+  .shoe .art{max-width:300px;justify-self:center}
+  .shoe .lab{text-align:left;padding-top:0}
+}
+.svg-t{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;fill:var(--muted)}
+.svg-n{font-family:var(--sans);font-size:14px;font-weight:700;text-anchor:middle}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:32px}.hero{padding-block:16px 56px}}
+
+/* sections */
+section{padding-block:76px}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.white{background:var(--surface)}
+
+/* clinic method, drawn like the template's method cards */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.steps p{color:var(--muted);font-size:.95rem}
+.steps .term{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.chip{width:30px;height:30px;border-radius:7px;display:grid;place-items:center;font-size:.85rem;font-weight:700;background:var(--band);color:var(--band-fg);margin-bottom:6px}
+.chip.r{background:var(--accent-deep);color:var(--on-accent)}
+.chip.g{background:var(--green);color:var(--on-accent)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.who{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:auto;padding-top:8px}
+.who.in{color:var(--accent-text)}
+.note{margin-top:28px;color:var(--muted);max-width:70ch}
+
+/* problem cards */
+.fails{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.fail{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fail:nth-child(4),.fail:nth-child(5){grid-column:span 3}
+.fail p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.fail,.fail:nth-child(4),.fail:nth-child(5){grid-column:span 6}}
+
+/* headline band */
+.rule{background:var(--accent-deep);color:var(--on-accent);padding-block:84px}
+.rule .eyebrow{color:var(--on-accent)}
+.rule blockquote{margin:18px 0 0;padding:0;font-family:var(--serif);font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:400;line-height:1.04;letter-spacing:-0.01em;max-width:18ch}
+.rule cite{display:block;margin-top:22px;font-family:var(--sans);font-size:.9rem;font-style:normal;letter-spacing:0}
+
+/* pathway, drawn like the template's roadmap */
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--accent)}
+.path li{padding:22px 18px 0 0;display:flex;flex-direction:column;gap:8px;position:relative;min-width:0}
+.path li::before{content:"";position:absolute;top:-8px;left:0;width:14px;height:14px;border-radius:50%;background:var(--accent)}
+.path li.edge::before{background:var(--ink)}
+.path .n{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.path p{font-size:.93rem;color:var(--muted)}
+.after{margin-top:40px;padding:20px 24px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:6px;max-width:72ch}
+@media (max-width:860px){
+  .path{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--accent)}
+  .path li{padding:0 0 26px 24px}
+  .path li::before{top:5px;left:-8px}
+}
+
+/* ruled grid */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);column-gap:40px;border-top:1px solid var(--line)}
+.svc > div{padding:24px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;min-width:0}
+.svc p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.svc{grid-template-columns:1fr}}
+
+/* split blocks */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.split > *{min-width:0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px 28px}
+.panel.band{border-color:var(--band)}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.facts li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.96rem}
+.facts li:last-child{border-bottom:0}
+.facts b{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-text);padding-top:4px}
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ticks li{padding-left:20px;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--green-text)}
+.green .eyebrow,.green .facts b{color:var(--green-text)}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}.facts li{grid-template-columns:1fr;gap:2px}}
+
+/* contact */
+.contact h2{font-size:clamp(2.3rem,5.2vw,3.8rem);margin-top:14px;max-width:16ch}
+.contact .lede{margin-top:18px}
+.mail{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.mail div{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.mail a{font-size:1.2rem;font-weight:600;overflow-wrap:anywhere}
+.copy{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);border:0;border-radius:4px;padding:8px 14px;font:500 .88rem var(--sans);cursor:pointer}
+footer{padding-block:26px;font-size:.86rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="band">
+<header class="top">
+  <div class="wrap">
+    <a class="lockup" href="#top" aria-label="digitalclinic.ai home">
+      <svg class="logo" viewBox="0 0 143 100" role="img" aria-label="digitalclinic.ai"><path class="d" d="M18 10 H48 A40 40 0 0 1 48 90 H18 Z"/><path class="c" d="M70 36 A22 22 0 1 0 70 64"/><circle class="o" cx="76" cy="50" r="5.5"/><text x="91" y="58">ai</text></svg>
+      <span>Diagnostics for any business</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#clinic">How it works</a>
+      <a href="#departments">Departments</a>
+      <a href="#pathway">Pathway</a>
+      <a href="#working">Working with us</a>
+      <a href="#islot">iSlot</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">A clinic for start-ups and scale-ups</p>
+      <h1>Your company gets a diagnosis first. <em>Then the right specialists.</em></h1>
+      <p class="lede">digitalclinic.ai works like a clinic. You start with a consultation and a written diagnosis. We then refer you to the specialists you need, in the right order, and stay with you from idea to commercialisation and beyond. We start with healthcare companies and work with other sectors too.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact">Book a consultation</a>
+        <a class="btn ghost" href="#clinic">See how the clinic works</a>
+      </div>
+    </div>
+    <figure class="shoe">
+      <svg class="art" viewBox="0 0 320 312" role="img" aria-label="Horseshoe diagram of the clinic method. Four steps run round your company: 1 Examine, 2 Diagnose, 3 Prescribe, 4 Monitor. A dotted line marked Review links step 4 back to step 1.">
+        <path d="M81 247.7 A118 118 0 0 1 47.8 123.5" fill="none" stroke="var(--ink)" stroke-width="52"/>
+        <path d="M50.6 115.8 A118 118 0 0 1 155.9 42.1" fill="none" stroke="var(--accent)" stroke-width="52"/>
+        <path d="M164.1 42.1 A118 118 0 0 1 269.4 115.8" fill="none" stroke="var(--ink)" stroke-width="52"/>
+        <path d="M272.2 123.5 A118 118 0 0 1 239 247.7" fill="none" stroke="var(--green)" stroke-width="52"/>
+        <text class="shoe-n" x="46" y="198.5" fill="var(--band)">1</text>
+        <text class="shoe-n" x="92.3" y="71.3" fill="var(--on-accent)">2</text>
+        <text class="shoe-n" x="227.7" y="71.3" fill="var(--band)">3</text>
+        <text class="shoe-n" x="274" y="198.5" fill="var(--on-accent)">4</text>
+        <path d="M229.4 255.5 A118 118 0 0 1 90.6 255.5" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <polyline points="92.4,262.9 88,253.6 98.2,254.9" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text class="shoe-r" x="160" y="303">Review</text>
+        <text class="shoe-c" x="160" y="150">Your</text>
+        <text class="shoe-c" x="160" y="182">company</text>
+      </svg>
+      <div class="lab s1"><span class="term">1 · Examine</span><strong>Consultation</strong></div>
+      <div class="lab s2"><span class="term">2 · Diagnose</span><strong>Written diagnosis</strong></div>
+      <div class="lab s3"><span class="term">3 · Prescribe</span><strong>Referral to specialists</strong></div>
+      <div class="lab s4"><span class="term">4 · Monitor</span><strong>Follow-up</strong></div>
+    </figure>
+  </div>
+</div>
+</div>
+
+<main>
+<section id="problem">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The problem</p>
+      <h2>Why good start-ups stall</h2>
+      <p class="lede">Most start-ups that stall have a product that works. What they are missing is someone experienced in the room who has no day job in the business and can ask the awkward questions early.</p>
+    </div>
+    <div class="fails">
+      <div class="fail"><h3>Building before anyone has agreed to pay</h3><p>Months go into the product. The first serious conversation about price happens after launch.</p></div>
+      <div class="fail"><h3>Selling to the wrong person</h3><p>The people who love the product are often not the people who hold the budget.</p></div>
+      <div class="fail"><h3>No proof a buyer trusts</h3><p>A demo and a few friendly users are not evidence. Buyers and investors want results they can check.</p></div>
+      <div class="fail"><h3>Governance left too late</h3><p>Contracts, data protection, regulation and IP get dealt with when a customer asks, and the deal waits while they are fixed.</p></div>
+      <div class="fail"><h3>A founder deciding alone</h3><p>With no independent challenge, the plan is only tested when the money starts to run out.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule">
+  <div class="wrap">
+    <p class="eyebrow">The rule we work by</p>
+    <blockquote>If it doesn't pay, it doesn't stay.<cite>Amit Chavda, founder</cite></blockquote>
+  </div>
+</div>
+
+<section id="clinic">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Method</p>
+      <h2>How the clinic works</h2>
+      <p class="lede">The same four steps for every company, whatever its sector or stage. You always see us first, and we stay responsible for the plan.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="chip">1</span><span class="term">Examine</span><h3>Consultation</h3><p>A discovery session with our founder. We look at the product, the customers, the money and the team.</p></li>
+      <li><span class="chip r">2</span><span class="term">Diagnose</span><h3>Written diagnosis</h3><p>A short report on where the company is, what is missing, and the order to fix it in.</p></li>
+      <li><span class="chip">3</span><span class="term">Prescribe</span><h3>Referral to specialists</h3><p>We send you to the departments you need, with our notes, so no specialist starts from scratch.</p></li>
+      <li><span class="chip g">4</span><span class="term">Monitor</span><h3>Follow-up</h3><p>Regular reviews against the plan. For many companies this becomes an adviser or board relationship.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="white" id="pathway">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The pathway</p>
+      <h2>Five stages from idea to commercialisation</h2>
+      <p class="lede">Your diagnosis places the company on this pathway. It shows what has been done, what has been skipped, and what the next customer or investor will ask for.</p>
+    </div>
+    <ol class="path">
+      <li><span class="n">Stage 1</span><h3>Ideation</h3><p>Shape the idea with the people who will use it and the people who will pay for it.</p></li>
+      <li><span class="n">Stage 2</span><h3>Proof of principle</h3><p>Test the riskiest assumption with a cheap prototype that is allowed to fail fast.</p></li>
+      <li><span class="n">Stage 3</span><h3>Ready to sell</h3><p>Put in place what your market requires before it can buy: compliance, contracts, data protection, IP.</p></li>
+      <li><span class="n">Stage 4</span><h3>First customers</h3><p>Run pilots with agreed measures, so each one produces evidence and a reference.</p></li>
+      <li class="edge"><span class="n">Stage 5</span><h3>Commercialisation</h3><p>Turn pilots into contracts. Set pricing, a repeatable sales process and recurring revenue.</p></li>
+    </ol>
+    <p class="after"><strong>And after that.</strong> Commercialisation is where a lot of advisers leave. A non-executive stays. Once the company is trading we remain on the board or alongside it, for growth, funding rounds and the decisions that get harder as the company gets bigger.</p>
+  </div>
+</section>
+
+<section id="departments">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Departments</p>
+      <h2>One front door, every specialist a growing company needs</h2>
+      <p class="lede">Some departments we run ourselves. The others are run by specialist firms we refer you to. You are only sent to the ones your diagnosis calls for.</p>
+    </div>
+    <div class="svc">
+      <div><h3>Commercial strategy</h3><p>Who holds the budget, how they buy, and the shortest credible route to a signed contract.</p><span class="who in">In-house</span></div>
+      <div><h3>Business case and health economics</h3><p>The cost and benefit case a buyer's finance team will accept, and the evidence plan behind it.</p><span class="who in">In-house</span></div>
+      <div><h3>Governance and board</h3><p>Board discipline, independent challenge and a non-executive when the company is ready for one.</p><span class="who in">In-house</span></div>
+      <div><h3>Regulation and clinical safety</h3><p>Medical device rules for software, clinical safety cases, data protection and cyber security.</p><span class="who">Specialist partner</span></div>
+      <div><h3>Legal</h3><p>Founder agreements, customer contracts, employment and investment terms.</p><span class="who">Specialist partner</span></div>
+      <div><h3>Intellectual property</h3><p>Patents, trade marks and a view on what is worth protecting.</p><span class="who">Specialist partner</span></div>
+      <div><h3>Finance, tax and funding</h3><p>Financial model, investor tax reliefs, R&amp;D tax relief and grant applications.</p><span class="who">Specialist partner</span></div>
+      <div><h3>Product and technology</h3><p>Build, technical review and senior technical leadership by the day.</p><span class="who">Specialist partner</span></div>
+      <div><h3>Brand and marketing</h3><p>Positioning, go-to-market plan and launch.</p><span class="who">Specialist partner</span></div>
+    </div>
+    <p class="note">We start with healthcare, where the rules are strictest and the route to a paying customer is longest. The clinic works the same way in other sectors, with the regulation department changed to suit.</p>
+  </div>
+</section>
+
+<section class="white" id="working">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">How we work</p>
+      <h2>Four ways to work with us</h2>
+      <p class="lede">Everyone starts with a consultation. What follows depends on your stage. Many founders move to advisory sessions, then a board seat once there is a board to sit on.</p>
+      <p>We take on a small number of companies at a time. Current work includes start-ups in AI automation and software tools.</p>
+    </div>
+    <div class="panel band">
+      <ul class="facts">
+        <li><b>Consultation</b><span>A fixed-price discovery session and a written diagnosis. The starting point for everything else.</span></li>
+        <li><b>Adviser</b><span>Regular sessions with the founder. A sounding board for decisions on product, pricing, customers and funding.</span></li>
+        <li><b>Non-executive director</b><span>A formal board seat, with the independent challenge and accountability that comes with it.</span></li>
+        <li><b>Hands-on project</b><span>A defined piece of work, such as a route-to-market plan, a business case or a pilot design.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band green" id="islot">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">We build too</p>
+      <h2>iSlot: our own product, on the same pathway</h2>
+      <p class="lede">The advice comes from doing it. iSlot is booking and scheduling software for imaging departments, designed and built by our founder and now being taken to market.</p>
+      <ul class="ticks">
+        <li>A working product, already being shown to imaging services.</li>
+        <li>Built solo, from idea to working software.</li>
+        <li>Going through the same stages we take other founders through.</li>
+      </ul>
+      <div class="cta-row"><a class="btn ghost" href="#contact">Ask about iSlot</a></div>
+    </div>
+    <div class="panel">
+      <ul class="facts">
+        <li><b>What it fixes</b><span>The gaps between a referral arriving, a slot being booked and a result going back.</span></li>
+        <li><b>Who it's for</b><span>Imaging departments, community diagnostic centres and imaging networks.</span></li>
+        <li><b>Stage</b><span>Working MVP. Seeking pilot partners and early investment.</span></li>
+        <li><b>Why it's here</b><span>A non-executive who has built and sold a product gives different advice from one who has only reviewed them.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">About</p>
+      <h2>Amit Chavda, founder</h2>
+      <p>Amit has spent around 17 years taking products and services from idea to paying customer, and has sat on every side of the table. He started in clinical practice, moved into public-sector analytics and commissioning, and then into senior commercial and consulting roles in technology and AI.</p>
+      <p>He has been the user, the budget holder, the person writing the business case and the person carrying the sales target. That is what he brings to a founder: he knows why each of those people says no, and what gets them to yes.</p>
+    </div>
+    <div class="panel">
+      <ul class="facts">
+        <li><b>Commercial</b><span>Managing Consultant at Siemens Healthineers; a senior role at Ergéa, taking a digital portfolio from idea through prototyping to commercialisation; business development in medical AI.</span></li>
+        <li><b>Buyer side</b><span>NHS England, Croydon CCG, and analytics roles in commissioning support units.</span></li>
+        <li><b>Founder</b><span>Designed and built iSlot.</span></li>
+        <li><b>Education</b><span>MSc Health Economics (Economic Evaluation of Healthcare); BSc Diagnostic Radiography.</span></li>
+        <li><b>Method</b><span>Lean continuous improvement.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>Book a first consultation.</h2>
+    <p class="lede">Start-ups and scale-ups are welcome at any stage, including before there is a product. Tell us about the company and we will reply with how the consultation works and what it costs.</p>
+    <div class="mail">
+      <svg class="logo" viewBox="0 0 143 100" role="img" aria-label="digitalclinic.ai"><path class="d" d="M18 10 H48 A40 40 0 0 1 48 90 H18 Z"/><path class="c" d="M70 36 A22 22 0 1 0 70 64"/><circle class="o" cx="76" cy="50" r="5.5"/><text x="91" y="58">ai</text></svg>
+      <div>
+        <a id="email" href="mailto:hello@digitalclinic.ai">hello@digitalclinic.ai</a>
+        <button class="copy" id="copy-email" type="button">Copy address</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 digitalclinic.ai</span>
+    <span>Tunbridge Wells, Kent, UK</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email'), el=document.getElementById('email');
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy address'},1800)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected, press copy'};
+    try{navigator.clipboard.writeText(el.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
