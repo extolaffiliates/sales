@@ -12,3 +12,4 @@ Static site (HTML/CSS/JS, no build step) for EffectivePoint Consulting: Finance 
 | `privacy.html`, `cookies.html`, `terms.html` | Legal pages (wording to be confirmed) |
 | `styles.css`, `main.js` | Shared styles and behaviour (header, overlay menu, scroll reveal) |
 | `assets/` | Logo, hero video and poster |
+| `assets/fonts/` | HK Grotesk (400/500/600/700, woff2) — the only typeface on the site. SIL Open Font License included. |

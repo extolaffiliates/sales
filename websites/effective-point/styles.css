@@ -1,10 +1,15 @@
 /* EffectivePoint — v3 rebuild. Layout language: full-bleed sections, large statements, overlay menu. */
+/* Brand typeface: HK Grotesk (SIL OFL, see assets/fonts/HKGrotesk-OFL.txt). The only font used on the site. */
+@font-face{font-family:"HK Grotesk";src:url("assets/fonts/HKGrotesk-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"HK Grotesk";src:url("assets/fonts/HKGrotesk-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"HK Grotesk";src:url("assets/fonts/HKGrotesk-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"HK Grotesk";src:url("assets/fonts/HKGrotesk-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
 :root{
   --ink:#0b0f0d;--ink2:#141a17;--paper:#f3f1ec;--white:#fff;
   --navy:#09233e;--green:#0b7443;--green2:#36a867;--lime:#7bdd63;
   --muted:#5d6661;--line:rgba(11,15,13,.14);--line-d:rgba(255,255,255,.18);
   --pad:clamp(20px,4.4vw,72px);--sec:clamp(72px,11vw,168px);
-  --font:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --font:"HK Grotesk",Arial,sans-serif;
   --ease:cubic-bezier(.2,.7,.1,1);
 }
 *{box-sizing:border-box}
@@ -63,7 +68,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.03em;line-height:1.02;text-wrap:balanc
 .hero-body{position:relative;padding:150px var(--pad) clamp(28px,4vw,48px)}
 .eyebrow{font-size:13px;letter-spacing:.2em;font-weight:500;text-transform:uppercase}
 .hero .eyebrow{color:rgba(255,255,255,.8)}
-.hero h1{font-size:clamp(44px,8.2vw,132px);margin:22px 0 28px;max-width:13.5ch;line-height:.96}
+.hero h1{font-size:clamp(44px,8.2vw,132px);margin:22px 0 28px;max-width:15.5ch;line-height:.96}
 .hero h1 span{color:var(--lime)}
 .hero-body>p{font-size:clamp(18px,1.55vw,23px);max-width:46ch;color:rgba(255,255,255,.9);margin-bottom:34px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
