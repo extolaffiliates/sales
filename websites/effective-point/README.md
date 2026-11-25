@@ -16,10 +16,14 @@ Static site (HTML/CSS/JS, no build step) for EffectivePoint Consulting: Finance 
 
 ## Hero video
 
-`assets/hero.mp4` is a 19.5-second seamless loop (1280×720, 24 fps, H.264, no audio, ~2.1 MB). Three scenes cross-fade over 1 second each:
+`assets/hero.mp4` is a 19.5-second seamless loop of real moving footage (1280×720, 24 fps, H.264, no audio, ~2.9 MB). Three scenes cross-fade over 1 second each:
 
-1. **Towers from below** (0–7 s, slow push-in). Photo by Jan Weber on Unsplash: https://unsplash.com/photos/yVbPfo7jtMA
-2. **Formula-style race car** (6–13 s, drift in direction of travel). Photo by Isaac Maffeis on Unsplash: https://unsplash.com/photos/DjV_RWqLOv0
-3. **Team at the window** (12–19 s). The original prototype hero clip (seconds 1–8).
+1. **City towers** (0–7 s): camera slowly turns while clouds move between the towers.
+2. **Formula-style race car** (6–13 s): car drives through frame with motion-blurred background.
+3. **Team at the window** (12–19 s): the original prototype hero clip (seconds 1–8).
 
-The last frame fades back into the first, so the loop has no visible jump. `assets/hero-poster.jpg` is the first frame. Unsplash licence: free for commercial use, no attribution required. The race-car shot was chosen because it shows no readable team or sponsor branding.
+Scenes 1 and 2 are AI-generated video (Kling 3.0, image-to-video, via PromptWise), each started from an Unsplash photo:
+- Towers: photo by Jan Weber, https://unsplash.com/photos/yVbPfo7jtMA
+- Race car: photo by Isaac Maffeis, https://unsplash.com/photos/DjV_RWqLOv0
+
+The last frame fades back into the first, so the loop has no visible jump. `assets/hero-poster.jpg` is the first frame. The race car was chosen because it shows no readable team or sponsor branding.
