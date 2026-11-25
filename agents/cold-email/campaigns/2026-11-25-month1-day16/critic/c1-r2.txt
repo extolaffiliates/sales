@@ -1,0 +1,60 @@
+Linter (run with `--template`): no ERRORs. Email 1 REVIEW (91 words against a 40–90 target; I/we 4 vs you/your 3), Email 2 PASS, Email 3 REVIEW (no question mark). The London line matches B001 and there are no invented facts, so no hard fails.
+
+## Email 1
+
+```
+SCORE: 78/100  (why-now 12/20 · value 16/20 · problem 7/10 · personal 8/10 · cta 10/10 · brevity 8/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the icebreaker is a checkable site observation but a static trait, not a timing signal, and the "who you know" guess could go to any small agency.
+WOULD I REPLY: maybe — a free list in my niche near me is tempting, but nothing says why today, and I can't tell what Extol sells.
+FIXES:
+1. Cut "I'd guess a lot of new work still comes from who you know." Replace with a guess tied to the observation: "I'd guess most of them came through someone you know." A true why-now needs real data: a dated signal per prospect (a recent case study, hire or launch).
+2. Define the fallback when {{icebreaker}} is left out: {{vertical}} is then empty, giving the subject " brands" and "a free list of  brands near…". Either skip those prospects or write a no-vertical variant ("brands near {{city}}", subject "{{city}} brands").
+3. Cut the standalone "I ran outreach in-house at a London production house." and fold it into the reasoning line: "I ran outreach in-house at a London production house, and a brand posting that often is either stretching its own team or already paying someone." This gets under 90 words and fixes the I/you ratio.
+```
+
+- **Smart peer or marketing?** Mostly peer. The orphaned credential line is the one that reads like a pitch.
+- **Could the first line go to anyone else?** Not with the icebreaker; without it, yes.
+- **Single weakest line:** "I'd guess a lot of new work still comes from who you know."
+
+## Email 2
+
+```
+SCORE: 73/100  (why-now 11/20 · value 16/20 · problem 5/10 · personal 6/10 · cta 10/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it gives no reason of its own and opens mid-thought ("Each row would show…"), so it only works if they remember email 1.
+WOULD I REPLY: maybe — the row detail and leaving out my existing clients show care, but why offer 5 when the whole list was already free?
+FIXES:
+1. Add an opt-out line; US recipients need one in every commercial email, not only the first. Reuse the email 1 P.S.: "P.S. Reply "no" and I won't email again."
+2. Make the 5 a step, not a downgrade. Replace "Happy to send 5 first so you can judge it." with "Happy to send 5 first so you can judge it before I build the rest."
+3. Anchor the opener so it stands alone on a phone: "On the {{vertical}} list: each row would show the brand and its video count for the last 30 days."
+```
+
+- **Smart peer or marketing?** Peer; it reads like a quick clarifying note.
+- **Single weakest line:** "Happy to send 5 first so you can judge it."
+
+## Email 3
+
+```
+SCORE: 70/100  (why-now 10/20 · value 14/20 · problem 5/10 · personal 6/10 · cta 9/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it restates the offer and adds nothing new, so anyone who ignored emails 1 and 2 has no fresh reason to answer.
+WOULD I REPLY: no — it's polite and I don't mind it, but it's the same offer a third time.
+FIXES:
+1. Add one new, concrete thing. Needs real data: one actual row from that prospect's list (a real brand and its 30-day video count), e.g. "One from the list: {{sample_brand}}, {{sample_count}} videos in the last 30 days."
+2. Add the opt-out: "I'll leave this here" signals the end but is not an opt-out. Add "Reply "no" and I won't email again."
+3. Cut "would ever help" (it's limp) and the keyword gimmick. Replace with: "If the {{vertical}} list is useful later, reply and it's yours."
+```
+
+- **Smart peer or marketing?** Peer in tone, but 'reply "brands"' has a slight automation feel.
+- **Single weakest line:** 'If a list of {{vertical}} brands posting video weekly would ever help, reply "brands" and it's yours.'
+
+## Sequence
+
+Each step does add something (offer, then row spec and a 5-row sample, then a close) and email 3 is a clean, guilt-free close, but the offer never rotates — it is the same list three times — and emails 2 and 3 have no opt-out. None of the three reaches 85, so do not ship yet.

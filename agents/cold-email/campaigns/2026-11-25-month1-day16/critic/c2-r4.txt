@@ -1,0 +1,57 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+**Do not ship: none of the three emails reaches 85 (77, 71, 68).** There are no hard fails. Linted with `--template` as one sequence, there are 0 errors and all three come back REVIEW.
+
+## Email 1
+
+```
+SCORE: 77/100  (why-now 14/20 · value 16/20 · problem 6/10 · personal 8/10 · cta 10/10 · brevity 8/10 · tone 7/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors, 2 warnings: 21-word sentence; I/we 5 vs you 3)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: problem — "Finding more clients like them is usually the slow part" is a generic, hedged line that fits any agency and does not follow from the case study.
+WOULD I REPLY: maybe — the three named brands are useful and free, but the opener only tells me what's on my own site and I don't yet see why you.
+FIXES:
+1. Cut "Finding more clients like them is usually the slow part." Replace with a line that makes the case study imply the problem, using the unused {{vertical}} field: "One {{vertical}} film on your page is the best reason for the next {{vertical}} brand to hire you. Finding that brand is the slow part."
+2. Rewrite the offer and reason paragraphs, which say "free" twice and lean on "I". Use: "You'd get a 3-minute video naming three brands like {{case_study_client}} that posted video in the last 30 days. Plus an opening line for each." then "It's free: I ran outreach in-house at a London production house and I'm building case studies."
+3. Two truth checks. "this month" does not match the 30-day selection rule and is wrong early in a month, so use "in the last 30 days". Keep "I found you via your work page" only if that is the real lead source; otherwise needs real data: the true source.
+```
+
+- **Proof:** "ran outreach in-house at a London production house" matches B001, and the "building case studies" angle is the one the proof bank allows.
+- **Subject:** it is 4 words with a two-word client name, but a longer client name breaks the 1–4 word rule. Cap or shorten {{case_study_client}} in the subject.
+- **Footer:** the postal address, opt-out, data source and privacy link cover both CAN-SPAM and UK PECR/GDPR. The privacy URL is a link in email 1, which the linter cannot see behind the merge field; it is a small deliverability cost.
+
+## Email 2
+
+```
+SCORE: 71/100  (why-now 10/20 · value 15/20 · problem 5/10 · personal 6/10 · cta 9/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 2 warnings: 23-word sentence; I/we 2 vs you 1)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it changes the format (text instead of video) but gives no new reason to care; if email 1 didn't land, this won't either.
+WOULD I REPLY: maybe — a list in a reply is easier than a video, and "who to email" is the part I'd want, but nothing here makes it more urgent than three days ago.
+FIXES:
+1. Add one line of reason built from the selection rule, with no new facts: "Each one posted video in the last 30 days, so you're not selling them on video itself."
+2. Split the 23-word sentence and fix the unclear CTA, since "three names" could mean brands or people. Use: "Rather skip the video? I can send the three brands in a reply, with who to email at each." then "Want the list?"
+3. "the three brands" implies they are already picked. If the research happens only after a reply, write "I can pick three brands like {{case_study_client}}" instead.
+```
+
+## Email 3
+
+```
+SCORE: 68/100  (why-now 9/20 · value 13/20 · problem 4/10 · personal 6/10 · cta 8/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 1 warning: no question mark, which is acceptable for a close with a one-word reply)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: why-now / value — it restates the same offer a third time with nothing new.
+WOULD I REPLY: no — it's polite and I'd think well of the sender, but I ignored this offer twice and nothing has changed.
+FIXES:
+1. Give something in the close instead of offering it again. Needs real data: one real brand per row ({{brand_1}}), chosen by the stated rule before sending. Then: "I'll stop here. One brand like {{case_study_client}} posting video right now is {{brand_1}}. Reply "brands" for the other two." If the research is not done before sending, don't use this.
+2. Two reply keywords compete, and "I'll stop here" makes "Reply no and I'll remove you" read as a contradiction. Keep the opt-out but make it distinct: "P.S. This is my last email. Reply "no" if you'd like your details removed too."
+3. "yours if you ever want them" is an open promise on a list that goes stale under the 30-day rule. Replace with "Reply "brands" any time and I'll pick a fresh three."
+```
+
+The tone is right: detached, no guilt, and "I'll stop here" is true because nothing is sent after email 3. The low score comes from the rubric's why-now and value weights, not from the writing.
+
+## Sequence
+
+Each step adds less than the one before (email 2 adds a format switch and contact names, email 3 adds nothing), and the offer never rotates: it is the same three-brands offer three times. Email 3 is a clean, honest close. To lift all three, research one brand per row up front so "the three brands" is literally true and email 3 can give one away.

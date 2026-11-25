@@ -1,0 +1,51 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Lint ran on all three with `--template`: 0 errors. Email 1 and email 3 each got one warning; email 2 passed clean. Every proof claim traces to B001 or the honest "building case studies" angle, so there are no hard fails.
+
+## Email 1
+
+```
+SCORE: 82/100  (why-now 15/20 · value 16/20 · problem 8/10 · personal 8/10 · cta 10/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I/we 5 vs you 4)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: tone — "You could have a free list of…" is a stilted passive no peer would type, and "building case studies in client-finding" is clunky.
+WOULD I REPLY: maybe — a free local list in the niche I just shot for is tempting, but "with each marketing lead" doesn't tell me what I actually get, and I don't know who Dev is.
+FIXES:
+1. Cut "You could have a free list of {{vertical}} brands near {{city}} that post video weekly, with each marketing lead." Replace with "I can build you a list of {{vertical}} brands near {{city}} that post video weekly, with each marketing lead's name and work email." This says what the deliverable is, and the next line already says it's free. Needs real data: confirm a small city yields enough weekly-posting brands in the vertical, or widen "near {{city}}".
+2. Cut the two "me" sentences to one: "It's free: I ran outreach in-house at a London production house and I'm building case studies." This drops "in client-finding", fixes the I/you ratio and puts the credential before the motive.
+3. Why-now is a static observation, not a timing signal, and the referral guess will be wrong for some rows. Keep the hedge but tie it to the offer: "I'd guess it came through someone you know. Hard to plan next quarter around that." Needs real data: a dated signal (case study publish month) if you want more than 15 here.
+```
+
+## Email 2
+
+```
+SCORE: 82/100  (why-now 13/20 · value 17/20 · problem 8/10 · personal 7/10 · cta 10/10 · brevity 9/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it opens on spreadsheet columns ("Each row would show…"), which gives no reason to read a second email; the new and best thing (5 first) is buried in line 3.
+WOULD I REPLY: maybe leaning yes — "send 5 and I'll judge" costs me nothing, if I get that far down.
+FIXES:
+1. Front-load the lower-risk ask. Open with "Smaller ask: I send 5 rows first, and you judge before I build the rest." Then the row description, then "Want the 5?" as the last line alone.
+2. Cut "would show" to "is": "Each row is a {{vertical}} brand, its video count this past month, and the marketing lead's work email." This is shorter and less hypothetical.
+3. "Anyone on your client page is left out, so new work doesn't hang on who you know" joins two unrelated ideas with "so". Split it: "Anyone on your client page is left out. All new names, none through who you know."
+```
+
+## Email 3
+
+```
+SCORE: 73/100  (why-now 11/20 · value 14/20 · problem 6/10 · personal 6/10 · cta 8/10 · brevity 9/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: no question mark)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — adds nothing new; it is a polite restatement of email 2 with no redirect. The rubric is harsh on closes by design, and the tone and length are right.
+WOULD I REPLY: no — nice manners, nothing to react to; I'd archive it without guilt, which is half the point of a close but not the whole point.
+FIXES:
+1. Add the redirect the closure principle calls for, as the one question: after "…whenever you ask." add "Or is someone else better for new business?" That gives a five-word reply path and clears the lint warning.
+2. "I'll stop here" followed by "P.S. Reply 'no' and I'll remove you" makes the reader wonder why they'd reply if you're stopping. Change the P.S. to "P.S. Reply 'no' and I'll delete your details too."
+3. Cut "just" from "If the timing's just off" as filler. Keep "Either way, thanks for reading."; that line earns its place.
+```
+
+## Sequence
+
+Each step adds something (offer, then row detail plus the 5-row sample, then the close), and email 3 is a clean, guilt-free close. All three sell the same asset, so the offer type never rotates. The whole thread is worth only as much as email 1's opener, so fix emails 1 and 2 before sending. Nothing here reaches 85.

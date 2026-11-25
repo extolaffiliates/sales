@@ -1,25 +1,38 @@
-Subject: {{first_name}}, question
+Subject: clients like {{case_study_client}}
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} Finding more clients like them is usually the slow part.
 
-I'm Dev. I ran outreach in-house at a London video production house. Now I build client-getting systems for studios like yours.
+You'd get a free 3-minute video: three brands like {{case_study_client}} that posted video this month, and an opening line for each.
 
-I'd record you a 3 minute video on how {{company}} could find new clients each month. You'd get three fixes to use yourself.
+It's free because I'm building case studies in client-finding. I ran outreach in-house at a London production house.
 
-Want me to record it? No call needed.
+Want me to record it?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your work page. Reply "no" and I won't email again.
 ===
-Hey {{first_name}},
+Hi {{first_name}},
 
-Short recap for you:
+If you'd rather skip the video, I can send the three brands like {{case_study_client}} in a reply, with who to email at each.
 
-- 3 minute video, made for {{company}}
-- 3 ways to find new clients
-- yours to keep, no call
+Want the three names?
 
-Should I make it?
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
 
-Dev
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+I'll stop here. The three brands like {{case_study_client}} are yours if you ever want them. Just reply "brands".
+
+Either way, thanks for reading.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll remove you.

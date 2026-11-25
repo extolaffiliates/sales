@@ -1,0 +1,76 @@
+Linted as one sequence file with `--template`: 0 errors, warnings only. Proof checked against B001: the "ran outreach in-house at a London production house" line matches, and no client results are claimed.
+
+## Email 1
+
+```
+SCORE: 81/100  (why-now 16/20 · value 15/20 · problem 8/10 · personal 8/10 · cta 10/10 · brevity 8/10 · tone 7/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I=5 vs you=3)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the list is never said to include a contact, and "building case studies" doesn't say of what, so I can't tell what I get or what you sell.
+WOULD I REPLY: maybe — you clearly looked at my site and the referral guess stings, but "a list of brands" sounds like something I could Google.
+FIXES:
+1. Cut "Posting that often means a stretched team or a paid supplier." It is a guess stated as fact, and "paid supplier" tells me they already have a vendor. Replace by moving email 2's best detail up: "You could have a free list of {{vertical}} brands near {{city}} posting video every week, with each marketing lead's name and email."
+2. Fix the sender-heavy third paragraph (90 words, I=5). Merge to one line: "It's free because I'm building case studies, after running outreach in-house at a London production house." Also say what the case studies are of. Needs real data: the one-phrase description of what Extol sells.
+3. Guard {{vertical}} in the build spec. "{{vertical}} brands" breaks in the subject and body for non-commercial clients ("council brands", "charity brands", "university brands"). Exclude those rows, or map them to a label that reads naturally before "brands".
+```
+
+- **Why-now 16:** the first line is specific and checkable, but the referral guess is inferred rather than drawn from the signal, and a case study isn't a timed trigger.
+- **Problem 8:** "hard to plan around" is the owner's pain in plain words, and the product is barely mentioned.
+- **Personal 8:** the icebreaker changes the meaning, because it sets the vertical of the offer.
+- **CTA 10:** one question, answerable in one word.
+- **Brevity 8:** grade 4.5, but 90 words is the ceiling and under 75 is better for email 1.
+- **Tone 7:** honest and peer-like, but "You could have a free list" reads as an offer line, and I outnumbers you.
+- **Subject 4:** two words a colleague could send, with a strong preview; it depends entirely on {{vertical}} quality.
+- **Compliance 5:** postal address, privacy link, source disclosure and opt-out are all present, and nothing is claimed as already done.
+
+## Email 2
+
+```
+SCORE: 80/100  (why-now 14/20 · value 17/20 · problem 6/10 · personal 7/10 · cta 10/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I=3 vs you=2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it describes the deliverable well but gives no reason this matters to me this week; the pain from email 1 has gone.
+WOULD I REPLY: maybe, leaning yes — names, emails, my clients left out and five to judge first is concrete and low-risk; this is the email that makes the offer real.
+FIXES:
+1. Fix the tense. "Each row shows" and "is left out" imply the list exists, while "before I build the rest" says it doesn't. Change to "each row would show…" and "Anyone on your client page would be left out."
+2. Add one short line that ties the list to the pain, using only what is already in email 1: "So new work doesn't hang on who you know." Put it after the client-page line.
+3. Needs real data: confirm you can lawfully pass named marketing leads' work emails to UK recipients, and that five qualifying rows exist for every {{vertical}} + {{city}} pair. If either fails for a row, exclude it; don't promise what you can't deliver.
+```
+
+- **Value 17:** exact row contents, plus a sample-first risk reversal; no proof is needed or claimed.
+- **Problem 6:** it is all deliverable, with no pain.
+- **Personal 7:** "Anyone on your client page is left out" is honest, specific relevance.
+- **CTA 10:** "Want the 5?" is a smaller ask than email 1.
+- **Brevity 10:** 67 words, grade 2.1.
+- **Tone 8:** the fragment "Then the marketing lead's name and work email." reads like a person wrote it.
+- **Subject 4:** correctly threaded, no fake "Re:".
+- **Compliance 4:** the footer and opt-out are present; one point off for the tense ambiguity about whether the list exists.
+
+## Email 3
+
+```
+SCORE: 73/100  (why-now 14/20 · value 13/20 · problem 5/10 · personal 5/10 · cta 8/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; warns: no question mark, sender-focused I=4 vs you=1)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the only ask is a referral to "someone else who looks after new business", and at a 2-15 person shop that person is me.
+WOULD I REPLY: no — it's polite and I don't mind it, but it gives me nothing to say yes to, and the P.S. asks me to reply "no" to someone who just said he's stopping.
+FIXES:
+1. Replace the redirect line with a standing offer the owner can take: "I'll stop here. If the timing's just off, the 5 {{vertical}} rows are yours whenever you ask." If you keep the redirect, make it a clause: "or point me to whoever handles new business."
+2. Fix the contradiction between "I'll stop here" and the P.S. Change the P.S. to: "P.S. This is my last email either way. Reply "no" and I'll take you off my list for good."
+3. Keep "Either way, thanks for reading." unchanged. It is the best line in the email: detached, grateful and guilt-free.
+```
+
+- **Why-now 14:** judged as a close, "I'll stop here" is an honest reason for the email, but there is no specific signal.
+- **Problem 5:** none named.
+- **Personal 5:** {{company}} only, and it drops the {{vertical}} thread the first two emails built.
+- **CTA 8:** low effort, but not a question and aimed at the wrong person for this persona.
+- **Brevity 10:** 46 words, grade 3.4.
+- **Tone 9:** no guilt and no "fourth attempt" talk.
+- **Compliance 5:** truthful, provided nothing is sent after it, as stated.
+
+## Sequence
+
+Each step adds something new (problem and offer, then list contents and a five-row sample, then the close) and the ask shrinks each time, but none of the three reaches 85, so do not ship yet. Email 3, the final step here, is a clean, guilt-free close that gives a small-shop owner no reason to reply. Email 2 holds the detail that makes the offer worth having (names, emails, clients excluded), so move the contact detail into email 1 and let email 2 lead with the five-row sample.

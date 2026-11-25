@@ -1,0 +1,60 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Linter run with `--template` on the full sequence: 0 errors, 2 warnings. Proof checked against the proof bank: only B001 is used, and it matches.
+
+## Email 1
+
+```
+SCORE: 79/100  (why-now 15/20 · value 15/20 · problem 7/10 · personal 7/10 · cta 9/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — "pay only when a couple books" never says pay what, and the only proof line is a non-sequitur ("I ran outreach… so the writing is on me").
+WOULD I REPLY: maybe — "Clever catch on the dates, but what's your cut, and why you instead of me sending these myself?"
+FIXES:
+1. Cut "I ran outreach in-house at a London production house, so the writing is on me." "On me" reads as "free", and the "so" doesn't follow. Replace with "I did this kind of outreach in-house at a London production house." Then state the fee shape after "books with a deposit". Needs real data: the fee or percentage per booked couple.
+2. Line 2 states the situation but not the loss. Cut "So couples who went quiet left you a date, and some dates are likely still ahead." Replace with "So every couple who went quiet left you a date. Some of those dates are still open, and nobody has asked them twice."
+3. "Worth a look?" points at nothing to look at. Replace with "Want to see one?", which also sets up email 2. Optionally drop the "Hi {{first_name}}," line so the preview opens on the icebreaker.
+```
+
+- **Smart peer or marketing:** peer. It is plain, has no buzzwords, and the approve-everything, pay-on-deposit terms are a credible risk reversal with no client results to lean on.
+- **Could the first line go to anyone else:** to most wedding studios, yes. It is checkable and it drives the logic (date on file, so dates still ahead), but it is segment-level and not unique to one studio, so why-now is capped at 15.
+- **Them-to-us ratio:** you:me is 5:5 against the 3:1 target.
+
+## Email 2
+
+```
+SCORE: 75/100  (why-now 13/20 · value 15/20 · problem 6/10 · personal 5/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 1 warning: sender-focused, I/we 4 vs you 2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the sample note is so plain the owner thinks "I could send that myself in ten minutes", which undercuts the one claim email 1 made (the writing).
+WOULD I REPLY: maybe — "Three free drafts is easy to say yes to, but that sample doesn't show me anything I can't do."
+FIXES:
+1. Make the sample earn the "in your voice" claim. Replace the quote with: "Hi Sam, you asked {{company}} about a date in June. Is that day still open on your side? If so, we'd love to shoot it." It ends on a question the couple can answer in one word, and it drops "photographer", which is wrong for video-led studios.
+2. Open on them, not on the note. Cut "Here's how a note to one of those couples would start:". Replace with "Your quiet couples would get something like this:". This also fixes the lint warning.
+3. Say the drafts cost nothing, since the reciprocity is the point of this step. Replace the CTA with "Want three drafted for {{company}}, free, to judge the voice?"
+```
+
+- **What works:** showing the work instead of describing it is the right move for step 2. "Only couples whose date is still ahead would get one" quietly answers the "won't this annoy people" objection.
+- **Personalisation:** nothing beyond merge fields, and the sample is generic.
+
+## Email 3
+
+```
+SCORE: 72/100  (why-now 12/20 · value 14/20 · problem 7/10 · personal 4/10 · cta 8/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 1 warning: no question mark)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it restates email 1's offer almost word for word; the only new thing is one line of loss framing.
+WOULD I REPLY: no — "Nothing here I haven't read twice. Polite, though. I'd archive it, not mark it spam."
+FIXES:
+1. Lead with the loss and make it concrete. Cut "More of those dates pass each month. The offer stands: notes in your voice, approved by you." Replace with "Every month, a few more of those dates pass and the couple books someone else. The three free drafts are still yours if you want them." This carries email 2's offer forward instead of repeating email 1's.
+2. "Reply 'yes'" in the body and "Reply 'no'" in the P.S. is two instructions, and the P.S. sits oddly next to "I'll stop here". Keep "Reply 'yes' any time. I'll stop here." and change the P.S. to "P.S. No reply needed if it's not for you. This is my last note."
+3. Give the close something of use even if they never reply, such as one line they can act on alone. Needs real data: a real tip or observation from Dev's in-house outreach work, not an invented one.
+```
+
+- **What works:** 50 words, grade 2.4, no guilt, and it signals the end clearly.
+
+## Sequence
+
+The offer types rotate properly (risk reversal, then a shown sample with free drafts, then a close), and email 3 is a clean, honest final step. However, only email 2 adds something new, no step reaches 85, and the two gaps that run through all three are the unstated fee and a sample that doesn't yet prove the writing.

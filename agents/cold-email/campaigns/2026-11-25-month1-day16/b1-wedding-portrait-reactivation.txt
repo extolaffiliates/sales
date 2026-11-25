@@ -1,25 +1,42 @@
-Subject: {{first_name}}, question
+Subject: couples who went quiet
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} So couples who went quiet left you a date, and some dates are likely still ahead.
 
-I'm Dev. I ran outreach in-house at a London production house. Now I help studios like yours get more bookings.
+I'd write each one a short note from {{company}}, in your voice. You approve every note, and pay only when a couple books with a deposit.
 
-You probably have old enquiries that never booked. I'd write to them again for you, and you'd only pay for sessions that actually book.
-
-Want to see how it would work for {{company}}?
-
-Dev
-===
-Hey {{first_name}},
-
-Short version in case you missed it:
-
-- your old enquiries, written to again
-- you pay only per booked session
-- nothing to set up on your side
+I ran outreach in-house at a London production house, so the writing is on me.
 
 Worth a look?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your contact page. Reply "no" and I won't email again.
+===
+Hi {{first_name}},
+
+Here's how a note to one of those couples would start:
+
+"Hi Sam, you asked us about a date in June. If you still need a photographer that day, we'd be glad to help."
+
+Only couples whose date is still ahead would get one.
+
+Want me to draft three for {{company}}?
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+More of those dates pass each month. The offer stands: notes in your voice, approved by you. You pay only when a couple books with a deposit.
+
+Reply "yes" any time. I'll stop here.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll remove you.

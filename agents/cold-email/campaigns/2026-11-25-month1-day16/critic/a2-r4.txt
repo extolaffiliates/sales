@@ -1,0 +1,84 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Lint was run with `--template` over stdin, because writing a temp file was blocked in this session. No errors, and the only proof claim (the London production house line) matches B001 in the proof bank.
+
+## Email 1
+
+```
+SCORE: 79/100  (why-now 16/20 · value 14/20 · problem 7/10 · personal 8/10 · cta 9/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — "offer your shoots, free" reads as "give your shoots away free", and that misread lands exactly where the offer is stated.
+WOULD I REPLY: maybe — the credits line shows you looked at my site, but for a second I thought you wanted me to shoot for nothing.
+FIXES:
+1. Cut "and offer your shoots, free" and the "It's free:" lead-in. Replace with: "I'd email {{city}} agents who don't use you yet and pitch your shoots. You approve every word; agents who reply go straight to you." then "No charge. I'm building case studies, and I used to run outreach in-house at a London production house."
+2. The offer has no size, so I can't judge what I'm saying yes to. Add one clause after "pitch your shoots". Needs real data: how many agents Dev will actually email in the test, and over how long.
+3. Cut "Worth a try before spring?" — "before spring" pushes the decision past the winter problem you just named. Replace with "Worth a test this winter?", which also sets up the "test" reply word in email 3.
+```
+
+Dimension reasons:
+- **Why-now 16:** a real, checkable signal from their own gallery, tied to a problem. It loses points because "if they slow down" is a hypothesis rather than an observed event, and "Hi {{first_name}}," spends the preview.
+- **Value 14:** the risk reversal is credible (free, they approve every word, replies go to them) and the background line is honest. There is no result proof, no scope, and the wording is ambiguous.
+- **Problem 7:** the pain is named in line 1, but the next two paragraphs are about what "I" would do (you:me 7:5 against a 3:1 target).
+- **Personal 8:** the icebreaker changes the meaning of the email; {{city}} adds nothing.
+- **CTA 9:** one question, answerable with "yes".
+- **Brevity 9:** 84 words, grade 4.5; the semicolon sentence is the only dense one.
+- **Tone 7:** "free" appears twice in three lines, which starts to sound like a promo.
+- **Subject 4:** two words a colleague could send; the preview is strong only when the icebreaker is.
+- **Compliance 5:** postal address, privacy link, source disclosed, plain opt-out, nothing deceptive.
+
+## Email 2
+
+```
+SCORE: 72/100  (why-now 11/20 · value 13/20 · problem 6/10 · personal 5/10 · cta 10/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the gallery signal from email 1 is gone, so this could go to any photographer in any city.
+WOULD I REPLY: maybe — showing me the line is the right move, but "shoots homes like it" is copy I could write myself, so why hand you my name?
+FIXES:
+1. The sample line is the product demo and it is generic. Cut "{{company}} shoots homes like it in {{city}}" and replace it with a line built on one of their real shoots. Needs real data: a per-prospect field from the gallery page already scraped for the icebreaker (for example a recent shoot's street or area).
+2. Cut "to fill the quiet weeks" and tie back to the signal: "It would only go to {{city}} agents who aren't in your gallery yet, so winter doesn't hang on the ones who are."
+3. "[street]" looks like a broken merge field on a phone. Replace it with plain words inside the quote: "Saw your listing on (their street)."
+```
+
+Dimension reasons:
+- **Why-now 11:** no signal in this email; it relies entirely on the thread.
+- **Value 13:** showing a sample of the work is real give-first value, but the sample is weak and adds no proof.
+- **Problem 6:** "quiet weeks" is their language, but it is tacked on at the end.
+- **Personal 5:** only {{company}} and {{city}}, which are plain merge fields.
+- **CTA 10:** "Want me to draft the rest?" is a one-word yes.
+- **Brevity 10:** 63 words, grade 2.5.
+- **Tone 8:** peer-like, with no nagging or "following up".
+- **Subject 4:** inherits the thread subject.
+- **Compliance 5:** footer and opt-out present, and nothing is claimed that isn't true.
+
+## Email 3
+
+```
+SCORE: 70/100  (why-now 10/20 · value 12/20 · problem 7/10 · personal 4/10 · cta 9/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 2 warnings: no question mark, sender-focused 3:2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — nothing here is about this prospect; a close can be short but it still has to be theirs.
+WOULD I REPLY: no for now — it's polite and I'd remember it, but "the draft" means nothing unless I reread email 2.
+FIXES:
+1. "The draft" depends on me remembering email 2. Replace with: reply "test" and I'll send the full agent email for you to approve.
+2. Cut "If a quiet week does show up" and replace with a clause that reuses the gallery signal: "If the agents in your gallery do go quiet, reply "test"…". This is the only place the close can be about them.
+3. "I'll stop here" followed by "Reply "no" and I'll remove you" sounds contradictory. Change the P.S. to: Reply "no" and I'll take you off my list for good.
+```
+
+Dimension reasons:
+- **Why-now 10:** none, which is partly by design for a close, but the rubric still scores it.
+- **Value 12:** restates the offer with the approval safeguard; nothing new.
+- **Problem 7:** "quiet week" is their word, used once.
+- **Personal 4:** first name only.
+- **CTA 9:** a one-word reply, though with two keywords in 42 words.
+- **Brevity 10:** 42 words, grade 2.8.
+- **Tone 9:** detached, no guilt, and "Either way, thanks" is earned.
+- **Subject 4:** inherits the thread subject.
+- **Compliance 5:** truthful, since nothing is sent after this, with footer and opt-out present.
+
+## Sequence
+
+Each step adds something new (offer, then a sample line, then a clean no-guilt close), but the offer never rotates and the gallery signal is used once and dropped. Nothing reaches 85, so do not ship yet; fixing the "free" ambiguity in email 1 and the generic sample line in email 2 are the two highest-leverage changes.

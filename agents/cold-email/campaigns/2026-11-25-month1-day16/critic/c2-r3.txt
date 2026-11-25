@@ -1,0 +1,54 @@
+No hard fails: the linter returned 0 errors on all three emails, and the only proof used (B001) is in the proof bank. None of the three reaches 85, so nothing ships yet.
+
+## Email 1
+
+```
+SCORE: 79/100  (why-now 15/20 · value 16/20 · problem 7/10 · personal 7/10 · cta 10/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors; 1 warning: sender-focused, I/we 6 vs you 3; 86 words, grade 4.2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the case study is specific and checkable, but it is not a timing signal, and the bridge "usually the slow part" is a guess that fits any agency.
+WOULD I REPLY: maybe — "Free and no call is easy, but why these three brands? I can google coffee companies myself."
+FIXES:
+1. Say why the three brands are worth pitching. Cut "You'd get three {{vertical}} brands to pitch" and replace it with a selection rule Dev will really apply. Needs real data: the actual criterion Dev uses to pick them. Without it the offer reads as a list anyone could build.
+2. Merge the two offer sentences to fix the I/you ratio and the repeated "free". Cut "I'd record you a free 3-minute video. You'd get three…" and replace with "You'd get a 3-minute video: three {{vertical}} brands to pitch, and an opening line for each. No call needed." "Free" then appears once, in the because-line, where it does its work.
+3. Fix two merge risks. "{{vertical}} brands" breaks on service verticals ("three dental brands"), so make {{vertical}} carry its own noun ("coffee brands", "dental practices") and drop the hard-coded "brands". In the P.S., "I found {{company}} through your website" is circular and only honest if it is true. Needs real data: the real lead source per row.
+```
+
+Single weakest line: "Finding more clients like them is usually the slow part." The first line cannot be sent to anyone else, and the offer is built from it, which is the email's strength. The proof line is matched to the persona and honest. It reads as a peer note, not marketing.
+
+## Email 2
+
+```
+SCORE: 72/100  (why-now 11/20 · value 14/20 · problem 5/10 · personal 6/10 · cta 10/10 · brevity 10/10 · tone 7/10 · subject 4/5 · compliance 5/5)
+LINT: PASS (41 words, grade 2.6, 1 question)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — no new reason to reply; it is email 1's offer in a smaller format, with the client name as the only anchor.
+WOULD I REPLY: maybe — "Lower effort than a video, fine. But I ignored this once and nothing here changes my mind."
+FIXES:
+1. Cut "you could just get", which is passive and hides who does the work. Replace with "I can send three brands like {{case_study_client}} in a reply, with who to email at each. No video, no call."
+2. Add one short line that gives a new reason, not just a new format. Needs real data: one true, checkable observation about the prospect's work page or their {{vertical}}. Do not write a generic claim about the industry.
+3. Keep "Want the three names?" unchanged. It is the best line in the sequence.
+```
+
+## Email 3
+
+```
+SCORE: 64/100  (why-now 10/20 · value 9/20 · problem 4/10 · personal 5/10 · cta 7/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 2 warnings: no question mark, I/we 4 vs you 1; 44 words, grade 3.5)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: value — the offer is never restated, so a reader who only sees this email has no idea what they are declining or forwarding.
+WOULD I REPLY: no — "Polite, no guilt. But point you to my colleague for what? I'm not scrolling up to find out."
+FIXES:
+1. Restate the offer in one clause. After "I'll stop here." add "The three brands like {{case_study_client}} are yours if you ever want them."
+2. Turn the referral into a question answerable in a few words. Cut "If someone else looks after new business at {{company}}, point me to them and I'll ask once." and replace with "Is there someone else at {{company}} who looks after new business? I'd ask them once."
+3. Trim the P.S. to "Reply "no" and I'll remove you." The body already says he is stopping, so "you won't hear from me again" says it twice. Keep an opt-out line for CAN-SPAM.
+```
+
+The START OVER verdict is the rubric threshold applied exactly (under 70). In practice the tone and structure are right for a close; fixes 1 and 2 are small edits, not a new framework, and should lift it into the 70s. A breakup email will struggle to reach 85 on this rubric because it carries no signal or proof by design.
+
+## Sequence
+
+Each step does add something (video with opening lines, then names with contacts, then a referral ask), but emails 1 and 2 are the same offer in two formats, not a true rotation. Email 3 is a clean, guilt-free close that forgets to say what the offer was.

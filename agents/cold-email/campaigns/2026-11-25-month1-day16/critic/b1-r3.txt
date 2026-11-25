@@ -1,0 +1,56 @@
+Lint ran through stdin with `--template` rather than from a temp file, because the file write was blocked pending approval; the input is identical. There are 0 errors across all three emails, and the B001 line matches the proof bank.
+
+## Email 1
+
+```
+SCORE: 80/100  (why-now 15/20 · value 15/20 · problem 8/10 · personal 7/10 · cta 9/10 · brevity 9/10 · tone 7/10 · subject 5/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — "pay only when a couple books" never says pay what, and the passive "could get a short note" hides who does the work.
+WOULD I REPLY: maybe — pay-on-deposit is tempting, but I can't tell what it costs or whether a stranger wants my enquiry list.
+FIXES:
+1. Cut "Those couples could get a short note from {{company}}, in your voice." Replace with "I'd write each one a short note from {{company}}, in your voice." Then name the fee after "pay only when a couple books with a deposit" (needs real data: the fee or percentage per booked couple).
+2. Cut "every couple who went quiet left you a date, and some of those dates are still ahead." Replace with "So most couples who went quiet left you a date, and some of those dates are likely still ahead." "Every" is false wherever the date field is optional or the enquiry came by phone or Instagram, and email 2 already hedges with "may".
+3. The proof line sits alone and unconnected. Join it to the offer: "I ran outreach in-house at a London production house before this, so the writing is on me." If that feels like a stretch, move the line into the P.S. in place of "I found {{company}} through your website" only if the source disclosure is kept elsewhere.
+```
+
+The first line passes the "could it be sent to anyone else" test only at segment level: nearly every wedding studio's form asks for the date, and there is no timing trigger.
+
+## Email 2
+
+```
+SCORE: 75/100  (why-now 12/20 · value 16/20 · problem 7/10 · personal 5/10 · cta 10/10 · brevity 10/10 · tone 7/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors, 1 warning: sender-focused, I/we 4 vs you 2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the opening sentence restates email 1 and adds no new reason to read.
+WOULD I REPLY: maybe — the sample line is the first thing that shows me what I'd actually get, but it's buried in paragraph two.
+FIXES:
+1. Cut "They're the only ones who'd get a note." You cannot know who has no photographer before writing to them. Replace with "Only couples whose date is still ahead would get a note."
+2. Cut the first sentence and open on the sample: "Here's how a note to one of those couples would start:" followed by the quoted line. The sample is the new value, so it should be the preview text.
+3. Replace "[name]" and "[month]" with an obviously illustrative fill ("Hi Sam, you asked us about a date in June"), because square brackets look like a broken merge on a phone. Change the CTA to "Want me to draft three for {{company}}?", which also fixes the you:me ratio.
+```
+
+The linter's focus warning is partly an artefact: two of the four "we/us" counts are inside the quoted sample, which is in the studio's voice.
+
+## Email 3
+
+```
+SCORE: 66/100  (why-now 12/20 · value 11/20 · problem 7/10 · personal 4/10 · cta 6/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 2 warnings: no question mark; sender-focused, I/we 4 vs you 1)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: value — the offer and the pay-on-deposit risk reversal are not restated, so the email gives no reason to act.
+WOULD I REPLY: no — I'm the owner, I handle bookings, so the only ask in here doesn't apply to me.
+FIXES:
+1. Add one line restating the offer: "The offer stands: notes in your voice, you approve each one, and you pay only when a couple books with a deposit."
+2. Cut "If someone else handles bookings at {{company}}, point me to them and I'll ask once." For a small owner-run studio it is mostly a dead ask. Replace with a single question: "Is this one for you, or for someone else at {{company}}?"
+3. Cut "a few more" (an unsupported count about their business) and reorder so the pressure doesn't follow the sign-off: "More of those dates pass each month." goes first, "I'll stop here." goes last.
+```
+
+The verdict follows the under-70 threshold; in practice this is a rewrite of a 46-word email, not of the sequence. Tone and compliance are fine.
+
+## Sequence
+
+Email 2 adds something new (sample line, free drafts) and the offer types rotate (risk reversal, then free work, then referral). Email 3 is a clean, guilt-free close but adds nothing. No step reaches 85, so the sequence does not ship yet.

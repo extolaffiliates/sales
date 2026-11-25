@@ -1,25 +1,40 @@
-Subject: {{first_name}}, question
+Subject: agents in {{city}}
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} If they have a slow month, so do you.
 
-I'm Dev. I ran outreach in-house at a London video production house, so I know how quiet it gets for you between listings.
+I can send you a free list of agents near {{city}} who listed a home in the last 14 days. It's for their next listing, not this one.
 
-I can pull together the agents near {{city}} who listed in the last 14 days. You'd get a name and email for each one.
+It's free because I'm building case studies in client-finding for photo businesses. I ran outreach in-house at a London production house.
 
-Want your area's list? It's free.
+Want the {{city}} list?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your gallery credits. Reply "no" and I won't email again.
 ===
-Hey {{first_name}},
+Hi {{first_name}},
 
-Didn't want this to get buried, so here's the short version for you:
+The point of the list is fewer eggs in one basket. I'd skip any agent already in your portfolio. Each row: agent, office, the address they just listed and a work email.
 
-- 25 agents near {{city}} who just listed
-- name and email for each
-- free, no call needed
+I can send 5 first. You'll know in a minute if they're worth an email.
 
-Should I send it over?
+Want the 5?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+I'll stop here. The {{city}} agent list is yours if you ever want it. Just reply "list".
+
+Either way, thanks for reading.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll remove you.

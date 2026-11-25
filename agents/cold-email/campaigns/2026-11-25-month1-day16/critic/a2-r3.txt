@@ -1,0 +1,82 @@
+Lint ran once on the whole sequence with `--template`: no ERRORs, WARNs only. The B001 proof line checks out against the proof bank, and no client results are claimed.
+
+## Email 1
+
+```
+SCORE: 81/100  (why-now 16/20 · value 15/20 · problem 8/10 · personal 8/10 · cta 10/10 · brevity 8/10 · tone 8/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors; WARN sender-focused, I/we 5 vs you 4)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — "a small email test" is the sender's jargon; it never says how many agents, from whose address, or that the point is booked shoots.
+WOULD I REPLY: maybe — "You clearly looked at my gallery and the winter point is true, but what is an 'email test', and is it going out under my name?"
+FIXES:
+1. Cut "I'd run a small email test to other {{city}} agents for {{company}}, free." Replace with the plain outcome, e.g. "I'd email other {{city}} agents who don't use you yet and offer your shoots." Needs real data: how many agents, and whose address/domain it sends from.
+2. Say "free" once and get under 75 words. Merge to "It's free: I'm building case studies, and I used to run outreach in-house at a London production house."
+3. P.S. "I found {{company}} through your website" must be true for every row. Needs real data: the actual lead source (if it was Maps or a directory, say that). Also render {{privacy_url}} as plain text, since links in email 1 are banned.
+```
+
+- **Why-now 16:** the icebreaker is checkable and "they" turns it into a concentration risk, but "winter" is a segment-level reason, not a trigger. The greeting also eats preview space.
+- **Value 15:** clear free offer with a believable reason and risk reversal ("you approve every word"). Proof is background only, and the deliverable is vague.
+- **Problem 8:** one sharp pain line in their terms, then three paragraphs about the sender.
+- **Personal 8:** the icebreaker changes the meaning of line 2; everything else is merge fields.
+- **CTA 10:** one question, answerable in one word.
+- **Brevity 8:** 86 words at grade 5, but at the top of the range, with a P.S. and footer on top.
+- **Tone 8:** peer-like and honest about why it's free; the I-count is high.
+- **Subject 4:** two words a colleague could send; the preview opens on "Hi".
+- **Compliance 4:** opt-out, postal address and privacy notice are present; the source claim is unverified.
+- **Send-time guard:** line 2 ("If they slow down…") breaks if {{icebreaker}} is ever blank, so the exclusion rule must be enforced in the sending tool, not just in the spec.
+
+## Email 2
+
+```
+SCORE: 73/100  (why-now 12/20 · value 14/20 · problem 6/10 · personal 5/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; WARN sender-focused, I/we 3 vs you 2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the sample line has a logic hole a photographer spots at once: a listing that is already live already has photos.
+WOULD I REPLY: no — "'If it still needs photos'? It's listed, so it has photos. This person doesn't know my business."
+FIXES:
+1. Rewrite the sample so it pitches the agent's next listing, e.g. "Saw your listing on [street]. For your next one, {{company}} shoots homes like it in {{city}}." Showing the work is the right move; the line itself must survive an expert reading it.
+2. Cut "Short, about their listing, and nothing to click." It grades your own line. Replace with what it means for them, e.g. "It goes only to {{city}} agents you don't shoot for yet." Needs real data: how the agents are actually picked.
+3. Tie back to email 1's pain in a few words ("for the quiet weeks") so the email stands alone if email 1 was skimmed.
+```
+
+- **Why-now 12:** no signal of its own; it leans entirely on the thread.
+- **Value 14:** a concrete free sample is the strongest idea in the sequence, undercut by the flawed line.
+- **Problem 6:** all about the deliverable; their pain is not mentioned.
+- **Personal 5:** merge fields only; the sample is the same for every prospect.
+- **CTA 10:** one yes/no question.
+- **Brevity 9:** 54 words, grade 2.5.
+- **Tone 8:** plain and unpushy, apart from the self-grading line.
+- **Subject 4:** threaded, inherits email 1.
+- **Compliance 5:** truthful, opt-out and footer present.
+
+## Email 3
+
+```
+SCORE: 67/100  (why-now 11/20 · value 10/20 · problem 7/10 · personal 5/10 · cta 6/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; WARN no question mark, WARN sender-focused, I/we 3 vs you 1)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: cta — "If someone else handles marketing… point me to them" is an enterprise redirect sent to an owner of a 1-5 person shop, who is the marketing department.
+WOULD I REPLY: no — "Nobody else handles marketing, it's me. And you just told me spring fixes it anyway."
+FIXES:
+1. Cut the redirect line. Replace with a one-word way back in that restates the offer, e.g. "If a quiet week does show up, reply 'test' and I'll send the draft for you to approve."
+2. Soften "Spring listings will bring the work back anyway" to "will probably bring". It is a prediction stated as fact, and "anyway" argues against your own offer.
+3. Keep "I'll stop here." and the P.S. as they are; the detached, no-guilt tone is the best thing in this email.
+```
+
+- **Why-now 11:** repeats "quiet weeks before spring" with nothing new.
+- **Value 10:** the offer is never restated, so the email means nothing without the two above it.
+- **Problem 7:** the pain is named, then dismissed.
+- **Personal 5:** honest segment relevance only.
+- **CTA 6:** no question, and the ask does not fit the persona.
+- **Brevity 10:** 49 words, grade 4.5.
+- **Tone 9:** detached with no guilt.
+- **Subject 4:** threaded.
+- **Compliance 5:** clean opt-out, and it truthfully ends the sequence.
+- **On the verdict:** START OVER is the threshold applied exactly; in practice it is a two-line rewrite, not a new framework.
+
+## Sequence
+
+Each step does add something new (offer, then a sample of the work, then a close) and the three-step length is right for this segment. The offer never rotates — it is the same free test throughout. Nothing ships yet: email 1 is 4 points short, email 2's sample line has a domain error, and email 3 closes cleanly but with a redirect that does not fit a 1-5 person owner.

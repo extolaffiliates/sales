@@ -1,25 +1,42 @@
-Subject: {{first_name}}, question
+Subject: winter shoots
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} If they slow down this winter, so does your calendar.
 
-I'm Dev. I ran outreach in-house at a London video production house. Now I set it up for photo and video businesses like yours.
+I'd email {{city}} agents who don't use you yet and offer your shoots, free. You approve every word; agents who reply go straight to you.
 
-Here's the idea: one small campaign to agents near {{city}} for {{company}}. If it books you shoots, we talk. If not, it cost you nothing.
+It's free: I'm building case studies, and I used to run outreach in-house at a London production house.
 
-Worth a try before your spring listings start?
+Worth a try before spring?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your gallery credits. Reply "no" and I won't email again.
 ===
-Hey {{first_name}},
+Hi {{first_name}},
 
-Quick recap in case this slipped past you:
+Here's the first line I'd send agents for you:
 
-- one test campaign to your local agents
-- free, set up for you
-- you only talk to me if it books shoots
+"Saw your listing on [street]. For your next one, {{company}} shoots homes like it in {{city}}."
 
-Want me to set it up?
+It would only go to {{city}} agents you don't shoot for yet, to fill the quiet weeks.
 
-Dev
+Want me to draft the rest?
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+I'll stop here. If a quiet week does show up, reply "test" and I'll send the draft for you to approve.
+
+Either way, thanks for reading.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll remove you.

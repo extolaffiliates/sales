@@ -1,0 +1,52 @@
+## Email 1
+
+```
+SCORE: 79/100  (why-now 15/20 · value 15/20 · problem 9/10 · personal 8/10 · cta 10/10 · brevity 7/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 2 warnings: 91 words before the icebreaker expands, one 22-word sentence)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — with the icebreaker it is a real, checkable signal (about 17); without it the opener is a generic "If most of your shoots..." that could go to any photographer (about 8).
+WOULD I REPLY: maybe — "If you really counted my gallery credits, yes. But why is it free, and what does a London production house have to do with my agents?"
+FIXES:
+1. Cut the hedge after the icebreaker and split the template in two. With an icebreaker, replace "If most of your shoots come from a few agents, one slow month for them is a slow month for you." with "If they have a slow month, so do you." With no icebreaker, either hold the prospect back or use a separate variant that owns being segment-level ("Most small photo teams I look at get their shoots from 3 or 4 agents."), but only if you have actually looked; needs real data.
+2. Fix the orphan proof line. "I ran outreach in-house at a London production house." is true (B001) but answers nothing the reader is asking. Tie it to the offer and say why it's free, using the proof bank's allowed angle: "I ran outreach in-house at a London production house, and I'm building case studies with photo businesses, so the list is free." Use only if that is true.
+3. Cut "Busy agents list often, so a fresh listing is a good clue who needs photos next." to "An agent who just listed will list again." This brings a real send to about 85 words. For UK recipients, add the data source and a privacy link to the footer, which `11-deliverability-legal.md` requires and the template lacks.
+```
+
+The B001 claim checks out against the proof bank. The example icebreaker rows are invented, so in production each one must be a substring-checkable fact from the prospect's page; a wrong count ("14 of 20") would be a hard fail.
+
+## Email 2
+
+```
+SCORE: 71/100  (why-now 11/20 · value 16/20 · problem 5/10 · personal 5/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: problem — it is all spec of the deliverable; the pain from email 1 is gone and nothing replaces it.
+WOULD I REPLY: maybe — "Skipping agents I already shoot for is smart. But a free list isn't 'a lot', so that line reads like you're guessing at my objection."
+FIXES:
+1. Replace "If a full list feels like a lot, I can send 5 first so you can judge it." with a real reason for the sample: "I can send 5 first. You'll know in a minute if they're agents worth a call."
+2. Open with the personalised line, not the column spec: "I'd skip any agent already in your portfolio, so every name is new to you. Each row: agent, office, the address they just listed, work email."
+3. Add an opt-out line, since this message has none of its own and CAN-SPAM and PECR apply per message: "Not useful? Reply 'no' and I'll stop." Also confirm where the agents' work emails come from, as UK agents' addresses are personal data; needs real data: the source.
+```
+
+## Email 3
+
+```
+SCORE: 64/100  (why-now 9/20 · value 13/20 · problem 4/10 · personal 4/10 · cta 9/10 · brevity 9/10 · tone 9/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 1 warning: no question mark; the reply-"list" CTA is clear, so acceptable)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: why-now — it is a content-free bump; it repeats the same offer a third time with no new reason ("short is good; empty is bad", `09-sequences.md`).
+WOULD I REPLY: no — "Polite, no guilt, but I've ignored this offer twice and you've given me nothing new."
+FIXES:
+1. Give the close one new micro-reason by switching the offer type from make-money to save-time: "Finding who listed this fortnight near {{city}} is an evening of scrolling. I've got it in a sheet. Reply 'list' and it's yours." Keep it under 40 words.
+2. Replace "I'll leave this here." with a clear end signal plus the opt-out: "I'll stop here. Reply 'no' and I won't email again."
+3. Change "new listers" to "agents with new listings", as "listers" is not the buyer's word.
+```
+
+A "START OVER" here means rewriting two lines, not the campaign.
+
+## Sequence
+
+Email 2 adds real depth (the row contents, the exclusion and the 5-row sample), but email 3 adds nothing new and all three push the same make-money free list with no rotation of offer type. The close is clean and guilt-free, yet emails 2 and 3 carry no opt-out and no UK data-source or privacy line. Not ready to ship: fix email 1's no-icebreaker fallback and proof line first, as that is where most replies will come from.

@@ -1,0 +1,50 @@
+Linter note: writing a temp file was blocked in this session, so I piped the same text to `lint_email.py --template` on stdin as one sequence. It returned 0 errors.
+
+## Email 1
+
+```
+SCORE: 75/100  (why-now 13/20 · value 15/20 · problem 7/10 · personal 6/10 · cta 9/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I/we 5 vs you/your 3; 83 words, grade 4.4)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the icebreaker is checkable but implies no problem; "twilight and drone packages" does not lead to "winter is quiet", and when the icebreaker is missing the opener fits any photographer anywhere.
+WOULD I REPLY: maybe — "Free is nice, but why free, how many agents, and who is this emailing agents under my name?"
+FIXES:
+1. Bridge or re-spec the opener. Cut "My guess is winter is your quiet stretch, since fewer homes list until spring." Replace with a line that works without the icebreaker: "My guess is {{city}} goes quiet for you until spring listings start." Tighten the icebreaker spec to a detail that ties to winter demand; otherwise it is decoration.
+2. Answer "what's the catch" and size the offer. Replace "one small email campaign … free" with a sized version plus the honest reason the proof bank allows: "free, because I'm building case studies in real estate media." Needs real data: the number of agents Dev will actually email.
+3. Fold the orphaned proof line into the offer to fix the I-count. Cut the standalone "I ran outreach in-house at a London production house." and "I write it, send it, and pass you every agent who replies." Replace with: "I ran outreach in-house at a London production house, so you'd get it written, sent, and every agent reply passed to you."
+```
+
+## Email 2
+
+```
+SCORE: 72/100  (why-now 11/20 · value 15/20 · problem 6/10 · personal 6/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: PASS (47 words, grade 3.8)
+VERDICT: ONE MORE PASS
+HARD FAIL: none as written — but see fix 1; a filled-in {{street}} would become an invented fact and a hard fail.
+WEAKEST: personalization — the whole email hangs on two merge fields that can break: {{street}} is not a prospect field, and {{turnaround}} has a "leave out if not found" rule that guts the sample.
+WOULD I REPLY: maybe — "Showing me the line is smart, and approving every word settles my worry. If it arrives with a blank in it, I delete it."
+FIXES:
+1. Replace {{street}} with a visible placeholder the sending tool won't touch, e.g. "Saw your new listing on [their street]." Otherwise the tool sends a blank, or someone fills in a street nobody saw.
+2. Add a fallback for a missing {{turnaround}}. Cut ", with photos back in {{turnaround}}" for those rows and end the sample at "{{company}} shoots homes like it." Or exclude rows without turnaround from this step.
+3. Add an opt-out line; this email has none, and US recipients need one in every message. Add: "P.S. Reply "no" and I'll stop."
+```
+
+## Email 3
+
+```
+SCORE: 59/100  (why-now 9/20 · value 12/20 · problem 4/10 · personal 3/10 · cta 8/10 · brevity 9/10 · tone 6/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors; 2 warns: no question mark, sender-focused 2 vs 0; 29 words, grade 3.5)
+VERDICT: START OVER (by threshold; in practice a two-line rewrite, and the rubric is structurally hard on a close)
+HARD FAIL: none
+WEAKEST: why-now / personal — nothing new, and "Hi {{first_name}}, I'll stop here, {{first_name}}." repeats the name twice in ten words, which reads as a mail-merge glitch.
+WOULD I REPLY: no — "Fine, he's stopping. Nothing here I didn't already ignore."
+FIXES:
+1. Cut the second {{first_name}}: open with "I'll stop here."
+2. Give the close one new, true thing instead of restating the offer. Replace "If a free test campaign to {{city}} agents ever makes sense" with "Spring listings will fill your diary anyway. If you want agents lined up before then, reply "test" and I'll set it up."
+3. Add a redirect or a clean exit line: "If someone else handles your marketing, point me to them. Either way, thanks."
+```
+
+## Sequence
+
+Each step does add something (offer, then sample line plus approval control, then close) and the close is guilt-free. The offer never rotates: it is the same free campaign three times. None of the three ships at 85, and the {{street}} / {{turnaround}} breakage in email 2 has to be fixed before this goes into a sending tool.

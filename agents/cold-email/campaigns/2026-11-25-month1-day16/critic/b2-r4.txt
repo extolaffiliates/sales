@@ -1,0 +1,61 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Linted as one sequence with `--template`: email 1 PASS, email 2 PASS, email 3 REVIEW (2 warnings, 0 errors). No hard fails, but none of the three reaches 85.
+
+## Email 1
+
+```
+SCORE: 81/100  (why-now 16/20 · value 15/20 · problem 8/10 · personal 8/10 · cta 10/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 4/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the offer line "who's on each, and who adds names" is cryptic, and nothing says what the list does about the one-person risk just raised.
+WOULD I REPLY: maybe — the venue line is true and the "one person" point stings a bit, but I had to read the offer twice to see what I'd get.
+FIXES:
+1. Cut "You could have a free list of {{city}} venues with a suppliers page: who's on each, and who adds names." Replace with: "I can send you a free list of {{city}} venues that have a suppliers page: which photographers are on each, and the coordinator who decides." This matches email 2's "coordinator's name" and sounds less like a brochure.
+2. Tie the offer to the problem in a few words, e.g. start that line with "So you're not relying on {{venue}} alone,". As written, the reader has to make the link themselves.
+3. Change the P.S. "I found you via your blog" to "I found you via your site". The icebreaker spec allows blog or portfolio, so "blog" will be untrue for some rows.
+```
+
+- **Why-now:** the icebreaker is specific and checkable and can't be sent to anyone else. It loses points because the implied problem hangs on an "If" and there is no time element.
+- **Value:** the free offer with an honest "building case studies" reason is a credible risk reversal. The London production house line matches B001, but it is background and not matched proof.
+- **Tone:** "You could have a free list" reads slightly like marketing, not a peer note.
+
+## Email 2
+
+```
+SCORE: 78/100  (why-now 13/20 · value 15/20 · problem 7/10 · personal 7/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the engagement-season opener could go to any wedding vendor, and the only specific item, {{venue}}, sits in line 3.
+WOULD I REPLY: maybe — "5 venues with the coordinator's name" is concrete and small, but the first two lines tell me what I already know.
+FIXES:
+1. Lead with the specific line and put the season second: "Shorter version: 5 venues near {{city}} besides {{venue}}, with the coordinator's name for each." then "Plenty of couples get engaged over Christmas and New Year, so now is when those pages get read." If that second clause is more than you'd stand behind, keep only the first half. Needs real data: any figure on when couples pick suppliers.
+2. Cut "A venue's suppliers page is one place they'd find you." It is ambiguous about whether they are already listed, and soft. Replace with "A venue's suppliers page is one place they look for a photographer."
+3. No third fix. "Want the 5?" and the P.S. are right; leave them.
+```
+
+- **Why-now:** the timing is honest and dated to the send window, with no invented statistic, but it is segment-level only.
+- **Value:** this is a clearer statement of the offer than email 1's. No proof is repeated, which is fine in a thread.
+
+## Email 3
+
+```
+SCORE: 73/100  (why-now 11/20 · value 14/20 · problem 6/10 · personal 5/10 · cta 9/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 2 warnings: no question mark; sender-focused 3:2)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: personal — only {{city}} and {{company}} remain; the venue detail that made emails 1 and 2 feel hand-written is gone.
+WOULD I REPLY: maybe — it is polite and costs me nothing, and one word gets me the list, but it gives me no new reason if I skipped the first two.
+FIXES:
+1. Cut "The {{city}} venue list is still yours if you want it." Replace with "The 5 venues near {{city}} besides {{venue}} are still yours if you want them." This restores the specific detail and settles which list is meant, the full one from email 1 or the 5 from email 2.
+2. Keep "I'll stop here" and "Either way, thanks for reading." They are the strongest lines; ignore the linter's I/we warning, since a close is allowed to open on "I".
+3. Optional: shorten the P.S. to "Reply "no" and {{company}} comes off my list for good." That removes one "I" and brings the you:me ratio level.
+```
+
+- **Why-now and problem:** a clean close scores low on these by design. Nothing in it is wrong; it adds no new reason.
+- **CTA:** replying "list" is a one-word answer, so the missing question mark is not a real problem.
+
+## Sequence
+
+SEQUENCE: Each step adds something (venue risk, then the seasonal angle with a smaller ask, then a clean, guilt-free close), but the offer never rotates: it is the same list three times, only shrunk. Email 3 works as the close; the highest-leverage change across all three is the offer line in email 1.

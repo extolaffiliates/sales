@@ -1,0 +1,25 @@
+Subject: {{first_name}}, question
+
+Hey {{first_name}},
+
+{{icebreaker}}
+
+I'm Dev. I ran outreach in-house at a London production house, so I know how much your bookings lean on referrals.
+
+I can find you 20 venues and planners near {{city}} with no go-to photographer yet. You'd get the right contact at each.
+
+Want your list? Free, and I'll show you how I found them.
+
+Dev
+===
+Hey {{first_name}},
+
+One last nudge, then I'll leave you be:
+
+- 20 venues and planners near {{city}}
+- the right person at each
+- free for you
+
+Should I send it?
+
+Dev

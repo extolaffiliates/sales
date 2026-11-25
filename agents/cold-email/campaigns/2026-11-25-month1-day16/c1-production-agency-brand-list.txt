@@ -1,25 +1,40 @@
-Subject: {{first_name}}, question
+Subject: {{vertical}} brands
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} I'd guess it came through someone you know, which is hard to plan around.
 
-I'm Dev. I ran outreach in-house at a London video production house, so I know how much of your work comes from who you know.
+You could have a free list of {{vertical}} brands near {{city}} that post video weekly, with each marketing lead.
 
-I can find you 20 brands that post video every week with no obvious in-house editor. You'd get the person who'd hire {{company}} at each.
+It's free because I'm building case studies in client-finding. I ran outreach in-house at a London production house.
 
-Want your list? It's free.
+Want the list?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your work page. Reply "no" and I won't email again.
 ===
-Hey {{first_name}},
+Hi {{first_name}},
 
-Quick one in case this got lost:
+Each row would show a {{vertical}} brand, its video count this past month, and the marketing lead's work email.
 
-- 20 brands posting video weekly
-- no obvious in-house editor
-- the person who'd hire you, free
+Anyone on your client page is left out, so new work doesn't hang on who you know.
 
-Want me to send it?
+I can send 5 first, so you can judge it before I build the rest. Want the 5?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+I'll stop here. If the timing's just off, the 5 {{vertical}} rows are yours whenever you ask.
+
+Either way, thanks for reading.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll remove you.

@@ -1,0 +1,50 @@
+Linted with `--template`: 0 errors on all three emails; warnings only on emails 1 and 3. The B001 line matches the proof bank and no client results are claimed.
+
+## Email 1
+
+```
+SCORE: 84/100  (why-now 17/20 · value 15/20 · problem 8/10 · personal 9/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors, 1 warning: sender-focused, I=5 vs you=3)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — "Agents who just listed tend to list again" is an unsupported claim covering the obvious hole: a home listed 14 days ago is already photographed.
+WOULD I REPLY: maybe — "You clearly looked at my gallery and the list is free, but those agents already have a photographer, and what are you selling me later?"
+FIXES:
+1. Cut "Agents who just listed tend to list again." Replace with the honest logic: "That listing is likely shot already. The pitch is for their next one." If you keep the original claim, needs real data: a source for repeat-listing rates.
+2. "It's free because I'm building case studies" does not say case studies of what. Needs real data: one clause naming what Extol does for photo/video businesses. Then cut "Before this," so the B001 line reads "I ran outreach in-house at a London production house."
+3. In the P.S., replace "I found {{company}} through your website" with "I got this from the credits on your gallery page." It is more exact and reinforces the signal.
+```
+
+## Email 2
+
+```
+SCORE: 82/100  (why-now 14/20 · value 16/20 · problem 7/10 · personal 7/10 · cta 10/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it relies entirely on email 1; there is no restated signal or pain, so it reads as a spec sheet for the list.
+WOULD I REPLY: maybe — "Five names, none of them my current clients, is a small ask. But why do I need this today?"
+FIXES:
+1. Open with one line that restates the pain before the spec, using only what email 1 already says: "On the agent list: the point is fewer eggs in one basket." Then "I'd skip any agent already in your portfolio…"
+2. "Worth a call" contradicts the row, which gives a work email and no phone. Replace with "You'll know in a minute if they're worth an email."
+3. Cut "so every name is new to you"; "I'd skip any agent already in your portfolio" already says it. Use the saved words for fix 1.
+```
+
+## Email 3
+
+```
+SCORE: 72/100  (why-now 12/20 · value 13/20 · problem 6/10 · personal 5/10 · cta 8/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors, 2 warnings: no question/CTA, sender-focused I=4 vs you=1)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: personal — "someone else at {{company}}" goes to the owner of a 1–5 person shop, often a one-person business, which shows it is a template.
+WOULD I REPLY: no — "There is no one else. It's me. Clean goodbye though, so no hard feelings."
+FIXES:
+1. Cut "If someone else at {{company}} looks after new agents, point me to them and I'll send the list there." Replace with a one-word close: "The {{city}} list is yours if you ever want it. Reply 'list' and I'll send it."
+2. If you keep a redirect, make it fit a tiny shop and fix the ambiguous "looks after new agents": "If a partner handles finding new agent clients, point me to them."
+3. Keep "I'll stop here" and "Either way, thanks for reading." Shorten the P.S. to "Reply 'no' and I'll stop" to match email 2, since the body already says you're stopping.
+```
+
+## Sequence
+
+Each step adds something new (signal and offer, then list spec and a 5-row sample, then close), and the close is clean and guilt-free. But the offer only shrinks rather than rotates (list, 5 of the list, list to someone else), and email 3's redirect misfits an owner-operator. No email reaches 85, so do not ship yet; email 1 is one fix away.

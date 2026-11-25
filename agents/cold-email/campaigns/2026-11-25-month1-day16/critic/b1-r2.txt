@@ -1,0 +1,62 @@
+Linted as one three-email file with `--template`: no ERRORs, warnings only. No email reaches 85, so none ships yet.
+
+## Email 1
+
+```
+SCORE: 73/100  (why-now 12/20 · value 16/20 · problem 7/10 · personal 6/10 · cta 9/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 1 warning: sender-focused, I/we 4 vs you 2; 76 words, grade 4.3)
+VERDICT: ONE MORE PASS
+HARD FAIL: none — the proof line matches B001 and the company is not named
+WEAKEST: why-now — the icebreaker is checkable but does not lead to the problem, and without it line 1 could go to any studio
+WOULD I REPLY: maybe — "Pay only on deposit is interesting, but who are you, and why did you mention my form?"
+FIXES:
+1. Make the icebreaker imply the problem. Cut "I'd guess some couples go quiet after they see the price list, and their emails just sit there." Replace with a line that follows from the form, e.g. "So every couple who went quiet left you a date, and some of those dates are still ahead." For rows with no form, needs real data: another checkable observation per prospect, or drop the row.
+2. Fix the UK footer and the US wording. The house rule in `11-deliverability-legal.md` asks UK emails for a data-source line and a privacy link as well as the opt-out; both are missing. For US rows, change "enquiries" to "inquiries" in subject and body.
+3. Rebalance toward "you" and tighten the offer. Replace "I'd write to those old enquiries for {{company}}, in your voice. You'd only pay for sessions that book with a deposit." with "Your old enquiries get a short note in your voice. You pay only when one books with a deposit." Weddings are not "sessions".
+```
+
+- **Smart peer or marketing?** Peer. It is plain, short and has no hype.
+- **Could the first line go to anyone else?** With the icebreaker, no. Without it, yes.
+- **Weakest line:** "I ran outreach in-house at a London production house." It is true but has no result attached, so it carries little weight, especially for US studios. Keep it short; the risk reversal is doing the real work.
+
+## Email 2
+
+```
+SCORE: 73/100  (why-now 11/20 · value 16/20 · problem 6/10 · personal 5/10 · cta 10/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 1 warning: sender-focused, I/we 4 vs you 3; 58 words, grade 3.7)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: personal — the whole email assumes weddings, and the persona includes portrait studios with no "wedding date still ahead"
+WOULD I REPLY: maybe — "The sample line sounds like me, and three free drafts cost nothing. But I'd be handing couples' emails to a stranger."
+FIXES:
+1. Split by segment. Keep this version for wedding studios. Portrait studios need their own sample line with no wedding date (needs real data: what a portrait enquiry form captures, e.g. session type or month asked about). The same applies to "couples" in email 1.
+2. Open on their loss, not your process. Cut "I'd only write to enquiries whose wedding date is still ahead." Replace with "Some of the couples who went quiet still have a date ahead and no photographer. Those are the only ones I'd write to."
+3. Add a light opt-out line, as in email 1. Use "calendar" instead of "diary" for US rows. Answer the data worry in the same line as approval: "You'd approve every message, and they go from your address." Needs real data: confirm that is how delivery actually works.
+```
+
+- **Smart peer or marketing?** Peer. The quoted sample is the strongest thing in the sequence.
+- **Weakest line:** "I'd only write to enquiries whose wedding date is still ahead." It is a process detail placed where a reason to care should be.
+
+## Email 3
+
+```
+SCORE: 70/100  (why-now 11/20 · value 14/20 · problem 6/10 · personal 5/10 · cta 8/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 2 warnings: no question mark, sender-focused; 31 words, grade 4.6)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — it restates the offer and adds nothing new, and gives no reason to act
+WOULD I REPLY: no — "Polite, no guilt. I'd archive it, and might remember it in a slow month."
+FIXES:
+1. Add one new, true reason before closing. For example: "Each month, a few more of those dates pass." This is loss framing, with no invented numbers.
+2. Replace "worked on a pay-per-booking basis" with "If you want those old enquiries written to, and to pay only when one books". The current phrase is agency jargon.
+3. Add the opt-out line. "Reply 'enquiries'" is a reply keyword, not a way to object. Use "inquiries" for US rows.
+```
+
+- **Smart peer or marketing?** Peer. It is detached and does not count attempts or guilt the reader.
+- **Weakest line:** "worked on a pay-per-booking basis".
+
+## Sequence
+
+Each step adds something new and the offers rotate properly (risk reversal, then free drafts with a sample, then a no-guilt close). Three things hold the whole sequence under 85: the icebreaker never connects to the problem, the copy is wedding-only and UK-spelled for a mixed wedding/portrait and US/UK list, and the opt-out and UK footer items are missing after email 1.
+
+The icebreaker rows shown are invented examples. Every real row must be checked against the prospect's actual enquiry page before sending, or it becomes a hard fail.

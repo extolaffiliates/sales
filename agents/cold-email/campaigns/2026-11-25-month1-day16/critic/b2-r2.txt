@@ -1,0 +1,50 @@
+Linter: no ERRORs on any email (template mode). The only proof used, B001, matches the proof bank, so there are no hard fails.
+
+## Email 1
+
+```
+SCORE: 73/100  (why-now 12/20 · value 14/20 · problem 7/10 · personal 7/10 · cta 10/10 · brevity 9/10 · tone 7/10 · subject 4/5 · compliance 3/5)
+LINT: PASS
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the problem line only works when {{icebreaker}} is filled; without it, "there" and "like them" point at nothing, and even when filled it is an observation, not a reason to act now.
+WOULD I REPLY: maybe — with a real venue named I'd say "sure, send it"; without it this is a stranger's broken first sentence and I delete it.
+FIXES:
+1. Make the problem line stand alone so the blank-icebreaker case still reads. Cut "If a coordinator there passes your name on, your bookings may ride on a few people like them." Replace with "If venue coordinators pass your name on, a lot of your bookings may ride on a few people."
+2. Answer "what's the catch?", which the floating proof line doesn't. Cut "I ran outreach in-house at a London production house." as its own paragraph. Replace with "No catch. I ran outreach in-house at a London production house, and we're building case studies with {{city}} studios."
+3. Fix the footer and the trade word. UK sends need a data-source line and a privacy link (per 11-deliverability-legal); needs real data: privacy URL and where the address came from. Swap "which photographers are on it" for a {{trade}} field so video studios aren't mislabelled.
+```
+
+## Email 2
+
+```
+SCORE: 64/100  (why-now 11/20 · value 14/20 · problem 4/10 · personal 5/10 · cta 10/10 · brevity 8/10 · tone 7/10 · subject 3/5 · compliance 2/5)
+LINT: REVIEW (0 errors, 1 warning: sender-focused, I:you 2:1)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: problem — the whole email is about how Dev works, with nothing about the owner's bookings; the method line also tells me I could do this myself in an evening.
+WOULD I REPLY: no — it's the same offer explained in more detail, and I didn't ask how it's made.
+FIXES:
+1. Lead with what they get, not the method. Cut "How I'd build it: venue websites, their suppliers page, and the coordinator's name from the contact or team page." Replace with "Smaller ask: 5 venues near {{city}} that list recommended suppliers but not {{company}}, with the coordinator's name for each."
+2. Add a new reason, not a re-explanation. A second observation about their venue mix or a seasonal angle would do it; needs real data: a per-prospect or per-segment signal — don't invent one.
+3. Add an opt-out line. This email has none, and CAN-SPAM expects one in each message: "Not for you? Reply "no" and I'll stop."
+```
+
+## Email 3
+
+```
+SCORE: 59/100  (why-now 9/20 · value 12/20 · problem 3/10 · personal 3/10 · cta 8/10 · brevity 9/10 · tone 9/10 · subject 3/5 · compliance 3/5)
+LINT: REVIEW (0 errors, 1 warning: no question mark)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: why-now — nothing new; it restates the email 1 offer for the third time with only {{city}} merged in.
+WOULD I REPLY: no — polite and painless, but if I ignored the list twice, a keyword doesn't change my mind.
+FIXES:
+1. Keep "I'll stop here." and the one-word reply; they are the best lines in the sequence (detached, no guilt). The low score comes from dimensions a close barely serves, not from tone.
+2. Give the close one new thing. A right-person redirect fits: "If someone else handles venue relationships at {{company}}, point me to them and I'll leave you be."
+3. "I'll stop here" must be true. Confirm the sending tool has no step 4 for this campaign, otherwise it becomes a claimed action that wasn't taken, which is a hard fail.
+```
+
+## Sequence
+
+The offer never rotates (full list, then 5 of the same list, then the list by keyword), so emails 2 and 3 add method and politeness but no new reason. The close is clean and honest, but the sequence stands or falls on email 1, which is not yet at 85 and breaks whenever {{icebreaker}} is blank.

@@ -1,0 +1,8 @@
+PERSONA: Owner of a small wedding photo/video studio in a US or UK city. Recipients: US businesses and UK limited companies only.
+SENDER PROOF AVAILABLE (proof bank B001, the only proof): "Dev worked in-house at a London production house running outreach." No client results exist.
+{{icebreaker}} SPEC: one sentence from the prospect's blog or portfolio naming the venue they feature most. If none, the line is left out.
+ILLUSTRATIVE icebreaker rows (INVENTED for this example, NOT real prospects):
+- "Your blog has three weddings at Oakridge Barn this year."
+- "Most of the galleries on your site are from Hillcrest Manor."
+ROWS: prospects whose {{icebreaker}} cannot be built are excluded from this sequence (not sent). The sequence has exactly 3 steps; nothing is sent after email 3. {{sender_postal_address}} and {{privacy_url}} are filled per send with the real US-valid postal address and privacy page. [street], [name], [month] in quoted sample lines are visible placeholders inside an example, not merge fields.
+{{venue}} is the venue named in that prospect's icebreaker. Email 2 is only sent in November-December (the engagement-season line is dated to that window).

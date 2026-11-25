@@ -1,25 +1,40 @@
-Subject: {{first_name}}, question
+Subject: {{city}} venues
 
-Hey {{first_name}},
+Hi {{first_name}},
 
-{{icebreaker}}
+{{icebreaker}} If their coordinator sends couples your way, a lot of your bookings may ride on one person.
 
-I'm Dev. I ran outreach in-house at a London production house, so I know how much your bookings lean on referrals.
+You could have a free list of {{city}} venues with a suppliers page: who's on each, and who adds names.
 
-I can find you 20 venues and planners near {{city}} with no go-to photographer yet. You'd get the right contact at each.
+It's free because I'm building case studies in client-finding for wedding businesses. I ran outreach in-house at a London production house.
 
-Want your list? Free, and I'll show you how I found them.
+Want the {{city}} list?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. I found you via your blog. Reply "no" and I won't email again.
 ===
-Hey {{first_name}},
+Hi {{first_name}},
 
-One last nudge, then I'll leave you be:
+Plenty of couples get engaged over Christmas and New Year. A venue's suppliers page is one place they'd find you.
 
-- 20 venues and planners near {{city}}
-- the right person at each
-- free for you
+Shorter version: 5 venues near {{city}} besides {{venue}}, with the coordinator's name for each.
 
-Should I send it?
+Want the 5?
 
-Dev
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll stop.
+===
+Hi {{first_name}},
+
+I'll stop here. The {{city}} venue list is still yours if you want it. Just reply "list".
+
+Either way, thanks for reading.
+
+Dev, Extol Affiliates
+{{sender_postal_address}} · {{privacy_url}}
+
+P.S. Reply "no" and I'll take {{company}} off my list for good.

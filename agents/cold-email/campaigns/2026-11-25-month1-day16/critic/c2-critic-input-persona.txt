@@ -1,0 +1,8 @@
+PERSONA: Owner or MD of a small (2-15 person) video production company or editing agency in a US or UK city. Recipients: US businesses and UK limited companies only.
+SENDER PROOF AVAILABLE (proof bank B001, the only proof): "Dev worked in-house at a London production house running outreach." No client results exist.
+{{icebreaker}} SPEC: one sentence from the prospect's work/case-studies page naming their most recent case study client; {{case_study_client}} is that client name and {{vertical}} is a 1-2 word label for its industry. If none, the line is left out.
+ILLUSTRATIVE icebreaker rows (INVENTED for this example, NOT real prospects):
+- "Your latest case study is the launch film for Northside Coffee."  ({{case_study_client}} = Northside Coffee, {{vertical}} = coffee)
+- "The newest project on your site is a recruitment film for Brightwell Dental."  ({{case_study_client}} = Brightwell Dental, {{vertical}} = dental)
+ROWS: prospects whose {{icebreaker}} cannot be built are excluded from this sequence (not sent). The sequence has exactly 3 steps; nothing is sent after email 3. {{sender_postal_address}} and {{privacy_url}} are filled per send with the real US-valid postal address and privacy page. [street], [name], [month] in quoted sample lines are visible placeholders inside an example, not merge fields.
+Brand selection rule Dev applies: brands in the same category as {{case_study_client}} that posted at least one video on their own social channels in the last 30 days.

@@ -1,0 +1,7 @@
+PERSONA: Owner of a small (1-5 person) real estate photo/video business in a US or UK city. Recipients: US businesses and UK limited companies only (no UK sole traders/partnerships, no DE/AT).
+SENDER PROOF AVAILABLE (proof bank B001, the only proof): "Dev worked in-house at a London production house running outreach." No client results exist.
+{{icebreaker}} SPEC: one sentence built from the prospect's own portfolio/gallery page, which credits the agents or brokerages whose listings they shot. It names who is credited most. If the page has no credits, the line is left out.
+ILLUSTRATIVE icebreaker rows (INVENTED for this example, NOT real prospects):
+- "Your gallery credits most of your recent shoots to Harbor & Main Realty."
+- "Most shoots on your listings page since September are for the same three agents."
+ROWS: prospects whose {{icebreaker}} cannot be built are excluded from this sequence (not sent). The sequence has exactly 3 steps; nothing is sent after email 3. {{sender_postal_address}} and {{privacy_url}} are filled per send with the real US-valid postal address and privacy page. [street], [name], [month] in quoted sample lines are visible placeholders inside an example, not merge fields.

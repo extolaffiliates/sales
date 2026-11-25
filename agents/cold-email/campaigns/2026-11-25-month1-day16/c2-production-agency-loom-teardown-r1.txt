@@ -1,0 +1,25 @@
+Subject: {{first_name}}, question
+
+Hey {{first_name}},
+
+{{icebreaker}}
+
+I'm Dev. I ran outreach in-house at a London video production house. Now I build client-getting systems for studios like yours.
+
+I'd record you a 3 minute video on how {{company}} could find new clients each month. You'd get three fixes to use yourself.
+
+Want me to record it? No call needed.
+
+Dev
+===
+Hey {{first_name}},
+
+Short recap for you:
+
+- 3 minute video, made for {{company}}
+- 3 ways to find new clients
+- yours to keep, no call
+
+Should I make it?
+
+Dev

@@ -1,0 +1,49 @@
+**EMAIL 1**
+```
+SCORE: 80/100  (why-now 16/20 · value 16/20 · problem 7/10 · personal 8/10 · cta 10/10 · brevity 7/10 · tone 8/10 · subject 4/5 · compliance 4/5)
+LINT: REVIEW (0 errors; 1 warn: 91 words against a 40-90 target)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: brevity — the linter counts {{icebreaker}} as one word, so the sent email is about 99 words, and the offer takes two clumsy sentences to land.
+WOULD I REPLY: maybe — you clearly looked at my blog and the list sounds useful, but I had to read the middle twice to see what I'd get.
+FIXES:
+1. Cut "You could have a free list of {{city}} venues with a suppliers page. For each: who's on it, and who adds new names." Replace with "There's a free list in it for you: every {{city}} venue with a suppliers page, who's on it, and who adds new names."
+2. Cut "your bookings may ride on a few people like them" ("people like them" is vague). Replace with "a lot of your bookings may ride on one person." This is a sharper loss frame and still hedged by the "If".
+3. Cut "Before this," so the line reads "I ran outreach in-house at a London production house." (B001, matched). Keep "I found {{company}} through your website" only if every row really was sourced from the prospect's site; otherwise needs real data: the true source per row.
+```
+- **Why-now:** the venue line is specific, checkable and implies a concentration risk, but there is no timing reason until email 2.
+- **Value:** free work with an honest reason and a matched background fact; no client result exists, so it cannot score higher.
+- **First-line test:** it could not be sent to anyone else, provided the icebreaker spec holds.
+
+**EMAIL 2**
+```
+SCORE: 78/100  (why-now 15/20 · value 16/20 · problem 6/10 · personal 5/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, you/your = 0)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: personalization — only {{city}} and {{company}}; the venue signal that earned email 1 its read is gone, and the word "you" never appears.
+WOULD I REPLY: maybe — five venues that don't list me, with a name for each, is the most concrete thing in the thread, but this reads like it went to every studio in town.
+FIXES:
+1. Cut "so now is a good time to be on those pages" ("those pages" depends on them remembering email 1). Replace with "and the suppliers page is where they'd find you." This also puts "you" in the email.
+2. Cut "Smaller ask:" (it is an offer, not an ask). Replace with "Shorter version:". To carry the venue forward, write "5 venues near {{city}} besides {{venue}}…" — needs real data: the venue name as its own merge field.
+3. Cut "over the holidays" and replace with "over Christmas and New Year", which reads naturally to both US and UK owners. Only send this step in November and December; outside that window, needs real data: a seasonal reason that is true for the send date.
+```
+- **Why-now:** the seasonal reason is honest, unquantified common knowledge and true for a late-November send, but it is segment-level, not about this studio.
+- **Value:** the narrower offer (gap venues plus coordinator name) is stronger than email 1's.
+
+**EMAIL 3**
+```
+SCORE: 70/100  (why-now 12/20 · value 12/20 · problem 5/10 · personal 5/10 · cta 8/10 · brevity 10/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 2 warns: no question mark; sender-focused 4:1)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — the close never restates what is on offer, so someone opening only this email has nothing to say yes to.
+WOULD I REPLY: no — I'm the owner of a small studio, so there is no "someone else" who looks after venues, and nothing else here asks me for anything.
+FIXES:
+1. Cut "If someone else at {{company}} looks after venue relationships, point me to them and I'll ask once." (wrong for an owner-operator). Replace with "The {{city}} venue list is still yours if you want it. Just reply 'list'."
+2. If the redirect stays, make it the second line and phrase it as a question: "Or is there someone else at {{company}} who handles venues?" Keep only one of the two asks.
+3. Cut the P.S. "Reply "no" and you won't hear from me again" (it repeats "I'll stop here"). Replace with "P.S. Reply "no" and I'll take {{company}} off my list for good."
+```
+- **Tone:** detached, no guilt, and "Either way, thanks for reading" is the right register.
+
+**SEQUENCE:** Each step adds something new (venue signal and full list, then seasonal timing and a narrower 5-venue offer, then a close), and email 3 is a clean, guilt-free end to a 3-step sequence. However, the offer shrinks rather than rotates, the personal signal disappears after email 1, and no email reaches 85, so none ships yet.

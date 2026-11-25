@@ -1,0 +1,68 @@
+Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+Lint ran in `--template` mode on all three: 0 errors, warnings only. Every claim checks against the proof bank (B001 only), so there are no hard fails, but none of the three reaches 85.
+
+## Email 1
+
+```
+SCORE: 83/100  (why-now 16/20 · value 15/20 · problem 8/10 · personal 8/10 · cta 10/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I=5 vs you=4; 89 words, grade 3.6)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: value — I don't learn what's in the list until email 2, "It's for their next listing, not this one" takes two reads on a phone, and the only proof is unmatched background (B001).
+WOULD I REPLY: maybe — "You read my gallery and the slow-month line stings, but a list of what, exactly? Names I could Google?"
+FIXES:
+1. Cut "It's for their next listing, not this one." Replace it with the row contents from email 2: "Each row: agent, office, the address they just listed and a work email."
+2. Merge paragraph 3 into one sentence to fix the I-heavy ratio: "It's free because I'm building case studies with photo businesses, after running outreach in-house at a London production house." Matched proof needs real data: a client result in the proof bank.
+3. Cut "I found you via your gallery credits." from the P.S. The icebreaker already says it, it mismatches rows built from a "listings page", and it is only honest if the gallery really was how you sourced them. Keep: P.S. Reply "no" and I won't email again.
+```
+
+- **Why-now 16:** line 1 is specific, checkable and implies a concentration risk, but it is a standing fact, not a timing trigger.
+- **Value 15:** the free offer with an honest reason is credible risk reversal; it loses points for no matched proof and vague list contents.
+- **Problem 8:** "If they have a slow month, so do you" is the best line in the sequence; paragraph 3 is all about the sender.
+- **Personal 8:** the signal changes the meaning of the email, but its quality depends entirely on the row.
+- **Subject 4:** three words and peer-plausible, though it could pass for a directory blast; the icebreaker makes a strong preview.
+- **Compliance 5:** truthful, with identity, postal address, privacy link and opt-out.
+
+## Email 2
+
+```
+SCORE: 79/100  (why-now 12/20 · value 17/20 · problem 7/10 · personal 6/10 · cta 10/10 · brevity 10/10 · tone 8/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: sender-focused, I=3 vs you=2; 65 words, grade 2.8)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the opener is a stock idiom that could go to any business with any client, and the email-1 signal is gone.
+WOULD I REPLY: maybe — "Five rows with addresses and emails costs me nothing to look at. The first line nearly lost me, though."
+FIXES:
+1. Cut "The point of the list is fewer eggs in one basket." Replace it with the prospect's own fact: "The list is so a quiet month at {{top_credit}} doesn't become yours." Needs real data: a {{top_credit}} merge field (the most-credited agent or brokerage, already extracted for the icebreaker).
+2. Lead with the sample, the strongest new thing here: "I can send 5 first. Each row: agent, office, the address they just listed and a work email." Then "I'd skip anyone already in your portfolio."
+3. If fix 1 on email 1 moves the row contents up, fill the space here with something new. Needs real data: one real row count, such as how many agents near {{city}} listed in the last 14 days ({{agent_count}}), only if it is computed per send.
+```
+
+- **Why-now 12:** it leans on the thread; "already in your portfolio" is the only echo of the signal.
+- **Value 17:** concrete row contents plus a five-row sample is the clearest offer in the sequence; there is still no proof.
+- **Problem 7:** it names the right pain in a cliché, not in their words.
+- **Personal 6:** honest segment relevance, with no new signal.
+- **CTA 10:** "Want the 5?" is a smaller ask than email 1, which is the right direction.
+
+## Email 3
+
+```
+SCORE: 70/100  (why-now 10/20 · value 14/20 · problem 5/10 · personal 5/10 · cta 9/10 · brevity 9/10 · tone 9/10 · subject 4/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warn: no question mark; 38 words, grade 3.0)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — nothing here is about this prospect except {{city}}; it is polite but adds nothing new.
+WOULD I REPLY: no — "Fine, no pressure, no guilt. But nothing here I didn't already ignore twice."
+FIXES:
+1. Keep the offer consistent with email 2. Cut "The {{city}} agent list is yours if you ever want it." Replace with: "The 5 {{city}} agents are yours if you ever want them."
+2. Give the close one line of its own by restating the reason in their terms: "If {{top_credit}} ever goes quiet, reply "list"." Needs real data: the same {{top_credit}} field as email 2.
+3. Leave "I'll stop here" and "Either way, thanks for reading." untouched. They are the detached close the rubric asks for, and nothing should be added that pressures.
+```
+
+- **Tone 9:** this is the cleanest writing in the sequence, with no guilt and no "fourth attempt" language.
+- **CTA 9:** a one-word reply, though with no question.
+- **The 70 partly reflects the rubric:** it penalises any close for lacking a signal and a problem. Fix 2 is the only honest way to raise it.
+
+## Sequence
+
+Each step adds something (email 2 adds row contents and the five-row sample, email 3 the close) and email 3 is a clean, guilt-free stop with a working opt-out in all three. The offer never rotates, though: it is the same list three times, only smaller. The email-1 signal is dropped after line 1, so carrying it through as {{top_credit}} is the highest-leverage change across the set. Not ready to ship: 83 / 79 / 70.

@@ -1,0 +1,57 @@
+Linter run on all three with `--template`: 0 errors, warnings only. Proof line checked against B001: it matches and attaches no numbers.
+
+## Email 1
+
+```
+SCORE: 77/100  (why-now 14/20 · value 15/20 · problem 7/10 · personal 7/10 · cta 10/10 · brevity 9/10 · tone 7/10 · subject 3/5 · compliance 5/5)
+LINT: REVIEW (0 errors; 1 warning: sender-focused, I/we 6 vs you 3)
+VERDICT: ONE MORE PASS
+HARD FAIL: none
+WEAKEST: why-now — the case study is a checkable fact but not a reason to write now, and the template breaks when the icebreaker is left out
+WOULD I REPLY: maybe — "He's looked at my site and it's free with no call, but 'three kinds of brands' sounds like something I could guess myself."
+FIXES:
+1. Build a no-icebreaker variant. Without the icebreaker, "more clients like that" points at nothing and the subject renders as "more  work". Fallback subject: "more clients for {{company}}"; fallback opener: "Finding the next client is usually the slow part of running a production company."
+2. Change the subject. "more dental work" reads like dentist spam to a video company, and "more coffee and food work" is five words. Use "{{first_name}}, more clients" or "clients like {{case_study_client}}" (needs real data: the client name as its own merge field, taken from the same page as the icebreaker).
+3. Make the offer concrete and turn it toward them. Cut "It would show three kinds of brands I'd pitch for {{company}}, and the first line I'd send each." Replace with "You'd get three {{vertical}} brands to pitch, and an opening line for each." This removes two "I"s and swaps "kinds of brands" for actual brands.
+```
+
+- **Peer or marketing:** mostly peer. The proof line is honest but thin (background only, no result), so the free work and "no call" carry the credibility.
+- **Could the first line go to anyone else:** no when the icebreaker is present; yes, and broken, when it is absent.
+- **Weakest line:** "finding them is usually the slow part." It is a generic pain in the sender's words, with no cost attached.
+
+## Email 2
+
+```
+SCORE: 67/100  (why-now 10/20 · value 15/20 · problem 6/10 · personal 5/10 · cta 7/10 · brevity 9/10 · tone 8/10 · subject 4/5 · compliance 3/5)
+LINT: PASS
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: why-now — no signal at all; from "If a video is too much" onward it could go to any company in any niche
+WOULD I REPLY: maybe — "Three brands and who to email is useful, but now I have to do the thinking and pick a client."
+FIXES:
+1. Stop asking them for data you already hold. Cut "Reply with one past client you'd like more of. I'll send back three brands like them, and who to email at each." Replace with "I can send three brands like {{case_study_client}}, and who to email at each." (needs real data: the same client-name merge field). This fixes why-now and personalisation together.
+2. Remove the double ask. "Reply with one past client" and "Want to try that?" call for two different replies. With fix 1, keep one question: "Want the three names?"
+3. Add an opt-out line. CAN-SPAM requires one in every commercial message, not only the first. Add: P.S. Reply "no" and I'll stop.
+```
+
+- 67 is under the 70 line, so the rubric says start over. In practice the offer is sound and the three fixes are local; fix 1 alone should move it into the 80s.
+- This offer (named brands plus contacts) is more concrete than email 1's video, so calling it "a lighter version" undersells it.
+
+## Email 3
+
+```
+SCORE: 56/100  (why-now 8/20 · value 12/20 · problem 3/10 · personal 3/10 · cta 8/10 · brevity 8/10 · tone 7/10 · subject 4/5 · compliance 3/5)
+LINT: REVIEW (0 errors; 2 warnings: no question mark, sender-focused)
+VERDICT: START OVER
+HARD FAIL: none
+WEAKEST: value — it repeats email 1's offer word for word and gives nothing new
+WOULD I REPLY: no — "Fine, he's stopping. Nothing here I didn't ignore last week."
+FIXES:
+1. Cut the doubled name. "Hi {{first_name}}, / I'll stop here, {{first_name}}." is an obvious mail-merge tell. Keep the greeting and start the body with "I'll stop here."
+2. Add the one thing a close can still offer, a redirect: "If someone else looks after new business at {{company}}, point me to them and I'll ask once."
+3. Change "your 3-minute video" to "the 3-minute video", because "your" implies it already exists. Add the opt-out here too: "Reply 'no' and you won't hear from me again."
+```
+
+## Sequence
+
+Offers rotate well from email 1 to email 2 (video, then a named-brand list), but email 3 only repeats email 1 and closes with no redirect or opt-out. Only email 1 carries an unsubscribe line. The whole sequence depends on an icebreaker with no fallback copy. None of the three reaches 85, so do not ship.
