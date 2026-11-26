@@ -14,4 +14,23 @@
   } else { els.forEach(function(el){ el.classList.add('in'); }); }
   var v=d.querySelector('.hero-media video');
   if(v && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); }
+
+ /* Forms: post to data-endpoint when one is configured; until then, say so honestly. */
+ d.querySelectorAll('form[data-form]').forEach(function(f){
+  f.addEventListener('submit',function(e){
+   e.preventDefault();
+   if(!f.reportValidity()) return;
+   var wrap=f.closest('.form-area')||f.parentNode, url=f.getAttribute('data-endpoint');
+   var done=function(ok){ wrap.classList.add('sent'); var m=wrap.querySelector('.form-done'); if(m){ m.querySelector('[data-ok]').hidden=!ok; m.querySelector('[data-off]').hidden=ok; m.setAttribute('tabindex','-1'); m.focus(); } };
+   if(!url){ done(false); return; }
+   fetch(url,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){ done(r.ok); }).catch(function(){ done(false); });
+  });
+ });
+ /* Insights filter */
+ var fb=d.querySelectorAll('.filter');
+ fb.forEach(function(b){ b.addEventListener('click',function(){
+  var t=b.getAttribute('data-filter');
+  fb.forEach(function(x){ x.setAttribute('aria-pressed',String(x===b)); });
+  d.querySelectorAll('.cards .card').forEach(function(c){ c.hidden = t!=='all' && c.getAttribute('data-topic')!==t; });
+ }); });
 })();
