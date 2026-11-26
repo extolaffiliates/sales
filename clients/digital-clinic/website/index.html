@@ -121,7 +121,14 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="band">
+<div class="band film">
+<!-- Hero background loop. Photo: Pawel Czerwinski on Unsplash (Unsplash licence, free for
+     commercial use, no credit required). Animated as a 20s silent loop. Sources are attached by
+     js/site.js only on wider screens, when motion is allowed and data saver is off; otherwise
+     the poster still shows. -->
+<div class="film-bg" aria-hidden="true">
+  <video class="film-video" muted loop playsinline preload="none" poster="media/hero-poster.jpg" data-webm="media/hero-loop.webm" data-mp4="media/hero-loop.mp4"></video>
+</div>
 <header class="top">
   <div class="wrap">
     <a class="lockup" href="/" aria-label="digitalclinic.ai home">

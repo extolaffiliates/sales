@@ -1,6 +1,32 @@
 (function () {
   'use strict';
 
+  /* Hero background loop: attach the video only on wider screens, with motion allowed and
+     data saver off. Everyone else keeps the still poster. */
+  var film = document.querySelector('.film-video');
+  if (film) {
+    var conn = navigator.connection || {};
+    var wide = window.matchMedia('(min-width: 861px)').matches;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (wide && !still && !conn.saveData) {
+      [['webm', 'video/webm'], ['mp4', 'video/mp4']].forEach(function (t) {
+        var s = document.createElement('source');
+        s.src = film.getAttribute('data-' + t[0]); s.type = t[1];
+        film.appendChild(s);
+      });
+      film.addEventListener('playing', function () { film.classList.add('on'); }, { once: true });
+      film.load();
+      var play = function () { var p = film.play(); if (p && p.catch) p.catch(function () {}); };
+      play();
+      /* pause when the hero is off screen, to save battery */
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          if (es[0].isIntersecting) play(); else film.pause();
+        }).observe(film.parentNode);
+      }
+    }
+  }
+
   /* Mobile menu */
   var nav = document.getElementById('nav');
   var toggle = nav && nav.querySelector('.nav-toggle');

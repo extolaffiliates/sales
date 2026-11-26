@@ -24,3 +24,10 @@ Then open http://localhost:8765.
 - The About section needs Amit's final check.
 - The privacy notice is a draft. Amit must confirm the controller details.
 - No stock photos of doctors or clinics.
+
+## Hero background loop (added 26 Nov 2026)
+
+- `website/media/hero-loop.webm` (0.25 MB) and `hero-loop.mp4` (1 MB, fallback): a 20-second silent loop at 1920×1080, with a slow zoom, a slight drift and a soft light pulse. It returns to its first frame, so the loop is seamless.
+- `website/media/hero-poster.jpg`: the still shown on phones, with reduced motion and data saver, and before the video starts.
+- Source: photo by Pawel Czerwinski on Unsplash (ID `0wFwSZn6I-I`). The Unsplash licence allows free commercial use and needs no credit; the download was recorded with Unsplash.
+- `js/site.js` attaches the video only at 861 px wide and up, and pauses it when the hero scrolls off screen. A dark overlay in `css/site.css` (`.film-bg::after`) keeps the headline readable.
