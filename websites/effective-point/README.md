@@ -8,9 +8,9 @@ Static site (HTML/CSS/JS, no build step) for EffectivePoint Consulting: Finance 
 | File | Purpose |
 |---|---|
 | `index.html` | Homepage |
-| `finance-transformation.html`, `assessment.html`, `insights.html`, `about.html`, `contact.html` | Inner pages (placeholders in v2) |
-| `privacy.html`, `cookies.html`, `terms.html` | Legal pages (wording to be confirmed) |
-| `styles.css`, `main.js` | Shared styles and behaviour (header, overlay menu, scroll reveal) |
+| `finance-transformation.html`, `assessment.html`, `insights.html`, `about.html`, `contact.html` | Inner pages, built on the homepage design system. Wording sources and open questions: `COPY-REVIEW.md` |
+| `privacy.html`, `cookies.html`, `terms.html` | Legal pages: branded layout, legal text still to be written |
+| `styles.css`, `main.js` | Shared styles and behaviour (header, overlay menu, scroll reveal, forms, insights filter). Forms post to their `data-endpoint` once one is set |
 | `assets/` | Logo, hero video (`hero.mp4`) and poster |
 | `assets/fonts/` | HK Grotesk (400/500/600/700, woff2) — the only typeface on the site. SIL Open Font License included. |
 
