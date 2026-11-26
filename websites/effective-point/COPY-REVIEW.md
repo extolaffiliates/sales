@@ -82,6 +82,16 @@ All of these come from the homepage or the existing prototype pages:
   - Section headings: Who we are, What we collect, and so on.
   - "To be completed before launch."
 - **Search descriptions:** one per page, built from homepage lines.
+- **FT page, "Value is built in layers" animation:**
+  - Heading: "Value is built in layers."
+  - Lede: "Trusted data, the right systems and a clear operating model come first. AI and automation follow, only where they add value."
+  - Layer labels (adapted from homepage lines):
+    - Data: "Information you can trust"
+    - ERP & systems: "Anchored in outcomes"
+    - Operating model: "Align people and process"
+    - AI & automation: "Only where it adds value"
+    - Measurable value: "Evidence before claims"
+
 
 ## 4. Facts to confirm before launch
 

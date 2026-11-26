@@ -10,6 +10,7 @@ Static site (HTML/CSS/JS, no build step) for EffectivePoint Consulting: Finance 
 | `index.html` | Homepage |
 | `finance-transformation.html`, `assessment.html`, `insights.html`, `about.html`, `contact.html` | Inner pages, built on the homepage design system. Wording sources and open questions: `COPY-REVIEW.md` |
 | `privacy.html`, `cookies.html`, `terms.html` | Legal pages: branded layout, legal text still to be written |
+| `stack.js` | "Value is built in layers" animation on the Finance Transformation page. Isometric layers drop in, a signal climbs, the stack presses together, then it loops. Labels come from the `.stack-legend` list in the HTML. Pauses off-screen; static for reduced-motion users |
 | `styles.css`, `main.js` | Shared styles and behaviour (header, overlay menu, scroll reveal, forms, insights filter). Forms post to their `data-endpoint` once one is set |
 | `assets/` | Logo, hero video (`hero.mp4`) and poster |
 | `assets/fonts/` | HK Grotesk (400/500/600/700, woff2) — the only typeface on the site. SIL Open Font License included. |
