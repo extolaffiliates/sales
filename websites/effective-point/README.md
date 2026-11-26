@@ -16,11 +16,11 @@ Static site (HTML/CSS/JS, no build step) for EffectivePoint Consulting: Finance 
 
 ## Hero video
 
-`assets/hero.mp4` is a 19.5-second seamless loop of real moving footage (1280×720, 24 fps, H.264, no audio, ~2.9 MB). Three scenes cross-fade over 1 second each:
+`assets/hero.mp4` is an 11-second seamless loop of real moving footage (1280×720, 24 fps, H.264, no audio, ~1.7 MB). Three scenes of about 4 seconds each, with 0.6-second cross-fades:
 
-1. **City towers** (0–7 s): camera slowly turns while clouds move between the towers.
-2. **Formula-style race car** (6–13 s): car drives through frame with motion-blurred background.
-3. **Team at the window** (12–19 s): the original prototype hero clip (seconds 1–8).
+1. **City towers** (0–4 s): camera slowly turns while clouds move between the towers.
+2. **Formula-style race car** (3.4–7.4 s): car drives through frame with motion-blurred background.
+3. **Team at the window** (6.8–10.8 s): the original prototype hero clip (seconds 1–5).
 
 Scenes 1 and 2 are AI-generated video (Kling 3.0, image-to-video, via PromptWise), each started from an Unsplash photo:
 - Towers: photo by Jan Weber, https://unsplash.com/photos/yVbPfo7jtMA
