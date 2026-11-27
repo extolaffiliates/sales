@@ -39,6 +39,22 @@ What EffectivePoint still needs to confirm or supply is listed in `COPY-REVIEW.m
 - **Homepage:** `index.html` is edited by hand.
 - **Header, menu or footer changes:** edit the homepage, then rebuild so every page picks them up.
 
+## Page photos (Unsplash)
+
+Every photo is free under the Unsplash licence, which needs no attribution; credits are kept here anyway. Each download was registered with Unsplash. The files are in `assets/img/` as WebP and share one CSS treatment: desaturated, with a green-to-navy tint.
+
+| File | Used on | Photo |
+|---|---|---|
+| `ft-hero.webp` | Finance Transformation hero | Egor Komarov, unsplash.com/photos/io5clS15h9Q |
+| `ft-band.webp` | Finance Transformation image band | hirok yam, unsplash.com/photos/3GU-abu5O7I |
+| `assessment-hero.webp` | Assessment hero (brightened) | Sunrise King, unsplash.com/photos/dyFnG8xZi3s |
+| `insights-hero.webp` | Insights hero (brightened) | Marjhon Obsioma, unsplash.com/photos/LmIqPQZmrJw |
+| `about-hero.webp` | About hero | ale ber, unsplash.com/photos/X7FZd9oVsF4 |
+| `contact-hero.webp` | Contact hero | Frans Ruiter, unsplash.com/photos/x1Py2nXR-wc |
+| `topic-define.webp` | Insights card (Define the Change) | Sven Mieke, unsplash.com/photos/fteR0e2BzKo |
+| `topic-recover.webp` | Insights card (Recover the Value) | Austin Hervias, unsplash.com/photos/VLpWpv3oDB4 |
+| `topic-ai.webp` | Insights card (AI & Finance) | Rostislav Uzunov, unsplash.com/photos/Jnma4hh2vUs |
+
 ## Hero video
 
 `assets/hero.mp4` is an 11-second seamless loop of real moving footage (1280×720, 24 fps, H.264, no audio, ~1.7 MB). Three scenes of about 4 seconds each, with 0.6-second cross-fades:

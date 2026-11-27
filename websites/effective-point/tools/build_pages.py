@@ -39,7 +39,7 @@ def page(name, title, desc, body, current=None, extra_head='', listed=True):
 IMG = {  # page photos (Unsplash, see README for credits)
     'ft': 'assets/img/ft-hero.webp', 'ft-band': 'assets/img/ft-band.webp', 'assessment': 'assets/img/assessment-hero.webp',
     'insights': 'assets/img/insights-hero.webp', 'about': 'assets/img/about-hero.webp', 'contact': 'assets/img/contact-hero.webp',
-    'define': 'assets/img/topic-define.webp', 'recover': 'assets/img/topic-recover.webp', 'ai': 'assets/img/topic-ai.webp', 'data': 'assets/img/topic-data.webp'}
+    'define': 'assets/img/topic-define.webp', 'recover': 'assets/img/topic-recover.webp', 'ai': 'assets/img/topic-ai.webp'}
 
 def hero(eyebrow, h1, lede, actions='', jump='', tone='', img=None):
     media = f'<div class="hero-media"><img src="{IMG[img]}" alt="" fetchpriority="high"></div>' if img else ''
@@ -161,14 +161,15 @@ page('assessment.html', 'Finance Transformation Assessment | EffectivePoint',
 ins = hero('CFO TRANSFORMATION DIGEST', 'CFO Transformation <span>Digest</span>',
            'Evidence-led perspectives on Finance transformation, ERP, data, AI and value realisation — designed to help leaders make better decisions.',
            '<a class="btn green" href="https://www.linkedin.com/company/effectivepoint-limited/" target="_blank" rel="noopener">Follow on LinkedIn →</a>', tone='navy', img='insights')
-def card(topic, tag, title, text):
-    return (f'<article class="card reveal" data-topic="{topic}"><figure class="thumb"><img src="{IMG[topic]}" alt="" loading="lazy"></figure><div class="tag">{tag}</div><h3>{title}</h3>'
+def card(topic, tag, title, text, thumb=False):
+    pic = f'<figure class="thumb"><img src="{IMG[topic]}" alt="" loading="lazy"></figure>' if thumb else ''
+    return (f'<article class="card reveal" data-topic="{topic}">' + pic + f'<div class="tag">{tag}</div><h3>{title}</h3>'
             + (f'<p>{text}</p>' if text else '<p></p>')
             + '<a href="https://www.linkedin.com/company/effectivepoint-limited/" target="_blank" rel="noopener">Follow for new articles →</a></article>')
 cards = ''.join([
-    card('define', 'DEFINE THE CHANGE', 'When should an SME start a Finance transformation?', 'Five business triggers that signal the existing Finance model may no longer be fit for purpose.'),
-    card('recover', 'RECOVER THE VALUE', 'Why transformation activity is not the same as transformation value', 'How to identify benefit leakage, adoption gaps and programme risk before value disappears.'),
-    card('ai', 'AI &amp; FINANCE', 'Where does AI genuinely create Finance value?', 'A practical lens for separating useful automation from technology hype.'),
+    card('define', 'DEFINE THE CHANGE', 'When should an SME start a Finance transformation?', 'Five business triggers that signal the existing Finance model may no longer be fit for purpose.', thumb=True),
+    card('recover', 'RECOVER THE VALUE', 'Why transformation activity is not the same as transformation value', 'How to identify benefit leakage, adoption gaps and programme risk before value disappears.', thumb=True),
+    card('ai', 'AI &amp; FINANCE', 'Where does AI genuinely create Finance value?', 'A practical lens for separating useful automation from technology hype.', thumb=True),
     card('ai', 'FUTURE OF FINANCE', 'The tool is the easy part of the business case.', ''),
     card('ai', 'FUTURE OF FINANCE', 'Your Finance team got faster. What did it buy?', ''),
     card('ai', 'FUTURE OF FINANCE', 'What I would map before expanding an AI agent’s authority', ''),
