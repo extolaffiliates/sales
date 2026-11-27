@@ -93,16 +93,35 @@ All of these come from the homepage or the existing prototype pages:
     - Measurable value: "Evidence before claims"
 
 
-## 4. Facts to confirm before launch
+- **Homepage, launch clean-up:**
+  - The capabilities intro "Phase 1 keeps the proposition focused…" (an internal note) is replaced by EffectivePoint's LinkedIn tagline: "Evidence-led ERP, Finance and AI transformation — from business led to technology enabled, governed measurable value."
+  - The two founder video placeholders ("record only when it adds trust", "commercial wedge for v1.0") are replaced by the portrait frames.
+  - "Read / adapt from EP insight library →" becomes "Explore Insights →".
+- **Footer, all pages:** "EffectivePoint Limited · Registered in England and Wales, company number 03637195 · Registered office: 30 Empire House, Great Cambridge Road, Edmonton, London, N18 1EA". Checked against Companies House on 27 November 2026.
+- **Privacy, Cookies and Terms:** full text written to match what the site actually does: no cookies, no analytics, and data comes only from the two forms. Please have it reviewed before launch (see section 4).
+- **Form confirmation:** "Your email is ready to send." / "Your email app should have opened with your answers filled in…"
+- **404 page:**
+  - "This page has moved or never existed."
+  - "The link may be out of date. These are good places to start."
+- **Share image (`assets/og-image.jpg`):** the hero headline plus "Practical, senior-led advisory for SMEs and mid-market organisations."
 
-- **Email `info@effective-point.com`:** it appears in reply headers but has not been confirmed as the public contact address.
-- **"Based in London, United Kingdom":** both founders list London; the legacy profile says Chelmsford.
-- **Uche's book:** OK to feature? Uche has said parts are dated.
-- **The five AI questions and the quote:** OK to publish on the website?
-- **Insight cards:** they link to the LinkedIn company page. Should they link to Uche's posts or to article pages instead?
-- **Founder photos:** needed for the About page. Brief and file names are in `assets/founders/README.md`. Until then each frame shows a monogram (UN, NC). The captions "Founder" and "Co-founder / Partner" use the existing role titles.
-- **Forms:** need a destination before launch (for example Tally, which EffectivePoint already uses). Set the `data-endpoint` attribute on each form.
-- **Legal pages:** privacy, cookies and terms need real legal text, plus the company number and ICO registration in the footer.
+## 4. Launch checklist: still needs EffectivePoint
+
+| # | Item | Why it matters | Where |
+|---|---|---|---|
+| 1 | **Confirm the domain** is `effective-point.com` (not `www.`). | Canonical URLs, share links and the sitemap use it. | Find and replace `https://effective-point.com` in all `.html` files plus `sitemap.xml` and `robots.txt`. Or change `SITE` in `tools/build_pages.py` and the homepage head. |
+| 2 | **Confirm `info@effective-point.com`** is monitored. | The forms and legal pages send people there. | `data-email` on both forms; `EMAIL` in `tools/build_pages.py`. |
+| 3 | **Legal review** of Privacy, Cookies and Terms. | They are written for the site as built. A solicitor or data-protection adviser should check them, especially the retention periods (24 months for enquiries, 6 years for clients). Name the hosting and email providers if required. | `privacy.html`, `cookies.html`, `terms.html` |
+| 4 | **Connect a form service** (for example Tally or Formspree). | This is optional, because forms already work by opening the visitor's email app. A service sends submissions straight to the inbox instead. | Set `data-endpoint="…"` on the form in `assessment.html` and `contact.html`. |
+| 5 | **Founder photos** | The About page and homepage show monograms until they arrive. | `assets/founders/README.md` |
+| 6 | **Approve the new wording** in section 3. | | |
+| 7 | **Choose hosting and point the domain** at it (for example Vercel, Netlify or Cloudflare Pages). Serve `404.html` for missing pages. | The site is static files only, with no build step needed. | |
+| 8 | **After launch:** submit `sitemap.xml` in Google Search Console. | | |
+| 9 | **Nice to have:** a vector (SVG) logo. | The current logo file is 153 px wide, so the phone home-screen icon is slightly soft. | |
+
+**Also open:**
+- Uche's book, her five AI questions and the data quote: OK to publish?
+- Insight cards link to the LinkedIn company page. Should they link to Uche's posts or to article pages instead?
 
 ## Deliberately left out
 

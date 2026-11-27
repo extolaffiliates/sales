@@ -22,7 +22,20 @@
    if(!f.reportValidity()) return;
    var wrap=f.closest('.form-area')||f.parentNode, url=f.getAttribute('data-endpoint');
    var done=function(ok){ wrap.classList.add('sent'); var m=wrap.querySelector('.form-done'); if(m){ m.querySelector('[data-ok]').hidden=!ok; m.querySelector('[data-off]').hidden=ok; m.setAttribute('tabindex','-1'); m.focus(); } };
-   if(!url){ done(false); return; }
+   if(!url){
+    // No form service yet: open the visitor's email app with the message written out.
+    var to=f.getAttribute('data-email'), lines=[], seen={};
+    Array.prototype.forEach.call(f.elements,function(el){
+     if(!el.name||el.type==='submit'||((el.type==='checkbox'||el.type==='radio')&&!el.checked)||!el.value) return;
+     var fs=el.closest('fieldset'), lab=fs?fs.querySelector('legend'):(el.labels&&el.labels[0]);
+     var key=(lab?lab.textContent:el.name).replace(/\s*Choose any that apply\.?/,'').trim();
+     if(seen[key]!==undefined){ lines[seen[key]]+=', '+el.value; return; }
+     seen[key]=lines.length; lines.push(key+': '+el.value);
+    });
+    var subj=f.getAttribute('data-subject')||'Website enquiry';
+    if(to) window.location.href='mailto:'+to+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines.join('\n\n'));
+    done(false); return;
+   }
    fetch(url,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){ done(r.ok); }).catch(function(){ done(false); });
   });
  });
