@@ -100,6 +100,7 @@ All of these come from the homepage or the existing prototype pages:
 - **Uche's book:** OK to feature? Uche has said parts are dated.
 - **The five AI questions and the quote:** OK to publish on the website?
 - **Insight cards:** they link to the LinkedIn company page. Should they link to Uche's posts or to article pages instead?
+- **Founder photos:** needed for the About page. Brief and file names are in `assets/founders/README.md`. Until then each frame shows a monogram (UN, NC). The captions "Founder" and "Co-founder / Partner" use the existing role titles.
 - **Forms:** need a destination before launch (for example Tally, which EffectivePoint already uses). Set the `data-endpoint` attribute on each form.
 - **Legal pages:** privacy, cookies and terms need real legal text, plus the company number and ICO registration in the footer.
 
