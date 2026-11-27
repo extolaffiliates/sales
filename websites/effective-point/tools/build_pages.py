@@ -36,8 +36,14 @@ def page(name, title, desc, body, current=None, extra_head='', listed=True):
     (site / name).write_text(html)
     print('wrote', name, len(html))
 
-def hero(eyebrow, h1, lede, actions='', jump='', tone=''):
-    return (f'<section class="hero page-hero{(" " + tone) if tone else ""}"><div class="hero-body">'
+IMG = {  # page photos (Unsplash, see README for credits)
+    'ft': 'assets/img/ft-hero.webp', 'ft-band': 'assets/img/ft-band.webp', 'assessment': 'assets/img/assessment-hero.webp',
+    'insights': 'assets/img/insights-hero.webp', 'about': 'assets/img/about-hero.webp', 'contact': 'assets/img/contact-hero.webp',
+    'define': 'assets/img/topic-define.webp', 'recover': 'assets/img/topic-recover.webp', 'ai': 'assets/img/topic-ai.webp', 'data': 'assets/img/topic-data.webp'}
+
+def hero(eyebrow, h1, lede, actions='', jump='', tone='', img=None):
+    media = f'<div class="hero-media"><img src="{IMG[img]}" alt="" fetchpriority="high"></div>' if img else ''
+    return (f'<section class="hero page-hero{(" " + tone) if tone else ""}">' + media + '<div class="hero-body">'
             f'<div class="eyebrow">{eyebrow}</div><h1>{h1}</h1><p>{lede}</p>'
             + (f'<div class="hero-actions">{actions}</div>' if actions else '') + '</div>'
             + (f'<nav class="jump" aria-label="On this page">{jump}</nav>' if jump else '') + '</section>')
@@ -56,7 +62,7 @@ ft = hero('FINANCE TRANSFORMATION · ERP · DATA · AI',
           'Practical, senior-led Finance Transformation for organisations deciding where to start or seeking to recover value from change already underway.',
           BTN_ASSESS + BTN_TALK,
           '<a href="#define">Define the Change</a><a href="#recover">Recover the Value</a><a href="#core">Finance Transformation</a>'
-          '<a href="#erp">ERP-enabled Transformation</a><a href="#data">Data &amp; Finance Insight</a><a href="#ai">AI &amp; Automation for Finance</a>')
+          '<a href="#erp">ERP-enabled Transformation</a><a href="#data">Data &amp; Finance Insight</a><a href="#ai">AI &amp; Automation for Finance</a>', img='ft')
 STACK = ('<section class="section dark stack-sec"><div class="wrap"><div class="section-head reveal"><h2>Value is built in layers.</h2>'
          '<p class="lede">Trusted data, the right systems and a clear operating model come first. AI and automation follow, only where they add value.</p></div>'
          '<figure class="stack" data-stack role="img" aria-label="Five layers stacking from data at the bottom to measurable value at the top">'
@@ -76,6 +82,7 @@ ft += ('<section class="section journey-sec"><div class="wrap"><div class="secti
        + jr + '</section>')
 ft += ('<section class="section"><div class="wrap"><div class="section-head reveal"><h2>Common reasons to start a Finance transformation</h2></div>'
        + triggers + '</div></section>')
+ft += f'<figure class="band reveal" aria-hidden="true"><img src="{IMG["ft-band"]}" alt="" loading="lazy"></figure>'
 ft += '<section class="section paper"><div class="wrap">'
 ft += detail('core', 'THE CORE', 'Finance Transformation',
              'Strategy, operating model, roadmap, assurance and value realisation.',
@@ -116,7 +123,7 @@ form_done = ('<div class="form-done" role="status"><h3 data-ok>Thank you. Your r
 asx = hero('FINANCE TRANSFORMATION ASSESSMENT',
            'Clarify the problem <span>before prescribing the solution.</span>',
            'A lightweight diagnostic entry point for organisations defining change or recovering transformation value.',
-           '<a class="btn green" href="#start">Start the assessment →</a>' + BTN_TALK)
+           '<a class="btn green" href="#start">Start the assessment →</a>' + BTN_TALK, img='assessment')
 asx += ('<section class="section"><div class="wrap"><div class="section-head reveal"><h2>Two starting points</h2>'
         '<p class="lede">The assessment works whether a transformation is still an idea or already underway.</p></div>'
         + journey.replace('href="finance-transformation.html#define"', 'href="#start"').replace('href="finance-transformation.html#recover"', 'href="#start"')
@@ -153,9 +160,9 @@ page('assessment.html', 'Finance Transformation Assessment | EffectivePoint',
 # ---------------------------------------------------------------- Insights
 ins = hero('CFO TRANSFORMATION DIGEST', 'CFO Transformation <span>Digest</span>',
            'Evidence-led perspectives on Finance transformation, ERP, data, AI and value realisation — designed to help leaders make better decisions.',
-           '<a class="btn green" href="https://www.linkedin.com/company/effectivepoint-limited/" target="_blank" rel="noopener">Follow on LinkedIn →</a>', tone='navy')
+           '<a class="btn green" href="https://www.linkedin.com/company/effectivepoint-limited/" target="_blank" rel="noopener">Follow on LinkedIn →</a>', tone='navy', img='insights')
 def card(topic, tag, title, text):
-    return (f'<article class="card reveal" data-topic="{topic}"><div class="tag">{tag}</div><h3>{title}</h3>'
+    return (f'<article class="card reveal" data-topic="{topic}"><figure class="thumb"><img src="{IMG[topic]}" alt="" loading="lazy"></figure><div class="tag">{tag}</div><h3>{title}</h3>'
             + (f'<p>{text}</p>' if text else '<p></p>')
             + '<a href="https://www.linkedin.com/company/effectivepoint-limited/" target="_blank" rel="noopener">Follow for new articles →</a></article>')
 cards = ''.join([
@@ -184,7 +191,7 @@ page('insights.html', 'CFO Transformation Digest | EffectivePoint',
 ab = hero('ABOUT EFFECTIVEPOINT', 'Senior people, <span>visible and accountable.</span>',
           'EffectivePoint is deliberately senior-led. We use experience to ask better questions, make the evidence visible and recommend only what creates value.',
           BTN_TALK.replace('btn ghost', 'btn green') + '<a class="btn ghost" href="assessment.html">Assess Your Finance Transformation</a>',
-          '<a href="#leadership">Leadership</a><a href="#experience">Experience</a><a href="#values">Values</a>')
+          '<a href="#leadership">Leadership</a><a href="#experience">Experience</a><a href="#values">Values</a>', img='about')
 ab += ('<section class="section"><div class="wrap"><div class="section-head reveal"><h2>People-centred transformation, simple and scalable</h2>'
        '<p class="lede">Our mission is to deliver people-centred transformation that is simple and scalable, one client at a time.</p></div></div></section>')
 uche = ('<article class="founder reveal"><figure class="portrait"><span class="mono" aria-hidden="true">UN</span><img src="assets/founders/uche-nnene.jpg" alt="Portrait of Dr Uche A. Nnene FCCA" loading="lazy" onerror="this.remove()"><figcaption>FOUNDER</figcaption></figure><div class="role">FINANCE · ERP · DATA · VALUE</div><h3>Dr Uche A. Nnene FCCA</h3>'
@@ -211,7 +218,7 @@ page('about.html', 'About EffectivePoint | EffectivePoint',
 # ---------------------------------------------------------------- Contact
 ct = hero('TALK TO EFFECTIVEPOINT', 'Talk to <span>EffectivePoint</span>',
           'Start with a structured assessment or speak directly with a senior EffectivePoint adviser.',
-          '<a class="btn green" href="#message">Send a message →</a><a class="btn ghost" href="assessment.html">Assess Your Finance Transformation</a>')
+          '<a class="btn green" href="#message">Send a message →</a><a class="btn ghost" href="assessment.html">Assess Your Finance Transformation</a>', img='contact')
 ct += ('<section class="section"><div class="wrap"><div class="routes">'
        '<article class="route reveal"><div class="tag">STRUCTURED</div><h3>Assess your Finance Transformation</h3>'
        '<p>A lightweight diagnostic entry point for organisations defining change or recovering transformation value.</p>'
